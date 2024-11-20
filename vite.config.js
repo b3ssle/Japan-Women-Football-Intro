@@ -4,6 +4,6 @@ export default defineConfig({
   root: "src",
   base: "/Japan-Women-Football-Intro/",
   build: {
-    outDir: "../dist",
+    outDir: "../docs",
   },
 });
