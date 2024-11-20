@@ -19,19 +19,8 @@
     </script>
 </head>
 <body class="min-h-screen">
-    <!-- Header -->
-    <header class="border-b">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold hover:text-nadeshiko transition-colors">
-                Japan Women's Football Introduction
-            </a>
-            <nav>
-                <ul class="flex space-x-8">
-                    <li><a href="#" class="hover:text-nadeshiko transition-colors">Home</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-6 py-12">
@@ -39,7 +28,7 @@
         <section class="mb-24 flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2">
                 <h1 class="text-6xl font-bold mb-4">日本女子サッカー国内カップマップ</h1>
-                <p class="text-xl text-gray-600">Exploring the world of Japanese women's soccer</p>
+                <p class="text-xl text-gray-600">日本女子サッカーの世界を探索する！</p>
             </div>
             <div class="md:w-1/2">
                 <svg viewBox="0 0 500 500" class="w-full max-w-lg mx-auto" style="filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));">
@@ -82,12 +71,24 @@
                 <span>Licensed under GNU GPL v3.0</span>
                 <span>•</span>
                 <span>View source on</span>
-                <a href="https://github.com/your-username/Japan-Women-Football-Intro" 
+                <a href="https://github.com/b3ssle/Japan-Women-Football-Intro" 
                    class="text-nadeshiko hover:text-nadeshiko-light transition-colors">
                     GitHub
                 </a>
             </p>
         </div>
     </footer>
+
+    <!-- Script to load Navbar -->
+    <script>
+        fetch('/Japan-Women-Football-Intro/components/Navbar.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+    })
+    .catch(error => {
+        console.error('Error loading navbar:', error);
+    });
+    </script>
 </body>
 </html>

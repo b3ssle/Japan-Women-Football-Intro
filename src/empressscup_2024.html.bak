@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Information - Japan Women's Football</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nadeshiko': '#E31C79',
+                        'nadeshiko-light': '#ff3d96',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="border-b">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold hover:text-nadeshiko transition-colors">
+                Japan Women's Football Introduction
+            </a>
+            <nav>
+                <ul class="flex space-x-8">
+                    <li><a href="#" class="hover:text-nadeshiko transition-colors">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+    <!-- Tournament Title -->
+    <section class="mb-16">
+        <h1 class="text-4xl font-bold mb-4">皇后杯 JFA 第 46 回全日本女子サッカー選手権大会</h1>
+        <p class="text-xl text-gray-600 mb-2">2024 年 11 月 17 日 - 2024 年 1 月 25 日</p>
+        <p class="text-sm text-gray-500">更新日時：__LAST_UPDATE_TIME__</p>
+    </section>
+
+    <!-- Map Container -->
+    <div id="map-container"></div>
+</main>
+
+    <!-- Footer -->
+    <footer class="border-t mt-24">
+        <div class="max-w-7xl mx-auto px-6 py-4 text-center">
+            <p class="text-sm text-gray-600 flex justify-center items-center gap-2 flex-wrap">
+                <span>Copyright © 2024 Japan Women's Football Introduction</span>
+                <span>•</span>
+                <span>Licensed under GNU GPL v3.0</span>
+                <span>•</span>
+                <span>View source on</span>
+                <a href="https://github.com/b3ssle/Japan-Women-Football-Intro" 
+                   class="text-nadeshiko hover:text-nadeshiko-light transition-colors">
+                    GitHub
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- React and Map Component -->
+    <script type="module">
+        import React from 'react';
+        import { createRoot } from 'react-dom/client';
+        import InteractiveMap from './components/interactiveMap_empressscup_2024';
+
+        const mapContainer = document.getElementById('map-container');
+        if (mapContainer) {
+            const root = createRoot(mapContainer);
+            root.render(React.createElement(InteractiveMap));
+        }
+    </script>
+</body>
+</html>

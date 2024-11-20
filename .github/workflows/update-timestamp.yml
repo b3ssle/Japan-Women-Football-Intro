@@ -1,0 +1,28 @@
+name: Update Timestamp
+
+on:
+  push:
+    paths:
+      - 'src/empressscup_2024.html'
+    branches:
+      - main
+
+jobs:
+  update-timestamp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Update timestamp
+        run: |
+          LAST_UPDATE=$(TZ='Asia/Tokyo' git log -1 --format="%cd" --date=format:'%Y/%m/%d-%H:%M')
+          sed -i "s/__LAST_UPDATE_TIME__/$LAST_UPDATE/g" src/empressscup_2024.html
+      
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -am "Update timestamp [skip ci]" || exit 0
+          git push
