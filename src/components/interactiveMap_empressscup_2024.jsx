@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { matches, venues } from "../data/empressscup_2024";
+import { matches } from "../data/empressscup_2024_matches";
+import { venues } from "../data/empressscup_2024_venues";
 
 // 工具函數
 const getDayOfWeek = (dateStr) => {
@@ -18,25 +19,25 @@ const NextMatchSection = ({ nextMatch, roundMatches }) => {
   const venue = venues[nextMatch.venueId];
 
   return (
-    <div className="bg-gradient-to-r from-nadeshiko/10 to-nadeshiko/5 rounded-2xl p-8">
-      <h2 className="text-2xl font-bold mb-8 flex items-center">
-        <span className="w-2 h-8 bg-nadeshiko mr-3"></span>
+    <div className="bg-gradient-to-r from-pink-100/50 to-pink-50/50 rounded-2xl p-8">
+      <h2 className="text-2xl font-bold mb-8 flex items-center justify-start">
+        <span className="w-2 h-8 bg-pink-600 mr-3"></span>
         次の試合：
         {nextMatch.round === "準決勝" || nextMatch.round === "決勝"
           ? nextMatch.round
-          : `第${nextMatch.round}回戦`}
+          : `第 ${nextMatch.round} 回戦`}
       </h2>
 
       <div className="grid md:grid-cols-3 gap-8">
         {/* 次の試合 */}
-        <div className="text-center md:text-left space-y-2">
+        <div className="text-left space-y-2">
           <div className="text-3xl font-bold">
-            {nextMatch.date}({getDayOfWeek(nextMatch.date)}) {nextMatch.time}
+            {nextMatch.date} ({getDayOfWeek(nextMatch.date)}) {nextMatch.time}
           </div>
           {nextMatch.status === "finished" ? (
             <>
               <div className="text-lg font-bold">{nextMatch.team1}</div>
-              <div className="text-xl font-bold text-nadeshiko">
+              <div className="text-xl font-bold text-pink-600">
                 {nextMatch.score}
               </div>
               <div className="text-lg font-bold">{nextMatch.team2}</div>
@@ -44,15 +45,15 @@ const NextMatchSection = ({ nextMatch, roundMatches }) => {
           ) : (
             <>
               <div className="text-lg font-bold">{nextMatch.team1}</div>
-              <div className="text-xl font-bold text-nadeshiko">VS</div>
+              <div className="text-xl font-bold text-pink-600">VS</div>
               <div className="text-lg font-bold">{nextMatch.team2}</div>
             </>
           )}
           <div className="mt-4">
             <div className="font-bold text-lg">会場</div>
-            <div className="flex items-center justify-center md:justify-start gap-2">
+            <div className="flex items-center gap-2">
               <svg
-                className="w-5 h-5 text-nadeshiko"
+                className="w-5 h-5 text-pink-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -77,7 +78,7 @@ const NextMatchSection = ({ nextMatch, roundMatches }) => {
           <div className="font-bold text-lg mb-4">
             {nextMatch.round === "準決勝" || nextMatch.round === "決勝"
               ? `${nextMatch.round}の試合一覧`
-              : `第${nextMatch.round}回戦の試合一覧`}
+              : `第 ${nextMatch.round} 回戦の試合一覧`}
           </div>
           <div className="grid md:grid-cols-2 gap-4 max-h-64 overflow-y-auto">
             {sameRoundMatches
@@ -116,7 +117,7 @@ const NextMatchSection = ({ nextMatch, roundMatches }) => {
                     }`}
                   >
                     <div className="text-gray-600">
-                      {match.date}({getDayOfWeek(match.date)}) {match.time}
+                      {match.date} ({getDayOfWeek(match.date)}) {match.time}
                     </div>
                     <div className="font-medium">{match.team1}</div>
                     <div className="text-xs text-nadeshiko">VS</div>
@@ -170,13 +171,13 @@ const InteractiveMap = () => {
   const roundMatches = getRoundMatches(selectedRound);
 
   const rounds = [
-    { value: "1", label: "1回戦" },
-    { value: "2", label: "2回戦" },
-    { value: "3", label: "3回戦" },
-    { value: "4", label: "4回戦" },
-    { value: "5", label: "5回戦" },
+    { value: "1", label: "１回戦" },
+    { value: "2", label: "２回戦" },
+    { value: "3", label: "３回戦" },
+    { value: "4", label: "４回戦" },
+    { value: "5", label: "５回戦" },
     { value: "準決勝", label: "準決勝" },
-    { value: "決勝", label: "決勝" },
+    { value: "決勝", label: "決　勝" },
     { value: "all", label: "全試合" },
   ];
 
@@ -209,8 +210,8 @@ const InteractiveMap = () => {
           ? "全試合"
           : selectedRound === "準決勝" || selectedRound === "決勝"
           ? selectedRound
-          : `第${selectedRound}回戦`}
-        ：{roundMatches.length}試合
+          : `第 ${selectedRound} 回戦`}
+        ：{roundMatches.length} 試合
       </div>
 
       {/* 地圖部分 */}
@@ -660,36 +661,28 @@ const InteractiveMap = () => {
               key={match.id}
               className={`p-4 border rounded-lg transition-colors ${
                 hoveredVenue === match.id
-                  ? "border-nadeshiko"
-                  : "hover:border-nadeshiko"
+                  ? "border-pink-600"
+                  : "hover:border-pink-600"
               } ${match.status === "finished" ? "opacity-75" : ""}`}
               onMouseEnter={() => setHoveredVenue(match.id)}
               onMouseLeave={() => setHoveredVenue(null)}
             >
-              <div className="font-bold text-nadeshiko mb-2">
-                {match.date}({getDayOfWeek(match.date)}) {match.time}
+              <div className="font-bold text-pink-600 mb-2">
+                {match.date} ({getDayOfWeek(match.date)}) {match.time}
               </div>
-              <div className="space-y-1">
-                <div className="text-sm font-medium">{match.team1}</div>
-                {match.status === "finished" ? (
-                  <div className="text-base text-nadeshiko font-bold">
-                    {match.score}
+              <div>
+                <div className="flex items-center justify-between">
+                  <div className="text-sm font-medium">{match.team1}</div>
+                  <div className="text-sm text-pink-600 mx-2">
+                    {match.status === "finished" ? match.score : "VS"}
                   </div>
-                ) : (
-                  <div className="text-xs text-nadeshiko">VS</div>
-                )}
-                <div className="text-sm font-medium">{match.team2}</div>
+                  <div className="text-sm font-medium">{match.team2}</div>
+                </div>
               </div>
               <div className="text-sm text-gray-600 mt-2">
                 {venue.name_jp}
                 <span className="text-xs ml-2">({venue.region})</span>
               </div>
-              {match.category && (
-                <div className="text-xs text-gray-500 mt-1">
-                  {match.category}
-                  {match.category2 && ` vs ${match.category2}`}
-                </div>
-              )}
             </div>
           );
         })}
