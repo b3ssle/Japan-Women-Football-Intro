@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{html,js}", "./index.html"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        nadeshiko: "#E31C79",
+        "nadeshiko-light": "#ff3d96",
+      },
+    },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
