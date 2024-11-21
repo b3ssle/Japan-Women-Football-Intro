@@ -4,6 +4,7 @@
   "description": "Introduction to Japanese Women's Football",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node build-time-update.js",
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "vite build && gh-pages -d dist"
