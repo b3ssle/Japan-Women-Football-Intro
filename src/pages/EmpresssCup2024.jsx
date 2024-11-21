@@ -12,9 +12,19 @@ function EmpresssCup2024() {
         <h1 className="text-4xl font-bold mb-4">
           皇后杯 JFA 第 46 回全日本女子サッカー選手権大会
         </h1>
-        <p className="text-xl text-gray-600 mb-2">
-          2024 年 11 月 17 日 - 2025 年 1 月 25 日
-        </p>
+        <div className="flex items-center gap-4">
+          <p className="text-xl text-gray-600 mb-2">
+            2024 年 11 月 17 日 - 2025 年 1 月 25 日
+          </p>
+          <a
+            href="https://www.jfa.jp/match/empressscup_2024/"
+            className="inline-block border border-gray-300 rounded px-3 py-1 text-sm hover:bg-gray-50 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            大会情報
+          </a>
+        </div>
         <p className="text-sm text-gray-500 mb-4">更新日時：{lastUpdateTime}</p>
         <div className="bg-gray-50 p-6 rounded-lg">
           <p className="text-gray-700 mb-4">
