@@ -14,6 +14,7 @@ export const matches = {
     status: "finished",
     category: "中国第3代表",
     category2: "九州第3代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m1.html",
   },
   M002: {
     id: "M002",
@@ -29,6 +30,7 @@ export const matches = {
     status: "finished",
     category: "関東第3代表",
     category2: "中国第5代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m2.html",
   },
   M003: {
     id: "M003",
@@ -44,6 +46,7 @@ export const matches = {
     status: "finished",
     category: "中国第2代表",
     category2: "九州第2代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m3.html",
   },
   M004: {
     id: "M004",
@@ -59,6 +62,7 @@ export const matches = {
     status: "finished",
     category: "中国第4代表",
     category2: "東海第2代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m4.html",
   },
 
   // 2回戦 (M005-M020)
@@ -74,6 +78,7 @@ export const matches = {
     team2: "ディオッサ出雲FC",
     status: "upcoming",
     category: "なでしこリーグ1部",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m5.html",
   },
   M006: {
     id: "M006",
@@ -88,6 +93,7 @@ export const matches = {
     status: "upcoming",
     category: "四国第2代表",
     category2: "東北第1代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m6.html",
   },
   M007: {
     id: "M007",
@@ -102,6 +108,7 @@ export const matches = {
     status: "upcoming",
     category: "なでしこリーグ1部",
     category2: "関東第6代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m7.html",
   },
   M008: {
     id: "M008",
@@ -116,6 +123,7 @@ export const matches = {
     status: "upcoming",
     category: "なでしこリーグ1部",
     category2: "関東第5代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m8.html",
   },
   M009: {
     id: "M009",
@@ -130,6 +138,7 @@ export const matches = {
     status: "upcoming",
     category: "なでしこリーグ1部",
     category2: "関東第3代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m9.html",
   },
   M010: {
     id: "M010",
@@ -144,6 +153,7 @@ export const matches = {
     status: "upcoming",
     category: "関東第4代表",
     category2: "北海道代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m10.html",
   },
   M011: {
     id: "M011",
@@ -158,6 +168,7 @@ export const matches = {
     status: "upcoming",
     category: "なでしこリーグ1部",
     category2: "北信越代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m11.html",
   },
   M012: {
     id: "M012",
@@ -172,6 +183,7 @@ export const matches = {
     status: "upcoming",
     category: "なでしこリーグ1部",
     category2: "東海第1代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m12.html",
   },
   M013: {
     id: "M013",
@@ -186,6 +198,7 @@ export const matches = {
     status: "upcoming",
     category: "なでしこリーグ1部",
     category2: "中国第2代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m13.html",
   },
   M014: {
     id: "M014",
@@ -200,6 +213,7 @@ export const matches = {
     status: "upcoming",
     category: "関東第2代表",
     category2: "中国第1代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m14.html",
   },
   M015: {
     id: "M015",
@@ -214,6 +228,7 @@ export const matches = {
     status: "upcoming",
     category: "なでしこリーグ1部",
     category2: "九州第1代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m15.html",
   },
   M016: {
     id: "M016",
@@ -228,6 +243,7 @@ export const matches = {
     status: "upcoming",
     category: "なでしこリーグ1部",
     category2: "関東第7代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m16.html",
   },
   M017: {
     id: "M017",
@@ -242,6 +258,7 @@ export const matches = {
     status: "upcoming",
     category: "なでしこリーグ1部",
     category2: "中国第4代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m17.html",
   },
   M018: {
     id: "M018",
@@ -256,6 +273,7 @@ export const matches = {
     status: "upcoming",
     category: "関東第1代表",
     category2: "東北第2代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m18.html",
   },
   M019: {
     id: "M019",
@@ -270,6 +288,7 @@ export const matches = {
     status: "upcoming",
     category: "なでしこリーグ1部",
     category2: "四国第1代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m19.html",
   },
   M020: {
     id: "M020",
@@ -284,6 +303,7 @@ export const matches = {
     status: "upcoming",
     category: "なでしこリーグ1部",
     category2: "関西代表",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m20.html",
   },
 
   // 3回戦 (M021-M028)
@@ -299,6 +319,7 @@ export const matches = {
     team2: "M006勝者",
     status: "upcoming",
     matchRef: ["M005", "M006"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m21.html",
   },
   M022: {
     id: "M022",
@@ -312,6 +333,7 @@ export const matches = {
     team2: "M008勝者",
     status: "upcoming",
     matchRef: ["M007", "M008"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m22.html",
   },
   M023: {
     id: "M023",
@@ -325,6 +347,7 @@ export const matches = {
     team2: "M010勝者",
     status: "upcoming",
     matchRef: ["M009", "M010"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m23.html",
   },
   M024: {
     id: "M024",
@@ -338,6 +361,7 @@ export const matches = {
     team2: "M012勝者",
     status: "upcoming",
     matchRef: ["M011", "M012"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m24.html",
   },
   M025: {
     id: "M025",
@@ -351,6 +375,7 @@ export const matches = {
     team2: "M014勝者",
     status: "upcoming",
     matchRef: ["M013", "M014"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m25.html",
   },
   M026: {
     id: "M026",
@@ -364,6 +389,7 @@ export const matches = {
     team2: "M016勝者",
     status: "upcoming",
     matchRef: ["M015", "M016"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m26.html",
   },
   M027: {
     id: "M027",
@@ -377,6 +403,7 @@ export const matches = {
     team2: "M018勝者",
     status: "upcoming",
     matchRef: ["M017", "M018"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m27.html",
   },
   M028: {
     id: "M028",
@@ -390,6 +417,7 @@ export const matches = {
     team2: "M020勝者",
     status: "upcoming",
     matchRef: ["M019", "M020"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m28.html",
   },
 
   // 4回戦 (M029-M032)
@@ -405,6 +433,7 @@ export const matches = {
     team2: "M022勝者",
     status: "upcoming",
     matchRef: ["M021", "M022"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m29.html",
   },
   M030: {
     id: "M030",
@@ -418,6 +447,7 @@ export const matches = {
     team2: "M024勝者",
     status: "upcoming",
     matchRef: ["M023", "M024"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m30.html",
   },
   M031: {
     id: "M031",
@@ -431,6 +461,7 @@ export const matches = {
     team2: "M026勝者",
     status: "upcoming",
     matchRef: ["M025", "M026"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m31.html",
   },
   M032: {
     id: "M032",
@@ -444,6 +475,7 @@ export const matches = {
     team2: "M028勝者",
     status: "upcoming",
     matchRef: ["M027", "M028"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m32.html",
   },
 
   // 5回戦 (M033-M040)
@@ -460,6 +492,7 @@ export const matches = {
     category: "WEリーグ",
     status: "upcoming",
     matchRef: ["M029"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m33.html",
   },
   M034: {
     id: "M034",
@@ -474,6 +507,7 @@ export const matches = {
     category: "WEリーグ",
     category2: "WEリーグ",
     status: "upcoming",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m34.html",
   },
   M035: {
     id: "M035",
@@ -488,6 +522,7 @@ export const matches = {
     category: "WEリーグ",
     status: "upcoming",
     matchRef: ["M030"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m35.html",
   },
   M036: {
     id: "M036",
@@ -502,6 +537,7 @@ export const matches = {
     category: "WEリーグ",
     category2: "WEリーグ",
     status: "upcoming",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m36.html",
   },
   M037: {
     id: "M037",
@@ -516,6 +552,7 @@ export const matches = {
     category: "WEリーグ",
     status: "upcoming",
     matchRef: ["M031"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m37.html",
   },
   M038: {
     id: "M038",
@@ -530,6 +567,7 @@ export const matches = {
     category: "WEリーグ",
     category2: "WEリーグ",
     status: "upcoming",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m38.html",
   },
   M039: {
     id: "M039",
@@ -544,6 +582,7 @@ export const matches = {
     category: "WEリーグ",
     status: "upcoming",
     matchRef: ["M032"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m39.html",
   },
   M040: {
     id: "M040",
@@ -558,6 +597,7 @@ export const matches = {
     category: "WEリーグ",
     category2: "WEリーグ",
     status: "upcoming",
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m40.html",
   },
 
   // 準々決勝 (M041-M044)
@@ -573,6 +613,7 @@ export const matches = {
     team2: "M034勝者",
     status: "upcoming",
     matchRef: ["M033", "M034"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m41.html",
   },
   M042: {
     id: "M042",
@@ -586,6 +627,7 @@ export const matches = {
     team2: "M036勝者",
     status: "upcoming",
     matchRef: ["M035", "M036"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m42.html",
   },
   M043: {
     id: "M043",
@@ -599,6 +641,7 @@ export const matches = {
     team2: "M038勝者",
     status: "upcoming",
     matchRef: ["M037", "M038"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m43.html",
   },
   M044: {
     id: "M044",
@@ -612,6 +655,7 @@ export const matches = {
     team2: "M040勝者",
     status: "upcoming",
     matchRef: ["M039", "M040"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m44.html",
   },
 
   // 準決勝 (M045-M046)
@@ -627,6 +671,7 @@ export const matches = {
     team2: "M042勝者",
     status: "upcoming",
     matchRef: ["M041", "M042"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m45.html",
   },
   M046: {
     id: "M046",
@@ -640,6 +685,7 @@ export const matches = {
     team2: "M044勝者",
     status: "upcoming",
     matchRef: ["M043", "M044"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m46.html",
   },
 
   // 決勝 (M047)
@@ -655,5 +701,6 @@ export const matches = {
     team2: "M046勝者",
     status: "upcoming",
     matchRef: ["M045", "M046"],
+    matchinfo: "https://www.jfa.jp/match/empressscup_2024/match_page/m47.html",
   },
 };

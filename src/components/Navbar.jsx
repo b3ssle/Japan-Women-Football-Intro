@@ -9,7 +9,7 @@ function Navbar() {
           to="/"
           className="text-2xl font-bold hover:text-nadeshiko transition-colors"
         >
-          Japan Women's Football Introduction
+          Japan Women's Football Intro
         </Link>
         <nav>
           <ul className="flex space-x-8">

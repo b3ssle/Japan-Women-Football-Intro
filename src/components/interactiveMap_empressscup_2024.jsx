@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { matches } from "../data/empressscup_2024_matches";
 import { venues } from "../data/empressscup_2024_venues";
+import { teams } from "../data/empressscup_2024_teams";
+import MatchModal from "./MatchModal";
 
 // 工具函數
 const getDayOfWeek = (dateStr) => {
@@ -160,6 +162,7 @@ const InteractiveMap = () => {
     nextMatch ? nextMatch.round : "1"
   );
   const [hoveredVenue, setHoveredVenue] = useState(null);
+  const [selectedMatch, setSelectedMatch] = useState(null);
 
   const getRoundMatches = (round) => {
     return Object.values(matches).filter((match) => {
@@ -210,7 +213,7 @@ const InteractiveMap = () => {
           ? "全試合"
           : selectedRound === "準決勝" || selectedRound === "決勝"
           ? selectedRound
-          : `第 ${selectedRound} 回戦`}
+          : `${selectedRound} 回戦`}
         ：{roundMatches.length} 試合
       </div>
 
@@ -659,13 +662,14 @@ const InteractiveMap = () => {
           return (
             <div
               key={match.id}
-              className={`p-4 border rounded-lg transition-colors ${
+              className={`p-4 border rounded-lg transition-colors cursor-pointer ${
                 hoveredVenue === match.id
                   ? "border-pink-600"
                   : "hover:border-pink-600"
               } ${match.status === "finished" ? "opacity-75" : ""}`}
               onMouseEnter={() => setHoveredVenue(match.id)}
               onMouseLeave={() => setHoveredVenue(null)}
+              onClick={() => setSelectedMatch(match)}
             >
               <div className="font-bold text-pink-600 mb-2">
                 {match.date} ({getDayOfWeek(match.date)}) {match.time}
@@ -687,6 +691,15 @@ const InteractiveMap = () => {
           );
         })}
       </div>
+
+      {/* Modal */}
+      <MatchModal
+        isOpen={selectedMatch !== null}
+        onClose={() => setSelectedMatch(null)}
+        match={selectedMatch}
+        venue={selectedMatch ? venues[selectedMatch.venueId] : null}
+        teams={teams}
+      />
     </div>
   );
 };
