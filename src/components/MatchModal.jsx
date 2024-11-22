@@ -71,10 +71,12 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
             </a>
           </div>
 
-          <div className="flex justify-between items-center">
+          <div className="grid grid-cols-[1fr_auto_1fr] gap-4 items-center">
             <div className="text-lg font-bold">{match.team1}</div>
             <div className="text-xl font-bold">VS</div>
-            <div className="text-lg font-bold">{match.team2}</div>
+            <div className="text-lg font-bold text-right w-full">
+              {match.team2}
+            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-8">
