@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const getDayOfWeek = (dateStr) => {
   const [month, day] = dateStr.split("/").map(Number);
@@ -12,8 +12,9 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
 
   const team1Data = teams[match.team1];
   const team2Data = teams[match.team2];
-
-  const googleMapsSearchUrl = `https://www.google.com/maps/search/${encodeURIComponent(venue.name_jp)}`;
+  const googleMapsSearchUrl = `https://www.google.com/maps/search/${encodeURIComponent(
+    venue.name_jp
+  )}`;
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
@@ -71,31 +72,39 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
           </div>
 
           <div className="flex justify-between items-center">
-            <a
-              href={team1Data?.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-lg font-bold text-pink-600 hover:text-pink-700"
-            >
-              {match.team1}
-            </a>
+            <div className="text-lg font-bold">{match.team1}</div>
             <div className="text-xl font-bold">VS</div>
-            <a
-              href={team2Data?.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-lg font-bold text-pink-600 hover:text-pink-700"
-            >
-              {match.team2}
-            </a>
+            <div className="text-lg font-bold">{match.team2}</div>
           </div>
 
           <div className="grid grid-cols-2 gap-8">
             <div className="text-sm text-gray-600 space-y-2">
-              <div>{team1Data?.introduction}</div>
+              <div>{team1Data?.region}</div>
+              <div>{team1Data?.category}</div>
+              <div>
+                <a
+                  href={team1Data?.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-pink-600 hover:underline"
+                >
+                  紹介サイト
+                </a>
+              </div>
             </div>
-            <div className="text-sm text-gray-600 space-y-2">
-              <div>{team2Data?.introduction}</div>
+            <div className="text-sm text-gray-600 space-y-2 text-right">
+              <div>{team2Data?.region}</div>
+              <div>{team2Data?.category}</div>
+              <div>
+                <a
+                  href={team2Data?.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-pink-600 hover:underline"
+                >
+                  紹介サイト
+                </a>
+              </div>
             </div>
           </div>
         </div>

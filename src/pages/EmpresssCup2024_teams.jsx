@@ -128,7 +128,7 @@ const TeamList = () => {
                       rel="noopener noreferrer"
                       className="text-pink-500 hover:underline"
                     >
-                      公式サイト
+                      紹介サイト
                     </a>
                   </div>
                 )}
