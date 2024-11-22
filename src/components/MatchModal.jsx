@@ -92,12 +92,10 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
 
           <div className="grid grid-cols-2 gap-8">
             <div className="text-sm text-gray-600 space-y-2">
-              <div>{team1Data?.description}</div>
-              <div>ホームスタジアム: {team1Data?.homeStadium}</div>
+              <div>{team1Data?.introduction}</div>
             </div>
             <div className="text-sm text-gray-600 space-y-2">
-              <div>{team2Data?.description}</div>
-              <div>ホームスタジアム: {team2Data?.homeStadium}</div>
+              <div>{team2Data?.introduction}</div>
             </div>
           </div>
         </div>

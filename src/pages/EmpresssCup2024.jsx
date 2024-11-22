@@ -24,6 +24,14 @@ function EmpresssCup2024() {
           >
             大会情報
           </a>
+          <a
+            href="http://localhost:5173/Japan-Women-Football-Intro/#/empressscup_2024_teams"
+            className="inline-block border border-gray-300 rounded px-3 py-1 text-sm hover:bg-gray-50 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            チーム紹介
+          </a>
         </div>
         <p className="text-sm text-gray-500 mb-4">更新日時：{lastUpdateTime}</p>
         <div className="bg-gray-50 p-6 rounded-lg">

@@ -8,7 +8,8 @@ export const teams = {
     region: "埼玉県",
     homeStadium: "NACK5スタジアム大宮",
     website: "https://www.ardija.co.jp/ventus/",
-    description: "埼玉県さいたま市を拠点とするWEリーグ所属チーム。",
+    introduction:
+      "Jリーグ・大宮アルディージャの女子チームとして2021年に発足。チーム名の「VENTUS」には「女子サッカー界に新たな風を吹き込む」、「WEリーグで大きな旋風を巻き起こす」という意味を込めています。今大会、初のタイトル獲得に向け戦ってまいります。",
   },
   "日テレ・東京ベレーザ": {
     id: "beleza",
@@ -17,9 +18,9 @@ export const teams = {
     category: "WEリーグ",
     region: "東京都",
     homeStadium: "味の素フィールド西が丘",
-    website: "https://www.beleza.or.jp/",
-    description:
-      "日本女子サッカーの最強チームの一つ。多くの日本代表選手を輩出している。",
+    website: "https://www.verdy.co.jp/beleza/",
+    introduction:
+      "1981年に読売サッカークラブの女子チームとして発足しました。国内トップリーグ優勝17回、皇后杯優勝16回とこれまで女子サッカー界を力強くけん引してきました。育成組織を含め、世界で活躍する選手を育て、数多くの日本代表選手を輩出しています。",
   },
   アルビレックス新潟レディース: {
     id: "albirex",
@@ -28,8 +29,9 @@ export const teams = {
     category: "WEリーグ",
     region: "新潟県",
     homeStadium: "デンカビッグスワンスタジアム",
-    website: "https://www.albirex.co.jp/ladies/",
-    description: "新潟県を代表するWEリーグ所属チーム。",
+    website: "https://albirex-niigata-ladies.com/",
+    introduction:
+      "白鳥座のオレンジとブルーの二重星「アルビレオ」と、ラテン語で王を意味する「レックス」を組み合わせ、アルビレックスと命名されました。2002年にアルビレックス新潟の女子チームとして結成し、今季は「本気でタイトルに挑む」を目標にしています。",
   },
   マイナビ仙台レディース: {
     id: "sendai",
@@ -39,7 +41,8 @@ export const teams = {
     region: "宮城県",
     homeStadium: "ユアテックスタジアム仙台",
     website: "https://mynavi-vegalta-ladies.jp/",
-    description: "東北地方唯一のWEリーグ所属チーム。",
+    introduction:
+      "選手たちの熱いプレーで宮城・東北から日本全国、全世界に向けて、感動や勇気を発信し、地域の皆さまに愛されるクラブを目指します。また、地域社会の一員として、東北エリアの女子サッカー普及を通じたスポーツ文化の振興に取り組んでまいります。",
   },
   ノジマステラ相模原: {
     id: "stellas",
@@ -48,8 +51,9 @@ export const teams = {
     category: "WEリーグ",
     region: "神奈川県",
     homeStadium: "相模原ギオンスタジアム",
-    website: "https://stellas.or.jp/",
-    description: "神奈川県相模原市を拠点とするWEリーグ所属チーム。",
+    website: "https://stellakanagawa.nojima.co.jp/",
+    introduction:
+      "2012年2月、株式会社ノジマの女子サッカー部として発足しました。「日本一・輝く！」のクラブコンセプトの下、神奈川県内唯一の女子プロサッカークラブとして、「輝く」シンボル＝STELLA（イタリア語で「星」）を目指します。",
   },
   "AC長野パルセイロ・レディース": {
     id: "parceiro",
@@ -58,8 +62,9 @@ export const teams = {
     category: "WEリーグ",
     region: "長野県",
     homeStadium: "長野Uスタジアム",
-    website: "https://parceiro.co.jp/",
-    description: "長野県を代表するWEリーグ所属チーム。",
+    website: "https://parceiro.co.jp/ladies/",
+    introduction:
+      "ACはアスレチッククラブの略。PARCEIRO（パルセイロ）とは、ポルトガル語で「パートナー」の意味。レディースチームのモットーは「明るく元気に笑顔で」です。アグレッシブに前線からプレスを仕掛け、粘り強く走って戦います。",
   },
   三菱重工浦和レッズレディース: {
     id: "urawa",
@@ -69,7 +74,8 @@ export const teams = {
     region: "埼玉県",
     homeStadium: "浦和駒場スタジアム",
     website: "https://www.urawa-reds.co.jp/ladies/",
-    description: "浦和レッズの女子チーム。日本女子サッカーの強豪チーム。",
+    introduction:
+      "2005年に浦和レッズの女子チームとして「浦和レッドダイヤモンズレディース」が誕生。2021年3月に「三菱重工浦和レッズレディース」に呼称を変更、WEリーグに参入しました。今季はリーグ3連覇、AFC女子チャンピオンズリーグ、皇后杯など全タイトル獲得を目指します。",
   },
   サンフレッチェ広島レジーナ: {
     id: "hiroshima",
@@ -79,7 +85,8 @@ export const teams = {
     region: "広島県",
     homeStadium: "エディオンスタジアム広島",
     website: "https://www.sanfrecce.co.jp/regina/",
-    description: "広島県を代表するWEリーグ所属チーム。",
+    introduction:
+      "チーム名の「REGINA（レジーナ）」は、イタリア語で「女王」を意味し、「RE」SPECT、「GI」RLS、「NA」VIGATORという三つのコンセプトを含んでいます。創設4年目を迎えた今年、吉田監督の下、初優勝を目指します。",
   },
   ちふれASエルフェン埼玉: {
     id: "chifure",
@@ -88,8 +95,9 @@ export const teams = {
     category: "WEリーグ",
     region: "埼玉県",
     homeStadium: "熊谷スポーツ文化公園陸上競技場",
-    website: "https://chifure-as-elfen.jp/",
-    description: "埼玉県を拠点とするWEリーグ所属チーム。",
+    website: "https://www.as-elfen.co.jp/",
+    introduction:
+      "1985年に狭山市で地域の少女チーム「アゼィリアFC」として発足しました。昨年度の皇后杯では、ベスト4という過去最高成績を収めました。今年度は「もっと激しく、速く、美しく」のスローガンの下、過去最高順位を目指します。",
   },
   INAC神戸レオネッサ: {
     id: "inac",
@@ -99,7 +107,8 @@ export const teams = {
     region: "兵庫県",
     homeStadium: "ノエビアスタジアム神戸",
     website: "https://inac-kobe.com/",
-    description: "日本女子サッカーの名門チーム。多くの日本代表選手が所属。",
+    introduction:
+      "2001年4月に創設。「INAC」はInter NationalAthletic Clubの略で、「レオネッサ」は雌ライオンを意味し、美しさと力強さを表しています。「神戸から世界へ」をコンセプトに世界で戦える選手の輩出を目指して活動しています。",
   },
   "ジェフユナイテッド市原・千葉レディース": {
     id: "jef",
@@ -108,8 +117,9 @@ export const teams = {
     category: "WEリーグ",
     region: "千葉県",
     homeStadium: "フクダ電子アリーナ",
-    website: "https://jefunited.co.jp/ladies/",
-    description: "千葉県を代表するWEリーグ所属チーム。",
+    website: "https://jefunited.co.jp/teams/ladies/",
+    introduction:
+      "地域の要望により1992年に発足。2000年よりLリーグに参戦し、2009年に1部昇格。千葉県の女子サッカーの普及発展に貢献すると同時に、社会で活躍する女性の育成も視野に入れて活動しています。過去2回の準優勝を上回る、念願の頂点を目指します。",
   },
   セレッソ大阪ヤンマーレディース: {
     id: "cerezo",
@@ -117,9 +127,10 @@ export const teams = {
     shortName: "C大阪",
     category: "WEリーグ",
     region: "大阪府",
-    homeStadium: "ヤンマースタジアム長居",
+    homeStadium: "ヨドコウ桜スタジアム",
     website: "https://www.cerezo.jp/ladies/",
-    description: "大阪府を代表するWEリーグ所属チーム。",
+    introduction:
+      "2010年に女子チームが発足し、2013年からなでしこリーグに加盟しました。2023年のWEリーグ参入を期に、チーム名をセレッソ大阪ヤンマーレディースに変更しました。セレッソ大阪の下部組織から育てた選手を中心にチームを構成しています。",
   },
 
   // なでしこリーグ1部（12チーム）
@@ -129,9 +140,10 @@ export const teams = {
     shortName: "群馬",
     category: "なでしこリーグ1部",
     region: "群馬県",
-    homeStadium: "群馬スポーツ文化公園サッカー場",
-    website: "https://www.bunnies-gunma.com/",
-    description: "群馬県を拠点とするなでしこリーグ1部所属チーム。",
+    homeStadium: "NA",
+    website: "https://whitestar-sportsclub.com/",
+    introduction:
+      "2007年発足。前橋市を中心に群馬県全域で活動しています。今季は存続の危機、2部降格という厳しい経験をしましたが、野田新監督を迎えた皇后杯は、来季の1部復帰に向けた第一歩として、クラブ一丸となり新体制で挑みます。",
   },
   オルカ鴨川FC: {
     id: "kamogawa",
@@ -139,9 +151,10 @@ export const teams = {
     shortName: "鴨川",
     category: "なでしこリーグ1部",
     region: "千葉県",
-    homeStadium: "鴨川市総合運動場",
-    website: "https://www.orkha-kamogawa.com/",
-    description: "千葉県鴨川市を拠点とするなでしこリーグ1部所属チーム。",
+    homeStadium: "NA",
+    website: "https://www.orcakamogawafc.com/",
+    introduction:
+      "2014年発足。「オルカ」とは大海原の王者シャチの学名に由来し、強く堂々と突き進むクラブになりたいという思いが込められています。地域と共に歩み、シャチのようにダイナミックに高みを目指してたくましく戦います。",
   },
   スフィーダ世田谷FC: {
     id: "sfida",
@@ -149,9 +162,10 @@ export const teams = {
     shortName: "世田谷",
     category: "なでしこリーグ1部",
     region: "東京都",
-    homeStadium: "駒沢オリンピック公園総合運動場",
-    website: "https://sfida-setagaya.com/",
-    description: "東京都世田谷区を拠点とするなでしこリーグ1部所属チーム。",
+    homeStadium: "NA",
+    website: "http://www.sfida.or.jp/",
+    introduction:
+      "トップチーム（なでしこリーグ1部所属）をピラミッドの頂点に、育成・強化を目的とするアカデミー（中学生・高校生）、普及を目的とする小学生・ママさん、ブラインドサッカーチームなど合計約200名が所属する日本最大規模の女子サッカークラブです。",
   },
   日体大SMG横浜: {
     id: "ntdau",
@@ -159,9 +173,10 @@ export const teams = {
     shortName: "日体大",
     category: "なでしこリーグ1部",
     region: "神奈川県",
-    homeStadium: "日本体育大学附属横浜中学高等学校G",
-    website: "https://www.ntdau.ac.jp/",
-    description: "神奈川県横浜市を拠点とするなでしこリーグ1部所属チーム。",
+    homeStadium: "NA",
+    website: "https://www.nssusmg.com/",
+    introduction:
+      "母体となる「日本体育大学サッカー部」、「地域」の理解と協力、「企業・団体」の共感と支援、それぞれの境界を譲り合いながら受け入れ、交わり合って境界が溶け出し、スポーツを通して実現する平和・幸せの架け橋として横浜市青葉区を拠点に活動しています。",
   },
   ニッパツ横浜FCシーガルズ: {
     id: "nippats",
@@ -169,9 +184,10 @@ export const teams = {
     shortName: "横浜",
     category: "なでしこリーグ1部",
     region: "神奈川県",
-    homeStadium: "ニッパツ三ツ沢球技場",
-    website: "https://yfcseagulls.com/",
-    description: "神奈川県横浜市を拠点とするなでしこリーグ1部所属チーム。",
+    homeStadium: "NA",
+    website: "https://seagulls.yokohamafc-sc.com/",
+    introduction:
+      "Ｊクラブと地域クラブの提携で2013年に発足し、神奈川県横浜市を拠点に活動しています。2016年から日本発条株式会社（ニッパツ）とパートナー契約を結び、チーム名を「ニッパツ横浜FCシーガルズ」とし、2021年からなでしこリーグ1部で戦っています。",
   },
   静岡SSUボニータ: {
     id: "shizuoka",
@@ -179,9 +195,10 @@ export const teams = {
     shortName: "静岡",
     category: "なでしこリーグ1部",
     region: "静岡県",
-    homeStadium: "静岡スタジアム",
-    website: "https://www.shizuoka-ssu.jp/",
-    description: "静岡県を拠点とするなでしこリーグ1部所属チーム。",
+    homeStadium: "NA",
+    website: "https://shizuoka-ssu.com/",
+    introduction:
+      "2008年に発足し、2010年に日本女子サッカーリーグに参入しました。サッカーで人が動き、つながり、感動できるような活動を目指し、チームに関わる全ての人々が幸せになることを願い、地域社会の活性化に貢献したいという強い思いがあります。",
   },
   "朝日インテック・ラブリッジ名古屋": {
     id: "lovridge",
@@ -189,9 +206,10 @@ export const teams = {
     shortName: "名古屋",
     category: "なでしこリーグ1部",
     region: "愛知県",
-    homeStadium: "パロマ瑞穂スポーツパーク",
-    website: "https://www.lovridge.com/",
-    description: "名古屋市を拠点とするなでしこリーグ1部所属チーム。",
+    homeStadium: "NA",
+    website: "https://loveledge.jp/",
+    introduction:
+      "ラブリッジとは愛「LOVE」と知「KNOWLEDGE」をかけ合わせた造語です。女子サッカー界の発展、女性アスリートの地位向上などを理念としています。今年6月より専用グラウンド「朝日インテックWOVENFIELD」（瀬戸市）にて練習しています。",
   },
   伊賀FCくノ一三重: {
     id: "iga",
@@ -199,9 +217,10 @@ export const teams = {
     shortName: "伊賀",
     category: "なでしこリーグ1部",
     region: "三重県",
-    homeStadium: "伊賀市立島ヶ原運動公園",
-    website: "https://www.igafc.com/",
-    description: "三重県伊賀市を拠点とするなでしこリーグ1部所属チーム。",
+    homeStadium: "NA",
+    website: "https://www.igafc.jp/",
+    introduction:
+      "三重県伊賀市を拠点に創部48年目を迎えた市民クラブ。歴史ある伊賀の地で女子サッカーの普及・振興、地域に根差したクラブづくりを目指しています。チームは、今シーズンのスローガンである「進化　心ひとつに」、また強みであるチーム力と全員攻撃を生かしたサッカーで皇后杯でも優勝を目指して一丸となって戦います。",
   },
   スペランツァ大阪: {
     id: "esperanca",
@@ -209,9 +228,10 @@ export const teams = {
     shortName: "大阪",
     category: "なでしこリーグ1部",
     region: "大阪府",
-    homeStadium: "万博記念競技場",
-    website: "https://www.esperanca-osaka.jp/",
-    description: "大阪府を拠点とするなでしこリーグ1部所属チーム。",
+    homeStadium: "NA",
+    website: "https://www.speranzafc.jp/",
+    introduction:
+      "「スペランツァ」とはイタリア語で「希望」を意味します。2022年から大阪全域での活動を見据え「スペランツァ大阪」と改称、2024年に河内長野市へ本拠地を移し、夢・希望・元気を皆さまと共有して地域とスポーツが共存共栄できるクラブを目指します。",
   },
   ASハリマアルビオン: {
     id: "harima",
@@ -219,9 +239,10 @@ export const teams = {
     shortName: "ハリマ",
     category: "なでしこリーグ1部",
     region: "兵庫県",
-    homeStadium: "姫路市総合スポーツ公園陸上競技場",
-    website: "https://www.as-harimaalbion.com/",
-    description: "兵庫県姫路市を拠点とするなでしこリーグ1部所属チーム。",
+    homeStadium: "NA",
+    website: "https://h-albion.jp/",
+    introduction:
+      "クラブ名は、播磨の国の文献に残る巨人伝説と、ギリシャ神話の巨人「アルビオン」が由来。地元企業と連携したキッズサッカー教室や、J1ヴィッセル神戸と連携した小学校巡回指導、その他地域貢献・SDGs活動など、幅広い年代と地域に愛されるチームとして、引き続き女子サッカーの普及・発展に貢献していきます。",
   },
   愛媛FCレディース: {
     id: "ehime",
@@ -229,9 +250,10 @@ export const teams = {
     shortName: "愛媛",
     category: "なでしこリーグ1部",
     region: "愛媛県",
-    homeStadium: "愛媛県総合運動公園",
-    website: "https://www.ehime-fc.com/ladies/",
-    description: "愛媛県を拠点とするなでしこリーグ1部所属チーム。",
+    homeStadium: "NA",
+    website: "https://ehimefc.com/ladies.html",
+    introduction:
+      "愛媛県全域をホームタウンとする愛媛FC。レディースチームは、2011年に結成しました。愛媛県民に夢・感動・希望を与えられるよう、県民クラブとしての自覚とJリーグクラブの女子チームとしての矜持を胸に、愛媛の誇りとなれるよう活動しています。",
   },
   ヴィアマテラス宮崎: {
     id: "viamaterasu",
@@ -239,9 +261,10 @@ export const teams = {
     shortName: "宮崎",
     category: "なでしこリーグ1部",
     region: "宮崎県",
-    homeStadium: "宮崎県総合運動公園陸上競技場",
-    website: "https://www.viamaterasu.jp/",
-    description: "宮崎県を拠点とするなでしこリーグ1部所属チーム。",
+    homeStadium: "NA",
+    website: "https://www.miyazakisports.jp/",
+    introduction:
+      "「スポーツを通じて、夢や希望をはぐくみ、一人ひとりが輝く、活気ある街づくりに貢献する」という理念の下、2020年に宮崎県新富町をホームタウンとして発足。宮崎から広く人々を照らす存在となり、その姿が宮崎県民の力になることを目指しています。",
   },
 
   // 地域代表（24チーム）
@@ -251,9 +274,10 @@ export const teams = {
     shortName: "札幌",
     category: "地域代表",
     region: "北海道",
-    homeStadium: "札幌大学札幌校地",
-    website: "https://www.sgu.ac.jp/vista/",
-    description: "北海道を代表するなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/18.html",
+    introduction:
+      "サッカーを通じて自ら考え、主体的に行動し、社会で必要とされる人材となれるよう日々努力し、活動しています。今年度は「去年を超えるチームになる」をチームコンセプトに掲げ、活動してきました。選手・スタッフが一丸となって最後まで戦います。",
   },
   JFAアカデミー福島: {
     id: "fukushima",
@@ -261,9 +285,10 @@ export const teams = {
     shortName: "福島",
     category: "地域代表",
     region: "東北",
-    homeStadium: "JFAアカデミー福島",
-    website: "https://jfa-academy.jp/fukushima/",
-    description: "東北地方第1代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/06.html",
+    introduction:
+      "2006年、福島県双葉郡楢葉町に開校。東日本大震災により静岡県に一時移転していましたが、今年の3月、13年ぶりに福島県での活動を再開しました。常に世界基準を意識して、テクニックの質にこだわりながらトレーニングに励んでいます。",
   },
   マイナビ仙台レディースユース: {
     id: "sendai-youth",
@@ -271,9 +296,10 @@ export const teams = {
     shortName: "仙台ユース",
     category: "地域代表",
     region: "東北",
-    homeStadium: "仙台市陸上競技場",
-    website: "https://www.bellmare.co.jp/ladies/",
-    description: "東北地方第2代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/42.html",
+    introduction:
+      "マイナビ仙台レディースのアカデミーとして「日本でいちばん、『ひと』が育つクラブ」をコンセプトに活動しています。強く生き生きとしたプレーと常に勝利を目指し続ける姿で、見る人に勇気と感動を届け、創設6年目で2度目の出場となる今大会を楽しみます。",
   },
   VONDS市原FCレディース: {
     id: "ichihara",
@@ -281,9 +307,10 @@ export const teams = {
     shortName: "市原",
     category: "地域代表",
     region: "関東",
-    homeStadium: "市原八幡スポーツ公園",
-    website: "https://www.vonds.jp/ladies/",
-    description: "関東地方第1代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/41.html",
+    introduction:
+      "市原市を拠点とし2017年に創設されました。仕事とサッカーの両立に励み、積極的に市内のイベントに参加することで、市民の方々に身近に感じられ愛されるクラブづくりを目指しています。関東女子サッカーリーグ1部に所属し、なでしこリーグ昇格を目指して戦っています。",
   },
   大和シルフィード: {
     id: "yamato",
@@ -291,9 +318,10 @@ export const teams = {
     shortName: "大和",
     category: "地域代表",
     region: "関東",
-    homeStadium: "大和市中央運動公園サッカー場",
-    website: "https://www.yamatosylpheed.com/",
-    description: "関東地方第2代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/29.html",
+    introduction:
+      "1998年に中学生チームとして創設以降、多くの日本女子代表やなでしこリーグ選手を輩出してきました。2014年にトップチームを編成し、2019年シーズンからなでしこリーグに参戦。チームカラーはオレンジ、シルフィードという名称は「風の妖精」という意味です。「スポーツを通じて地域を元気にする」ことを目標に活動しています。",
   },
   東京国際大学: {
     id: "tokaiD",
@@ -301,9 +329,10 @@ export const teams = {
     shortName: "東京国際",
     category: "地域代表",
     region: "関東",
-    homeStadium: "東京国際大学東京キャンパス",
-    website: "https://www.tuins.ac.jp/",
-    description: "関東地方第3代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/15.html",
+    introduction:
+      "2013年に東京国際大学の強化クラブとして発足。今シーズンは「超えろ」をチームスローガンに掲げ、日々のトレーニングに励んでいます。一人一人がチームのために、そして支えてくださる方々への感謝を忘れずに戦い抜きます。",
   },
   "日テレ・東京メニーナ": {
     id: "ntokyo",
@@ -311,9 +340,10 @@ export const teams = {
     shortName: "東京",
     category: "地域代表",
     region: "関東",
-    homeStadium: "日産スタジアム",
-    website: "https://www.nittele.co.jp/meninas/",
-    description: "関東地方第4代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/17.html",
+    introduction:
+      "日テレ・東京ヴェルディベレーザの下部組織として活動しています。中学1年生から高校3年生までが所属しており、年齢や学年に捉われずに日々、競争の中でチームをつくっています。",
   },
   山梨学院大学: {
     id: "yamanashi",
@@ -321,9 +351,10 @@ export const teams = {
     shortName: "山梨",
     category: "地域代表",
     region: "関東",
-    homeStadium: "山梨学院大学アカデミースタジアム",
-    website: "https://www.ygc.ac.jp/",
-    description: "関東地方第5代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/10.html",
+    introduction:
+      "2014年に創部し、今年で11年目を迎えます。Now is the time!～今がその時だ!～をチームスローガンとし、日々の練習に取り組んでいます。1試合1試合学生らしく、ひたむきに全力で戦います。",
   },
   神奈川大学: {
     id: "kanagawa",
@@ -331,9 +362,10 @@ export const teams = {
     shortName: "神奈川",
     category: "地域代表",
     region: "関東",
-    homeStadium: "神奈川大学平塚キャンパス",
-    website: "https://www.kanagawa-u.ac.jp/",
-    description: "関東地方第6代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/08.html",
+    introduction:
+      "｢青天霹靂｣を今年のスローガンとし、皆さんが驚くようなプレーで結果を残します。部員全員で縦・横のつながりを大切に、個人、チームの成長を目指します。また、この大会に参加できることに感謝し、全力で戦います。",
   },
   日本大学: {
     id: "nihon",
@@ -341,9 +373,10 @@ export const teams = {
     shortName: "日本大",
     category: "地域代表",
     region: "関東",
-    homeStadium: "日本大学第二グラウンド",
-    website: "https://www.nihon-u.ac.jp/",
-    description: "関東地方第7代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/34.html",
+    introduction:
+      "2015年創部。「常に全力」「常に挑戦」「常に笑顔」をモットーに日大らしいサッカーでチーム一丸となり、一戦必勝、全力で挑みます。",
   },
   新潟医療福祉大学: {
     id: "niigata",
@@ -351,9 +384,10 @@ export const teams = {
     shortName: "新潟医福",
     category: "地域代表",
     region: "北信越",
-    homeStadium: "新潟医療福祉大学スタジアム",
-    website: "https://www.nuhw.ac.jp/",
-    description: "北信越地方代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/20.html",
+    introduction:
+      "新潟医療福祉大学強化指定クラブとして2012年に発足。部員の多くは健康科学部健康スポーツ学科に在籍し、「健康医科学」「スポーツマネジメント」「スポーツ教育」の各コースを横断的に学んでいます。大学は開学以来、「優れたQOL（Quality Of Life）サポーターの教育」を基本理念とし、国内外で活躍する学生トップアスリートの育成に力を注いでいます。",
   },
   ヴィアティン三重レディース: {
     id: "mie",
@@ -361,9 +395,10 @@ export const teams = {
     shortName: "三重",
     category: "地域代表",
     region: "東海",
-    homeStadium: "三重県総合教育センター",
-    website: "https://www.viatintricolore.com/",
-    description: "東海地方第1代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/22.html",
+    introduction:
+      "2012年に男子トップチーム発足と同時にヴィアティンFCレディースとして発足しました。三重県の北勢地域を拠点に「子どもたちを笑顔に、地域とともに夢と感動を」というクラブ理念の下、「輝く女性のシンボル」というミッションも掲げ、活動しています。",
   },
   愛知東邦大学: {
     id: "aichitouho",
@@ -371,9 +406,10 @@ export const teams = {
     shortName: "愛知東邦",
     category: "地域代表",
     region: "東海",
-    homeStadium: "愛知東邦大学名古屋キャンパス",
-    website: "https://www.aich-toho.ac.jp/",
-    description: "東海地方第2代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/40.html",
+    introduction:
+      "2007年の創部以来、「笑顔」と「感謝」を忘れずに日本一を目指し活動しているチームです。また、チーム以外の活動もし、日本一応援されるチームになれるように日々活動しています。",
   },
   明治国際医療大学: {
     id: "meiji",
@@ -381,9 +417,10 @@ export const teams = {
     shortName: "明治医療",
     category: "地域代表",
     region: "関西",
-    homeStadium: "明治国際医療大学大阪キャンパス",
-    website: "https://www.meiji-igaku.ac.jp/",
-    description: "関西地方代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/46.html",
+    introduction:
+      "部員50人を超える女子サッカー部で、笑顔爛漫なチームです。医療人としての学びを深めつつサッカーを楽しめる環境が大学にはあります。個人スキルのレベルアップを中心に活動を行っており、理解力・共働力・伝達力をベースに全員が主体性を持って行動できるチームを目指しています。",
   },
   岡山湯郷Belle: {
     id: "okayama",
@@ -391,9 +428,10 @@ export const teams = {
     shortName: "岡山",
     category: "地域代表",
     region: "中国",
-    homeStadium: "備前市営球技場",
-    website: "https://www.belle-okayama.com/",
-    description: "中国地方第1代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/30.html",
+    introduction:
+      "2001年に「スポーツといで湯の町」をキャッチフレーズに美人の湯として知られる湯郷温泉のある旧美作町に官民が一体となって誕生。Belleはフランス語で「美人」の意味。2024なでしこリーグ2部優勝の勢いのまま、皇后杯でも躍進します。",
   },
   吉備国際大学Charme岡山高梁: {
     id: "kibi",
@@ -401,9 +439,10 @@ export const teams = {
     shortName: "吉備",
     category: "地域代表",
     region: "中国",
-    homeStadium: "吉備国際大学高梁キャンパス",
-    website: "https://www.kiui.ac.jp/charme/",
-    description: "中国地方第2代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/27.html",
+    introduction:
+      "「Ｍy Best DREAM!（私の最高の夢）」をクラブスローガンとし、スポーツを通して地域社会の健康と文化を育み、笑顔で活気あふれる街づくりに貢献します。そして、スポーツの持つ力を信じて、夢や希望を抱き、人々と感動を共有します。",
   },
   ディオッサ出雲FC: {
     id: "izumo",
@@ -411,9 +450,10 @@ export const teams = {
     shortName: "出雲",
     category: "地域代表",
     region: "中国",
-    homeStadium: "出雲市営陸上競技場",
-    website: "https://www.dioessa-izumo.com/",
-    description: "中国地方第3代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/03.html",
+    introduction:
+      "「神話の国 出雲から日本のなでしこへ」をキャッチフレーズに、なでしこリーグ参入への挑戦が出雲で始まりました。そして、2023シーズンに悲願の昇格を果たし、2024シーズンからなでしこリーグに参戦しています。ディオッサスタイルを貫き、躍動するフットボールを展開します。",
   },
   ディアヴォロッソ広島: {
     id: "hiroshima",
@@ -421,9 +461,10 @@ export const teams = {
     shortName: "広島",
     category: "地域代表",
     region: "中国",
-    homeStadium: "広島広域公園陸上競技場",
-    website: "https://diavolrosso.jp/",
-    description: "中国地方第4代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/39.html",
+    introduction:
+      "2019年に広島県熊野町に誕生したクラブです。ディアヴォロッソとは、イタリア語のディアヴォロ・ロッソの造語で、赤の持つエネルギッシュなイメージとともに、悪魔のように相手を翻弄し、ファンを魅了するチームでありたいという思いを込めています。",
   },
   AICJ高校: {
     id: "aicj",
@@ -431,9 +472,10 @@ export const teams = {
     shortName: "AICJ",
     category: "地域代表",
     region: "中国",
-    homeStadium: "AICJ高校",
-    website: "https://aicj.ed.jp/",
-    description: "中国地方第5代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/16.html",
+    introduction:
+      "AICJ高校は、生徒たちが日本の将来に大きく貢献するだけでなく、グローバルコミュニティーの一員として国際的に活躍できるエリートの育成を目指しています。サッカーにおいても全国高等学校総合体育大会と全日本高等学校女子サッカー選手権大会の二冠を目指しており、生徒は主体的に練習に励んでいます。",
   },
   FC今治レディース: {
     id: "imabari",
@@ -441,9 +483,10 @@ export const teams = {
     shortName: "今治",
     category: "地域代表",
     region: "四国",
-    homeStadium: "フカタニ今治サッカー場",
-    website: "https://www.fcimabari.com/ladies/",
-    description: "四国地方第1代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/44.html",
+    introduction:
+      "現在なでしこリーグ2部に所属しています。「関わる人の心を大切にする。BESTを尽くす姿勢で関わる人の心を動かす。」という目標の下、活動を見た方々に、勇気や元気、希望を感じていただけるようにベストを尽くして戦います。",
   },
   鳴門渦潮高校: {
     id: "naruto",
@@ -451,9 +494,10 @@ export const teams = {
     shortName: "鳴門",
     category: "地域代表",
     region: "四国",
-    homeStadium: "鳴門市うずしおスポーツ公園",
-    website: "https://www.naruto.ed.jp/",
-    description: "四国地方第2代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/05.html",
+    introduction:
+      "「不撓不屈～やるなら本気～」をスローガンに、しんどいときこそ全員で立ち向かい、元気に明るく渦潮らしく一戦一戦、頑張ります。また、支えてくれている方々のために最後まで諦めず戦い続けます。",
   },
   "福岡J・アンクラス": {
     id: "fukuoka",
@@ -461,9 +505,10 @@ export const teams = {
     shortName: "福岡",
     category: "地域代表",
     region: "九州",
-    homeStadium: "福岡フットボールセンター",
-    website: "https://www.j-ankuras.com/",
-    description: "九州地方第1代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/32.html",
+    introduction:
+      "アンクラスはスペイン語で「錨」の意味。1986年に福岡女学院中学・高校のサッカー部として始まった女子サッカーチームです。クラブエンブレムの「錨」マークは、福岡女学院の制服のマークに由来しています。",
   },
   秀岳館高校: {
     id: "shugakukan",
@@ -471,9 +516,9 @@ export const teams = {
     shortName: "秀岳館",
     category: "地域代表",
     region: "九州",
-    homeStadium: "秀岳館高校グラウンド",
-    website: "https://www.shugakukan.ed.jp/",
-    description: "九州地方第2代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/28.html",
+    introduction: "ポジショナルプレーにドリブルでの打開とワンタッチコンビネーションを融合させた、他にない秀岳館オリジナルスタイルで戦います。フットボールインテリジェンスをとにかく磨き、深みのあるフットボールを実現できるように取り組んでいます。",
   },
   神村学園高等部: {
     id: "kaminomura",
@@ -481,8 +526,8 @@ export const teams = {
     shortName: "神村",
     category: "地域代表",
     region: "九州",
-    homeStadium: "神村学園高等部サッカー場",
-    website: "https://www.kaminomura.ac.jp/",
-    description: "九州地方第3代表のなでしこリーグ地域枠チーム。",
+    homeStadium: "NA",
+    website: "https://www.jfa.jp/match/empressscup_2024/team_detail/04.html",
+    introduction: "2年ぶり14回目の出場になります。国内の女子サッカー界における最も権威ある大会に出場できることをうれしく思います。全国の強豪チームとの対戦で多くの学びを得ることができるよう、高校生らしく、ひた向きにアグレッシブに戦います。",
   },
 };
