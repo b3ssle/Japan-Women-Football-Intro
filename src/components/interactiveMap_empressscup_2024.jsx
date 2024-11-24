@@ -12,12 +12,26 @@ const getDayOfWeek = (dateStr) => {
   return days[date.getDay()];
 };
 
+// 轉換日期和時間到 Date 物件的函數
+const getMatchDateTime = (match) => {
+  const [month, day] = match.date.split("/").map(Number);
+  const [hours, minutes] = match.time.split(":").map(Number);
+  const matchDate = new Date(2024, month - 1, day);
+  matchDate.setHours(hours, minutes, 0, 0);
+  return matchDate;
+};
+
 // NextMatchSection 組件
 const NextMatchSection = ({ nextMatch, roundMatches }) => {
-  // 獲取所有該輪次的比賽
-  const sameRoundMatches = Object.values(matches).filter(
-    (match) => match.round === nextMatch.round
-  );
+  // 獲取所有該輪次的比賽並正確排序
+  const sameRoundMatches = Object.values(matches)
+    .filter((match) => match.round === nextMatch.round)
+    .filter((match) => {
+      if (match.status === "finished") return false;
+      return getMatchDateTime(match) >= new Date();
+    })
+    .sort((a, b) => getMatchDateTime(a) - getMatchDateTime(b));
+
   const venue = venues[nextMatch.venueId];
 
   return (
@@ -138,26 +152,20 @@ const NextMatchSection = ({ nextMatch, roundMatches }) => {
 };
 
 const InteractiveMap = () => {
-  // 先取得下一場比賽，用於設定初始輪次
+  // getUpcomingMatch 函數使用日期與時間一起比較的邏輯
   const getUpcomingMatch = () => {
     const now = new Date();
-    const upcomingMatches = Object.values(matches).filter((match) => {
-      if (match.status === "finished") return false;
-      const matchDate = new Date(
-        2024,
-        parseInt(match.date.split("/")[0]) - 1,
-        parseInt(match.date.split("/")[1])
-      );
-      matchDate.setHours(...match.time.split(":").map(Number));
-      return matchDate > now;
-    });
-    return upcomingMatches.sort(
-      (a, b) => new Date(a.date) - new Date(b.date)
-    )[0];
+    const upcomingMatches = Object.values(matches)
+      .filter((match) => {
+        if (match.status === "finished") return false;
+        return getMatchDateTime(match) > now;
+      })
+      .sort((a, b) => getMatchDateTime(a) - getMatchDateTime(b));
+
+    return upcomingMatches[0];
   };
 
   const nextMatch = getUpcomingMatch();
-  // 使用 nextMatch 的輪次作為初始值
   const [selectedRound, setSelectedRound] = useState(
     nextMatch ? nextMatch.round : "1"
   );
