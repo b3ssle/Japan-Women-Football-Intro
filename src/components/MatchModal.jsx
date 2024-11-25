@@ -31,7 +31,7 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
             <div className="font-bold text-lg">
               {match.round === "準決勝" || match.round === "決勝"
                 ? match.round
-                : `第 ${match.round} 回戦`}
+                : `${match.round} 回戦`}
             </div>
             <a
               href={match.matchinfo}

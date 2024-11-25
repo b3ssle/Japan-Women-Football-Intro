@@ -41,7 +41,7 @@ const NextMatchSection = ({ nextMatch, roundMatches }) => {
         次の試合：
         {nextMatch.round === "準決勝" || nextMatch.round === "決勝"
           ? nextMatch.round
-          : `第 ${nextMatch.round} 回戦`}
+          : `${nextMatch.round} 回戦`}
       </h2>
 
       <div className="grid md:grid-cols-3 gap-8">
@@ -94,7 +94,7 @@ const NextMatchSection = ({ nextMatch, roundMatches }) => {
           <div className="font-bold text-lg mb-4">
             {nextMatch.round === "準決勝" || nextMatch.round === "決勝"
               ? `${nextMatch.round}の試合一覧`
-              : `第 ${nextMatch.round} 回戦の試合一覧`}
+              : `${nextMatch.round} 回戦の試合一覧`}
           </div>
           <div className="grid md:grid-cols-2 gap-4 max-h-64 overflow-y-auto">
             {sameRoundMatches
@@ -665,39 +665,41 @@ const InteractiveMap = () => {
 
       {/* 比賽列表 */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {roundMatches.map((match) => {
-          const venue = venues[match.venueId];
-          return (
-            <div
-              key={match.id}
-              className={`p-4 border rounded-lg transition-colors cursor-pointer ${
-                hoveredVenue === match.id
-                  ? "border-pink-600"
-                  : "hover:border-pink-600"
-              } ${match.status === "finished" ? "opacity-75" : ""}`}
-              onMouseEnter={() => setHoveredVenue(match.id)}
-              onMouseLeave={() => setHoveredVenue(null)}
-              onClick={() => setSelectedMatch(match)}
-            >
-              <div className="font-bold text-pink-600 mb-2">
-                {match.date} ({getDayOfWeek(match.date)}) {match.time}
-              </div>
-              <div>
-                <div className="flex items-center justify-between">
-                  <div className="text-sm font-medium">{match.team1}</div>
-                  <div className="text-sm text-pink-600 mx-2">
-                    {match.status === "finished" ? match.score : "VS"}
+        {roundMatches
+          .sort((a, b) => getMatchDateTime(a) - getMatchDateTime(b))
+          .map((match) => {
+            const venue = venues[match.venueId];
+            return (
+              <div
+                key={match.id}
+                className={`p-4 border rounded-lg transition-colors cursor-pointer ${
+                  hoveredVenue === match.id
+                    ? "border-pink-600"
+                    : "hover:border-pink-600"
+                } ${match.status === "finished" ? "opacity-75" : ""}`}
+                onMouseEnter={() => setHoveredVenue(match.id)}
+                onMouseLeave={() => setHoveredVenue(null)}
+                onClick={() => setSelectedMatch(match)}
+              >
+                <div className="font-bold text-pink-600 mb-2">
+                  {match.date} ({getDayOfWeek(match.date)}) {match.time}
+                </div>
+                <div>
+                  <div className="flex items-center justify-between">
+                    <div className="text-sm font-medium">{match.team1}</div>
+                    <div className="text-sm text-pink-600 mx-2">
+                      {match.status === "finished" ? match.score : "VS"}
+                    </div>
+                    <div className="text-sm font-medium">{match.team2}</div>
                   </div>
-                  <div className="text-sm font-medium">{match.team2}</div>
+                </div>
+                <div className="text-sm text-gray-600 mt-2">
+                  {venue.name_jp}
+                  <span className="text-xs ml-2">({venue.region})</span>
                 </div>
               </div>
-              <div className="text-sm text-gray-600 mt-2">
-                {venue.name_jp}
-                <span className="text-xs ml-2">({venue.region})</span>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
 
       {/* Modal */}
