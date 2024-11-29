@@ -1,5 +1,5 @@
 import React from "react";
-import InteractiveMap from "../components/InteractiveMap_empressscup_2024";
+import NextMatchSection from "../components/NextMatchSection_empressscup_2024";
 
 function EmpresssCup2024() {
   const lastUpdateTime =
@@ -52,8 +52,7 @@ function EmpresssCup2024() {
         </div>
       </section>
 
-      {/* Interactive Map Component */}
-      <InteractiveMap />
+      <NextMatchSection />
     </main>
   );
 }
