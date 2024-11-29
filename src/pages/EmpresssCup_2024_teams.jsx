@@ -35,7 +35,7 @@ const LinkIcon = () => (
   </svg>
 );
 
-const TeamList = () => {
+const EmpresssCup2024Teams = () => {
   const [selectedCategory, setSelectedCategory] = useState("全部");
   const [hoveredTeam, setHoveredTeam] = useState(null);
   const [expandedTeam, setExpandedTeam] = useState(null);
@@ -162,4 +162,4 @@ const TeamList = () => {
   );
 };
 
-export default TeamList;
+export default EmpresssCup2024Teams;
