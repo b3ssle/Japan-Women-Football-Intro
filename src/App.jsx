@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import WELeague2024 from "./pages/weleague_2024";
+import WELeague2024 from "./pages/WeLeague_2024";
 import EmpresssCup2024 from "./pages/EmpresssCup_2024";
 import EmpresssCup2024Teams from "./pages/EmpresssCup_2024_teams";
 import UniversityWomens from "./pages/UniversityWomens_2024";
@@ -15,10 +15,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/weleague_2024" element={<WELeague2024 />} />
-        <Route path="/empressscup_2024" element={<EmpresssCup2024 />} />
+        <Route path="/WeLeague_2024" element={<WELeague2024 />} />
+        <Route path="/EmpresssCup_2024" element={<EmpresssCup2024 />} />
         <Route
-          path="/empressscup_2024_teams"
+          path="/EmpresssCup_2024_teams"
           element={<EmpresssCup2024Teams />}
         />
         <Route path="/UniversityWomens_2024" element={<UniversityWomens />} />
