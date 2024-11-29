@@ -1,5 +1,5 @@
 import React from "react";
-import InteractiveMap from "../components/interactiveMap_empressscup_2024";
+import InteractiveMap from "../components/InteractiveMap_empressscup_2024";
 
 function EmpresssCup2024() {
   const lastUpdateTime =

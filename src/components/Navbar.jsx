@@ -20,6 +20,14 @@ function Navbar() {
             </li>
             <li>
               <Link
+                to="/weLeague_2024"
+                className="hover:text-nadeshiko transition-colors"
+              >
+                WEリーグ
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/empressscup_2024"
                 className="hover:text-nadeshiko transition-colors"
               >

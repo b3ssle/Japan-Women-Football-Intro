@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { matches } from "../data/empressscup_2024_matches";
 import { venues } from "../data/empressscup_2024_venues";
 import { teams } from "../data/empressscup_2024_teams";
-import MatchModal from "./MatchModal";
+import MatchModal from "./MatchModal_empressscup_2024";
 
 // 工具函數
 const getDayOfWeek = (dateStr) => {
