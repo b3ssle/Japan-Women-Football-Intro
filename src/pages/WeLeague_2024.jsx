@@ -15,7 +15,7 @@ const getDayOfWeek = (dateStr) => {
 const getMatchDateTime = (match) => {
   const [month, day] = match.date.split("/").map(Number);
   const [hours, minutes] = match.time.split(":").map(Number);
-  const matchDate = new Date(2024, month - 1, day);
+  const matchDate = new Date(match.year || 2024, month - 1, day);
   matchDate.setHours(hours, minutes, 0, 0);
   return matchDate;
 };
@@ -33,6 +33,15 @@ const getUpcomingMatch = (matches) => {
   return upcomingMatches[0];
 };
 
+const matchesBySection = Object.values(matches).reduce((acc, match) => {
+  if (match.type !== "SOMPO WEリーグ") return acc;
+  if (!acc[match.section]) {
+    acc[match.section] = [];
+  }
+  acc[match.section].push(match);
+  return acc;
+}, {});
+
 const WELeague2024 = () => {
   const lastUpdateTime =
     import.meta.env.VITE_LAST_UPDATE_TIME || "更新時間取得中...";
@@ -48,10 +57,10 @@ const WELeague2024 = () => {
   return (
     <main className="max-w-7xl mx-auto px-6 py-12">
       <section className="mb-16">
-        <h1 className="text-4xl font-bold mb-4">2023-24 SOMPO WEリーグ</h1>
+        <h1 className="text-4xl font-bold mb-4">2024-25 SOMPO WEリーグ</h1>
         <div className="flex items-center gap-4">
           <p className="text-xl text-gray-600 mb-2">
-            2023 年 10 月 - 2024 年 6月
+            2024 年 10 月 - 2025 年 5 月
           </p>
           <a
             href="https://weleague.jp/"
@@ -136,6 +145,11 @@ const WELeague2024 = () => {
                 >
                   <div className="font-bold text-pink-600 mb-2">
                     {match.date} ({getDayOfWeek(match.date)}) {match.time}
+                    <span className="text-gray-600 text-sm ml-2">
+                      {match.type === "SOMPO WEリーグ"
+                        ? `第 ${match.section} 節`
+                        : match.round}
+                    </span>
                   </div>
                   <div>
                     <div className="flex items-center justify-between">

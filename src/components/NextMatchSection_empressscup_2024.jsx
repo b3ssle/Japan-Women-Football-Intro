@@ -14,7 +14,7 @@ const getDayOfWeek = (dateStr) => {
 const getMatchDateTime = (match) => {
   const [month, day] = match.date.split("/").map(Number);
   const [hours, minutes] = match.time.split(":").map(Number);
-  const matchDate = new Date(2024, month - 1, day);
+  const matchDate = new Date(match.year || 2024, month - 1, day);
   matchDate.setHours(hours, minutes, 0, 0);
   return matchDate;
 };

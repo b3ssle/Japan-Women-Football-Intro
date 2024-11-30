@@ -30,7 +30,7 @@ const MatchModal_weleague_2024 = ({ isOpen, onClose, match, venue, teams }) => {
           <div className="flex items-center gap-3">
             <div className="font-bold text-lg">
               {match.type === "SOMPO WEリーグ"
-                ? `第${match.section}節`
+                ? `第 ${match.section} 節`
                 : match.round}
             </div>
             <a

@@ -1,8 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const timeoutRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsMenuOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsMenuOpen(false);
+    }, 300); // 300ms delay before closing
+  };
 
   return (
     <header className="border-b">
@@ -16,8 +30,8 @@ function Navbar() {
         <nav>
           <div
             className="relative"
-            onMouseEnter={() => setIsMenuOpen(true)}
-            onMouseLeave={() => setIsMenuOpen(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <button
               className="px-4 py-2 rounded hover:bg-nadeshiko/10 transition-colors"
@@ -40,7 +54,7 @@ function Navbar() {
               </svg>
             </button>
             {isMenuOpen && (
-              <ul className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
+              <ul className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-50">
                 <li>
                   <Link
                     to="/weLeague_2024"

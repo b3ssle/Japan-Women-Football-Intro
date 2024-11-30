@@ -139,4 +139,14 @@ export const venues = {
     capacity: "68,000",
     surface: "天然芝",
   },
+  V015: {
+    id: "V015",
+    short: "未定",
+    name_jp: "未定",
+    coordinates: { x: 0, y: 0 },
+    region: "東京都",
+    address: "東京都",
+    capacity: "00,000",
+    surface: "人工芝",
+  },
 };

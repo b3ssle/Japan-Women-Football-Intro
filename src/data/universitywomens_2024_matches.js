@@ -3,6 +3,7 @@ export const matches = {
   M001: {
     id: "M001",
     round: "1",
+    year: 2024,
     date: "12/24",
     time: "11:00",
     venueId: "V001",
@@ -17,6 +18,7 @@ export const matches = {
   M002: {
     id: "M002",
     round: "1",
+    year: 2024,
     date: "12/24",
     time: "11:00",
     venueId: "V002",
@@ -31,6 +33,7 @@ export const matches = {
   M003: {
     id: "M003",
     round: "1",
+    year: 2024,
     date: "12/24",
     time: "14:00",
     venueId: "V002",
@@ -45,6 +48,7 @@ export const matches = {
   M004: {
     id: "M004",
     round: "1",
+    year: 2024,
     date: "12/24",
     time: "14:00",
     venueId: "V001",
@@ -59,6 +63,7 @@ export const matches = {
   M005: {
     id: "M005",
     round: "1",
+    year: 2024,
     date: "12/24",
     time: "11:00",
     venueId: "V003",
@@ -73,6 +78,7 @@ export const matches = {
   M006: {
     id: "M006",
     round: "1",
+    year: 2024,
     date: "12/24",
     time: "11:00",
     venueId: "V004",
@@ -87,6 +93,7 @@ export const matches = {
   M007: {
     id: "M007",
     round: "1",
+    year: 2024,
     date: "12/24",
     time: "14:00",
     venueId: "V004",
@@ -101,6 +108,7 @@ export const matches = {
   M008: {
     id: "M008",
     round: "1",
+    year: 2024,
     date: "12/24",
     time: "14:00",
     venueId: "V003",
@@ -117,6 +125,7 @@ export const matches = {
   M009: {
     id: "M009",
     round: "2",
+    year: 2024,
     date: "12/26",
     time: "11:00",
     venueId: "V002",
@@ -131,6 +140,7 @@ export const matches = {
   M010: {
     id: "M010",
     round: "2",
+    year: 2024,
     date: "12/26",
     time: "11:00",
     venueId: "V001",
@@ -145,6 +155,7 @@ export const matches = {
   M011: {
     id: "M011",
     round: "2",
+    year: 2024,
     date: "12/26",
     time: "14:00",
     venueId: "V001",
@@ -159,6 +170,7 @@ export const matches = {
   M012: {
     id: "M012",
     round: "2",
+    year: 2024,
     date: "12/26",
     time: "14:00",
     venueId: "V002",
@@ -173,6 +185,7 @@ export const matches = {
   M013: {
     id: "M013",
     round: "2",
+    year: 2024,
     date: "12/26",
     time: "11:00",
     venueId: "V004",
@@ -187,6 +200,7 @@ export const matches = {
   M014: {
     id: "M014",
     round: "2",
+    year: 2024,
     date: "12/26",
     time: "11:00",
     venueId: "V003",
@@ -201,6 +215,7 @@ export const matches = {
   M015: {
     id: "M015",
     round: "2",
+    year: 2024,
     date: "12/26",
     time: "14:00",
     venueId: "V003",
@@ -215,6 +230,7 @@ export const matches = {
   M016: {
     id: "M016",
     round: "2",
+    year: 2024,
     date: "12/26",
     time: "14:00",
     venueId: "V004",
@@ -231,6 +247,7 @@ export const matches = {
   M017: {
     id: "M017",
     round: "準々決勝",
+    year: 2024,
     date: "12/28",
     time: "11:00",
     venueId: "V002",
@@ -244,6 +261,7 @@ export const matches = {
   M018: {
     id: "M018",
     round: "準々決勝",
+    year: 2024,
     date: "12/28",
     time: "14:00",
     venueId: "V002",
@@ -257,6 +275,7 @@ export const matches = {
   M019: {
     id: "M019",
     round: "準々決勝",
+    year: 2024,
     date: "12/28",
     time: "11:00",
     venueId: "V004",
@@ -270,6 +289,7 @@ export const matches = {
   M020: {
     id: "M020",
     round: "準々決勝",
+    year: 2024,
     date: "12/28",
     time: "14:00",
     venueId: "V004",
@@ -285,6 +305,7 @@ export const matches = {
   M021: {
     id: "M021",
     round: "準決勝",
+    year: 2025,
     date: "1/4",
     time: "11:00",
     venueId: "V005",
@@ -298,6 +319,7 @@ export const matches = {
   M022: {
     id: "M022",
     round: "準決勝",
+    year: 2025,
     date: "1/4",
     time: "14:00",
     venueId: "V005",
@@ -313,6 +335,7 @@ export const matches = {
   M023: {
     id: "M023",
     round: "決勝",
+    year: 2025,
     date: "1/6",
     time: "13:00",
     venueId: "V005",
