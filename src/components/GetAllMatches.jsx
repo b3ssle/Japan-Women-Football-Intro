@@ -27,12 +27,24 @@ const normalizeMatch = (match, competition, venues) => {
 
 const getWeekRange = () => {
   const now = new Date();
+
+  // 獲取當前是一週中的第幾天（0是週日，1是週一，以此類推）
+  const currentDay = now.getDay();
+
+  // 計算到本週一的天數差
+  // 如果今天是週日（currentDay = 0），則需要往前推6天
+  // 如果今天是週一（currentDay = 1），則不需要調整
+  // 如果今天是週二（currentDay = 2），則需要往前推1天，以此類推
+  const daysToMonday = currentDay === 0 ? 6 : currentDay - 1;
+
+  // 創建本週一的日期
   const monday = new Date(now);
-  monday.setDate(now.getDate() - now.getDay() + 1);
+  monday.setDate(now.getDate() - daysToMonday);
   monday.setHours(0, 0, 0, 0);
 
-  const sunday = new Date(now);
-  sunday.setDate(now.getDate() - now.getDay() + 7);
+  // 創建本週日的日期（週一加6天）
+  const sunday = new Date(monday);
+  sunday.setDate(monday.getDate() + 6);
   sunday.setHours(23, 59, 59, 999);
 
   return { monday, sunday };
@@ -40,7 +52,8 @@ const getWeekRange = () => {
 
 const parseMatchDate = (match) => {
   const [month, day] = match.date.split("/");
-  const [hours, minutes] = match.time === "未定" ? [0, 0] : match.time.split(":");
+  const [hours, minutes] =
+    match.time === "未定" ? [0, 0] : match.time.split(":");
   const year = parseInt(month) >= 11 ? 2024 : 2025;
   return new Date(
     year,

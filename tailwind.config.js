@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        nadeshiko: "#E31C79",
+        nadeshiko: "#E91E63",
         "nadeshiko-light": "#ff3d96",
       },
     },

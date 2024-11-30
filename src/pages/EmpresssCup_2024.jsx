@@ -42,7 +42,7 @@ function EmpresssCup2024() {
             出典：
             <a
               href="https://www.jfa.jp/match/empressscup_2017/about.html"
-              className="text-nadeshiko hover:text-nadeshiko-light transition-colors"
+              className="text-nadesshiko hover:text-nadesshiko-light transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { Map, Gauge } from "lucide-react";
 import { teams } from "../data/empressscup_2024_teams";
 import { getCurrentWeekMatches } from "../components/GetAllMatches";
+import MatchModal from "../components/MatchModal_all_2024";
+import WeeklyVenuesMap from "../components/AllMatchesMap";
 
 const getDayOfWeek = (dateStr) => {
   const [month, day] = dateStr.split("/").map(Number);
@@ -9,47 +12,58 @@ const getDayOfWeek = (dateStr) => {
   return days[date.getDay()];
 };
 
-function Home() {
-  const weLeagueTeams = Object.values(teams).filter(
-    (team) => team.category === "WEリーグ"
-  );
-  const [hoveredTeam, setHoveredTeam] = useState(null);
+export default function Home() {
+  const [selectedMatch, setSelectedMatch] = useState(null);
   const weeklyMatches = getCurrentWeekMatches();
+  const uniqueVenues = [
+    ...new Set(weeklyMatches.map((match) => match.venue.id)),
+  ].map((id) => weeklyMatches.find((match) => match.venue.id === id).venue);
+
+  const handleVenueClick = (venue) => {
+    const venueMatches = weeklyMatches.filter(
+      (match) => match.venue.id === venue.id
+    );
+    if (venueMatches.length > 0) {
+      setSelectedMatch(venueMatches[0]);
+    }
+  };
 
   return (
     <main className="flex-grow">
       <div className="max-w-7xl mx-auto px-6 py-8">
         <h1 className="text-6xl font-bold mb-4">日本女子サッカーマップ</h1>
-        <p className="text-xl text-gray-600 mb-8">
+        <p className="text-xl text-gray-600 mb-12">
           日本女子サッカーの世界を探索する！
         </p>
 
         <div className="flex flex-col gap-12">
-          {/* 地圖部分待添加 */}
+          {/* 地圖組件 */}
+          {/* <WeeklyVenuesMap
+            matches={weeklyMatches}
+            onVenueClick={handleVenueClick}
+          /> */}
 
           {/* 本週賽事 */}
           <div>
-            <h2 className="text-2xl mb-6 bg-nadeshiko text-white px-4 py-2 rounded">
-              今週の試合：{weeklyMatches.length} 試合が {new Set(weeklyMatches.map((match) => match.venue.id)).size} か所の会場で行われます！
+            <h2 className="text-2xl mb-6 bg-nadeshiko text-white px-4 py-2 rounded-lg flex items-center gap-2">
+              <div className="flex items-center gap-2">
+                <Gauge className="w-6 h-6" />
+                <span>
+                  今週の試合：{weeklyMatches.length} 試合が{" "}
+                  {uniqueVenues.length} か所の会場で行われます！
+                </span>
+              </div>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {weeklyMatches.map((match) => (
-                <a
+                <div
                   key={match.id}
-                  href={match.matchinfo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block p-4 border rounded-lg hover:shadow-md transition-all"
+                  onClick={() => setSelectedMatch(match)}
+                  className="p-4 border rounded-lg hover:shadow-md transition-all cursor-pointer"
                 >
                   <div className="text-sm text-pink-600 font-medium mb-1">
                     {match.competition}
-                    {match.round && match.type === "SOMPO WEリーグ" && (
-                      <span> 第 {match.round} 節</span>
-                    )}
-                    {match.round && match.type === "クラシエカップ" && (
-                      <span> {match.round}</span>
-                    )}
-                    {match.round && !match.type && (
+                    {match.round && (
                       <span>
                         {match.round === "準決勝" || match.round === "決勝"
                           ? ` ${match.round}`
@@ -70,14 +84,21 @@ function Home() {
                   <div className="text-xs text-gray-500 mt-2">
                     {match.venue.name_jp}
                   </div>
-                </a>
+                </div>
               ))}
             </div>
           </div>
         </div>
+
+        {/* Modal */}
+        <MatchModal
+          isOpen={selectedMatch !== null}
+          onClose={() => setSelectedMatch(null)}
+          match={selectedMatch}
+          venue={selectedMatch?.venue}
+          teams={teams}
+        />
       </div>
     </main>
   );
 }
-
-export default Home;
