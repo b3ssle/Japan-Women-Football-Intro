@@ -61,28 +61,31 @@ export default function Home() {
                   onClick={() => setSelectedMatch(match)}
                   className="p-4 border rounded-lg hover:shadow-md transition-all cursor-pointer"
                 >
-                  <div className="text-sm text-pink-600 font-medium mb-1">
-                    {match.competition}
-                    {match.round && (
-                      <span>
-                        {match.round === "準決勝" || match.round === "決勝"
-                          ? ` ${match.round}`
-                          : ` ${match.round} 回戦`}
-                      </span>
-                    )}
-                  </div>
-                  <div className="font-bold mb-2">
+                  <div className="font-bold text-nadeshiko mb-2">
                     {match.date} ({getDayOfWeek(match.date)}) {match.time}
+                    <span className="text-gray-600 text-sm ml-2">
+                      {match.competition}
+                      {match.round && (
+                        <span>
+                          {match.round === "準決勝" || match.round === "決勝"
+                            ? ` ${match.round}`
+                            : ` ${match.round} 回戦`}
+                        </span>
+                      )}
+                    </span>
                   </div>
-                  <div className="space-y-1">
-                    <div className="text-sm">{match.team1}</div>
-                    <div className="text-sm text-pink-600">
-                      {match.status === "finished" ? match.score : "vs"}
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <div className="text-sm font-medium">{match.team1}</div>
+                      <div className="text-sm text-pink-600 mx-2">
+                        {match.status === "finished" ? match.score : "VS"}
+                      </div>
+                      <div className="text-sm font-medium">{match.team2}</div>
                     </div>
-                    <div className="text-sm">{match.team2}</div>
                   </div>
-                  <div className="text-xs text-gray-500 mt-2">
+                  <div className="text-sm text-gray-600 mt-2">
                     {match.venue.name_jp}
+                    <span className="text-xs ml-2">({match.venue.region})</span>
                   </div>
                 </div>
               ))}
