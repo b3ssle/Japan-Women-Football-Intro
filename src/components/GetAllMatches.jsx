@@ -20,6 +20,7 @@ const normalizeMatch = (match, competition, venues) => {
     status: match.status,
     score: match.score,
     round: match.round || match.section,
+    type: match.type,
     matchinfo: match.matchinfo,
   };
 };
@@ -39,10 +40,10 @@ const getWeekRange = () => {
 
 const parseMatchDate = (match) => {
   const [month, day] = match.date.split("/");
-  const [hours, minutes] =
-    match.time === "未定" ? [0, 0] : match.time.split(":");
+  const [hours, minutes] = match.time === "未定" ? [0, 0] : match.time.split(":");
+  const year = parseInt(month) >= 11 ? 2024 : 2025;
   return new Date(
-    2024,
+    year,
     parseInt(month) - 1,
     parseInt(day),
     parseInt(hours) || 0,

@@ -29,10 +29,8 @@ function Home() {
 
           {/* 本週賽事 */}
           <div>
-            <h2 className="text-2xl font-bold mb-6 bg-nadeshiko text-white px-4 py-2 rounded">
-              今週の試合：{weeklyMatches.length} 試合が{" "}
-              {new Set(weeklyMatches.map((match) => match.venue.id)).size}{" "}
-              か所の会場で行われます！
+            <h2 className="text-2xl mb-6 bg-nadeshiko text-white px-4 py-2 rounded">
+              今週の試合：{weeklyMatches.length} 試合が {new Set(weeklyMatches.map((match) => match.venue.id)).size} か所の会場で行われます！
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {weeklyMatches.map((match) => (
@@ -45,6 +43,19 @@ function Home() {
                 >
                   <div className="text-sm text-pink-600 font-medium mb-1">
                     {match.competition}
+                    {match.round && match.type === "SOMPO WEリーグ" && (
+                      <span> 第 {match.round} 節</span>
+                    )}
+                    {match.round && match.type === "クラシエカップ" && (
+                      <span> {match.round}</span>
+                    )}
+                    {match.round && !match.type && (
+                      <span>
+                        {match.round === "準決勝" || match.round === "決勝"
+                          ? ` ${match.round}`
+                          : ` ${match.round} 回戦`}
+                      </span>
+                    )}
                   </div>
                   <div className="font-bold mb-2">
                     {match.date} ({getDayOfWeek(match.date)}) {match.time}
