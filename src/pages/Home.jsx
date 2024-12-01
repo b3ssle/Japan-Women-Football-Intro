@@ -19,13 +19,8 @@ export default function Home() {
     ...new Set(weeklyMatches.map((match) => match.venue.id)),
   ].map((id) => weeklyMatches.find((match) => match.venue.id === id).venue);
 
-  const handleVenueClick = (venue) => {
-    const venueMatches = weeklyMatches.filter(
-      (match) => match.venue.id === venue.id
-    );
-    if (venueMatches.length > 0) {
-      setSelectedMatch(venueMatches[0]);
-    }
+  const handleVenueClick = (matchData) => {
+    setSelectedMatch(matchData);
   };
 
   return (
@@ -36,25 +31,17 @@ export default function Home() {
           日本女子サッカーの世界を探索する！
         </p>
 
-        <div className="flex flex-col gap-12">
-          {/* 地圖組件 */}
-          {/* <WeeklyVenuesMap
-            matches={weeklyMatches}
-            onVenueClick={handleVenueClick}
-          /> */}
-
-          {/* 本週賽事 */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* 左側：賽事列表 */}
           <div>
             <h2 className="text-2xl mb-6 bg-nadeshiko text-white px-4 py-2 rounded-lg flex items-center gap-2">
-              <div className="flex items-center gap-2">
-                <Gauge className="w-6 h-6" />
-                <span>
-                  今週の試合：{weeklyMatches.length} 試合が{" "}
-                  {uniqueVenues.length} か所の会場で行われます！
-                </span>
-              </div>
+              <Gauge className="w-6 h-6" />
+              <span>
+                今週の試合：{weeklyMatches.length} 試合が {uniqueVenues.length}{" "}
+                会場で行われます！
+              </span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4">
               {weeklyMatches.map((match) => (
                 <div
                   key={match.id}
@@ -89,6 +76,20 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* 右側：地圖 */}
+          <div className="lg:sticky lg:top-8">
+            <h2 className="text-2xl mb-6 bg-nadeshiko text-white px-4 py-2 rounded-lg flex items-center gap-2">
+              <Map className="w-6 h-6" />
+              今週の試合マップ
+            </h2>
+            <div className="relative z-0 bg-white rounded-lg shadow h-[600px] overflow-hidden">
+              <WeeklyVenuesMap
+                matches={weeklyMatches}
+                onVenueClick={handleVenueClick}
+              />
             </div>
           </div>
         </div>
