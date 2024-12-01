@@ -11,7 +11,6 @@ const getDayOfWeek = (dateStr) => {
 export default function MatchModal({ isOpen, onClose, match, venue, teams }) {
   if (!isOpen || !match || !venue) return null;
 
-  // 確認是否有多場比賽
   const matches = match.allMatches || [match];
   const googleMapsSearchUrl = `https://www.google.com/maps/search/${encodeURIComponent(
     venue.name_jp
@@ -28,7 +27,7 @@ export default function MatchModal({ isOpen, onClose, match, venue, teams }) {
         </button>
 
         <div className="space-y-6">
-          {/* 場地信息 */}
+          {/* 場地資訊 */}
           <div>
             <a
               href={googleMapsSearchUrl}
@@ -50,7 +49,7 @@ export default function MatchModal({ isOpen, onClose, match, venue, teams }) {
               return (
                 <div key={match.id} className={index > 0 ? "pt-6" : ""}>
                   <div className="space-y-4 mb-6">
-                    {/* 比賽信息標題 */}
+                    {/* 比賽資訊 */}
                     <div className="flex items-center gap-3">
                       <div className="font-bold text-lg">
                         {match.competition}
@@ -73,7 +72,7 @@ export default function MatchModal({ isOpen, onClose, match, venue, teams }) {
                       {match.date} ({getDayOfWeek(match.date)}) {match.time}
                     </div>
 
-                    {/* 對陣信息 */}
+                    {/* 對陣資訊 */}
                     <div className="grid grid-cols-[1fr_auto_1fr] gap-4 items-center bg-gray-50 p-4 rounded-lg">
                       <div className="space-y-2">
                         <div className="text-lg font-bold">{match.team1}</div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { MapPin } from "lucide-react";
 
 const getDayOfWeek = (dateStr) => {
   const [month, day] = dateStr.split("/").map(Number);
@@ -18,7 +19,7 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 max-w-2xl w-full mx-4 relative">
+      <div className="bg-white rounded-lg p-6 max-w-3xl w-full mx-4 relative">
         <button
           onClick={onClose}
           className="absolute right-4 top-4 text-gray-500 hover:text-gray-700"
@@ -26,86 +27,86 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
           ✕
         </button>
 
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="font-bold text-lg">
-              {match.round === "準決勝" || match.round === "決勝"
-                ? match.round
-                : `${match.round} 回戦`}
-            </div>
-            <a
-              href={match.matchinfo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm border border-pink-600 text-pink-600 px-2 py-1 rounded hover:bg-pink-50"
-            >
-              試合情報
-            </a>
-          </div>
-
-          <div className="text-xl font-bold text-pink-600">
-            {match.date} ({getDayOfWeek(match.date)}) {match.time}
-          </div>
-
-          <div className="flex items-center space-x-2">
+        <div className="space-y-6">
+          {/* 場地資訊 */}
+          <div>
             <a
               href={googleMapsSearchUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-pink-600 hover:text-pink-700"
+              className="inline-flex items-center text-lg font-bold text-nadeshiko hover:text-nadeshiko-light"
             >
-              <svg
-                className="w-4 h-4 mr-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-              </svg>
+              <MapPin className="w-5 h-5 mr-2" />
               {venue.name_jp}
             </a>
           </div>
 
-          <div className="grid grid-cols-[1fr_auto_1fr] gap-4 items-center">
-            <div className="text-lg font-bold">{match.team1}</div>
-            <div className="text-xl font-bold">VS</div>
-            <div className="text-lg font-bold text-right w-full">
-              {match.team2}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-8">
-            <div className="text-sm text-gray-600 space-y-2">
-              <div>{team1Data?.region}</div>
-              <div>{team1Data?.category}</div>
-              <div>
-                <a
-                  href={team1Data?.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-pink-600 hover:underline"
-                >
-                  紹介サイト
-                </a>
+          <div className="space-y-4">
+            {/* 比賽資訊 */}
+            <div className="flex items-center gap-3">
+              <div className="font-bold text-lg">
+                {match.competition}
+                {match.round === "準決勝" || match.round === "決勝"
+                  ? ` ${match.round}`
+                  : ` ${match.round} 回戦`}
               </div>
+              <a
+                href={match.matchinfo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm border border-nadeshiko text-nadeshiko px-2 py-1 rounded hover:bg-pink-50"
+              >
+                試合情報
+              </a>
             </div>
-            <div className="text-sm text-gray-600 space-y-2 text-right">
-              <div>{team2Data?.region}</div>
-              <div>{team2Data?.category}</div>
-              <div>
-                <a
-                  href={team2Data?.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-pink-600 hover:underline"
-                >
-                  紹介サイト
-                </a>
+
+            {/* 比賽時間 */}
+            <div className="text-xl font-bold text-nadeshiko">
+              {match.date} ({getDayOfWeek(match.date)}) {match.time}
+            </div>
+
+            {/* 對陣資訊 */}
+            <div className="grid grid-cols-[1fr_auto_1fr] gap-4 items-center bg-gray-50 p-4 rounded-lg">
+              <div className="space-y-2">
+                <div className="text-lg font-bold">{match.team1}</div>
+                <div className="text-sm text-gray-600">
+                  {team1Data?.region}
+                </div>
+                <div className="text-sm text-gray-600">
+                  {team1Data?.category}
+                </div>
+                {team1Data?.website && (
+                  <a
+                    href={team1Data.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-nadeshiko hover:underline"
+                  >
+                    紹介サイト
+                  </a>
+                )}
+              </div>
+
+              <div className="text-2xl font-bold text-nadeshiko">VS</div>
+
+              <div className="space-y-2 text-right">
+                <div className="text-lg font-bold">{match.team2}</div>
+                <div className="text-sm text-gray-600">
+                  {team2Data?.region}
+                </div>
+                <div className="text-sm text-gray-600">
+                  {team2Data?.category}
+                </div>
+                {team2Data?.website && (
+                  <a
+                    href={team2Data.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-nadeshiko hover:underline"
+                  >
+                    紹介サイト
+                  </a>
+                )}
               </div>
             </div>
           </div>
