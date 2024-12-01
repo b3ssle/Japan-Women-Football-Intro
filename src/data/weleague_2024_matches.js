@@ -95,7 +95,7 @@ export const matches = {
   M007: {
     id: "M007",
     type: "クラシエカップ",
-    round: "準決勝",
+    round: "カップ準決勝",
     year: 2024,
     date: "12/08",
     time: "12:00",
@@ -110,7 +110,7 @@ export const matches = {
   M008: {
     id: "M008",
     type: "クラシエカップ",
-    round: "準決勝",
+    round: "カップ準決勝",
     year: 2024,
     date: "12/08",
     time: "15:45",
@@ -125,7 +125,7 @@ export const matches = {
   M009: {
     id: "M009",
     type: "クラシエカップ",
-    round: "決勝",
+    round: "カップ決勝",
     year: 2024,
     date: "12/29",
     time: "13:00",
@@ -151,6 +151,7 @@ export const matches = {
     team2Short: "C大阪",
     status: "upcoming",
     matchinfo: "https://weleague.jp/matches/2024121101/",
+    note: "代替開催日",
   },
   M011: {
     id: "M010",
@@ -166,6 +167,7 @@ export const matches = {
     team2Short: "大宮V",
     status: "upcoming",
     matchinfo: "https://weleague.jp/matches/2024121801/",
+    note: "代替開催日",
   },
 
   // 第12節

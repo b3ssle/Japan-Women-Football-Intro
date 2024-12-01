@@ -54,7 +54,8 @@ export default function Home() {
                       {match.competition}
                       {match.round && (
                         <span>
-                          {match.round === "準決勝" || match.round === "決勝"
+                          {match.round === "カップ準決勝" ||
+                          match.round === "カップ決勝"
                             ? ` ${match.round}`
                             : ` ${match.round} 回戦`}
                         </span>

@@ -53,7 +53,8 @@ export default function MatchModal({ isOpen, onClose, match, venue, teams }) {
                     <div className="flex items-center gap-3">
                       <div className="font-bold text-lg">
                         {match.competition}
-                        {match.round === "準決勝" || match.round === "決勝"
+                        {match.round === "カップ準決勝" ||
+                        match.round === "カップ決勝"
                           ? ` ${match.round}`
                           : ` ${match.round} 回戦`}
                       </div>
