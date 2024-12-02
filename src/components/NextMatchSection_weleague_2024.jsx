@@ -2,7 +2,8 @@ import React from "react";
 
 const getDayOfWeek = (dateStr) => {
   const [month, day] = dateStr.split("/").map(Number);
-  const date = new Date(2024, month - 1, day);
+  const year = parseInt(month) >= 11 ? 2024 : 2025;
+  const date = new Date(year, month - 1, day);
   const days = ["日", "月", "火", "水", "木", "金", "土"];
   return days[date.getDay()];
 };
@@ -10,8 +11,9 @@ const getDayOfWeek = (dateStr) => {
 const getMatchDateTime = (match) => {
   const [month, day] = match.date.split("/").map(Number);
   const [hours, minutes] = match.time.split(":").map(Number);
-  const matchDate = new Date(2024, month - 1, day);
-  matchDate.setHours(hours, minutes, 0, 0);
+  const year = parseInt(month) >= 11 ? 2024 : 2025;
+  const matchDate = new Date(year, month - 1, day);
+  matchDate.setHours(hours || 0, minutes || 0, 0, 0);
   return matchDate;
 };
 
@@ -54,7 +56,7 @@ const NextMatchSection_weleague_2024 = ({
           {nextMatch.status === "finished" ? (
             <>
               <div className="text-lg font-bold">{nextMatch.team1}</div>
-              <div className="text-xl font-bold text-pink-600">
+              <div className="text-xl font-bold text-nadeshiko">
                 {nextMatch.score}
               </div>
               <div className="text-lg font-bold">{nextMatch.team2}</div>
@@ -62,7 +64,7 @@ const NextMatchSection_weleague_2024 = ({
           ) : (
             <>
               <div className="text-lg font-bold">{nextMatch.team1}</div>
-              <div className="text-xl font-bold text-pink-600">VS</div>
+              <div className="text-xl font-bold text-nadeshiko">VS</div>
               <div className="text-lg font-bold">{nextMatch.team2}</div>
             </>
           )}
@@ -70,7 +72,7 @@ const NextMatchSection_weleague_2024 = ({
             <div className="font-bold text-lg">会場</div>
             <div className="flex items-center gap-2">
               <svg
-                className="w-5 h-5 text-pink-600"
+                className="w-5 h-5 text-nadeshiko"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -113,7 +115,7 @@ const NextMatchSection_weleague_2024 = ({
                     {match.date} ({getDayOfWeek(match.date)}) {match.time}
                   </div>
                   <div className="font-medium">{match.team1}</div>
-                  <div className="text-xs text-pink-600">VS</div>
+                  <div className="text-xs text-nadeshiko">VS</div>
                   <div className="font-medium">{match.team2}</div>
                   <div className="text-xs text-gray-500">
                     {matchVenue.name_jp}

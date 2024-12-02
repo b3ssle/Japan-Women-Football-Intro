@@ -7,7 +7,8 @@ import NextMatchSection_weleague_2024 from "../components/NextMatchSection_welea
 
 const getDayOfWeek = (dateStr) => {
   const [month, day] = dateStr.split("/").map(Number);
-  const date = new Date(2024, month - 1, day);
+  const year = parseInt(month) >= 11 ? 2024 : 2025;
+  const date = new Date(year, month - 1, day);
   const days = ["日", "月", "火", "水", "木", "金", "土"];
   return days[date.getDay()];
 };
@@ -15,8 +16,9 @@ const getDayOfWeek = (dateStr) => {
 const getMatchDateTime = (match) => {
   const [month, day] = match.date.split("/").map(Number);
   const [hours, minutes] = match.time.split(":").map(Number);
-  const matchDate = new Date(match.year || 2024, month - 1, day);
-  matchDate.setHours(hours, minutes, 0, 0);
+  const year = parseInt(month) >= 11 ? 2024 : 2025;
+  const matchDate = new Date(year, month - 1, day);
+  matchDate.setHours(hours || 0, minutes || 0, 0, 0);
   return matchDate;
 };
 
@@ -108,8 +110,8 @@ const WELeague2024 = () => {
             onClick={() => setSelectedType("SOMPO WEリーグ")}
             className={`px-4 py-2 rounded transition-colors ${
               selectedType === "SOMPO WEリーグ"
-                ? "bg-pink-600 text-white"
-                : "border border-pink-600 text-pink-600 hover:bg-pink-50"
+                ? "bg-nadeshiko text-white"
+                : "border border-nadeshiko text-nadeshiko hover:bg-pink-50"
             }`}
           >
             WEリーグ
@@ -118,8 +120,8 @@ const WELeague2024 = () => {
             onClick={() => setSelectedType("クラシエカップ")}
             className={`px-4 py-2 rounded transition-colors ${
               selectedType === "クラシエカップ"
-                ? "bg-pink-600 text-white"
-                : "border border-pink-600 text-pink-600 hover:bg-pink-50"
+                ? "bg-nadeshiko text-white"
+                : "border border-nadeshiko text-nadeshiko hover:bg-pink-50"
             }`}
           >
             クラシエカップ
@@ -136,14 +138,14 @@ const WELeague2024 = () => {
                   key={match.id}
                   className={`p-4 border rounded-lg transition-colors cursor-pointer ${
                     hoveredVenue === match.id
-                      ? "border-pink-600"
-                      : "hover:border-pink-600"
+                      ? "border-nadeshiko"
+                      : "hover:border-nadeshiko"
                   } ${match.status === "finished" ? "opacity-75" : ""}`}
                   onMouseEnter={() => setHoveredVenue(match.id)}
                   onMouseLeave={() => setHoveredVenue(null)}
                   onClick={() => setSelectedMatch(match)}
                 >
-                  <div className="font-bold text-pink-600 mb-2">
+                  <div className="font-bold text-nadeshiko mb-2">
                     {match.date} ({getDayOfWeek(match.date)}) {match.time}
                     <span className="text-gray-600 text-sm ml-2">
                       {match.type === "SOMPO WEリーグ"
@@ -154,7 +156,7 @@ const WELeague2024 = () => {
                   <div>
                     <div className="flex items-center justify-between">
                       <div className="text-sm font-medium">{match.team1}</div>
-                      <div className="text-sm text-pink-600 mx-2">
+                      <div className="text-sm text-nadeshiko mx-2">
                         {match.status === "finished" ? match.score : "VS"}
                       </div>
                       <div className="text-sm font-medium">{match.team2}</div>

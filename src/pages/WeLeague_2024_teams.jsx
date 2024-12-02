@@ -110,7 +110,7 @@ const TeamList = () => {
 
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-sm">
-                  <span className="text-pink-500">
+                  <span className="text-nadeshiko">
                     <MapPinIcon />
                   </span>
                   <span>
@@ -119,14 +119,14 @@ const TeamList = () => {
                 </div>
                 {team.website && (
                   <div className="flex items-center gap-2 text-sm">
-                    <span className="text-pink-500">
+                    <span className="text-nadeshiko">
                       <LinkIcon />
                     </span>
                     <a
                       href={team.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-pink-500 hover:underline"
+                      className="text-nadeshiko hover:underline"
                     >
                       紹介サイト
                     </a>
@@ -147,7 +147,7 @@ const TeamList = () => {
                           expandedTeam === team.id ? null : team.id
                         )
                       }
-                      className="text-pink-500 text-sm hover:underline mt-1"
+                      className="text-nadeshiko text-sm hover:underline mt-1"
                     >
                       {expandedTeam === team.id ? "閉じる ▲" : "もっと見る ▼"}
                     </button>

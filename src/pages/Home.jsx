@@ -7,7 +7,8 @@ import WeeklyVenuesMap from "../components/AllMatchesMap";
 
 const getDayOfWeek = (dateStr) => {
   const [month, day] = dateStr.split("/").map(Number);
-  const date = new Date(2024, month - 1, day);
+  const year = parseInt(month) >= 11 ? 2024 : 2025;
+  const date = new Date(year, month - 1, day);
   const days = ["日", "月", "火", "水", "木", "金", "土"];
   return days[date.getDay()];
 };
@@ -21,6 +22,21 @@ export default function Home() {
 
   const handleVenueClick = (matchData) => {
     setSelectedMatch(matchData);
+  };
+
+  const formatRoundDisplay = (match) => {
+    if (!match.round) return "";
+
+    // 如果是WEリーグ，直接返回round（已經在GetAllMatches中格式化為第XX節）
+    if (match.competition === "WEリーグ") {
+      return match.round;
+    }
+
+    // 其他比賽的處理
+    if (match.round === "準決勝" || match.round === "決勝") {
+      return match.round;
+    }
+    return `${match.round}`;
   };
 
   return (
@@ -53,19 +69,14 @@ export default function Home() {
                     <span className="text-gray-600 text-sm ml-2">
                       {match.competition}
                       {match.round && (
-                        <span>
-                          {match.round === "カップ準決勝" ||
-                          match.round === "カップ決勝"
-                            ? ` ${match.round}`
-                            : ` ${match.round} 回戦`}
-                        </span>
+                        <span>{` ${formatRoundDisplay(match)}`}</span>
                       )}
                     </span>
                   </div>
                   <div>
                     <div className="flex items-center justify-between">
                       <div className="text-sm font-medium">{match.team1}</div>
-                      <div className="text-sm text-pink-600 mx-2">
+                      <div className="text-sm text-nadeshiko mx-2">
                         {match.status === "finished" ? match.score : "VS"}
                       </div>
                       <div className="text-sm font-medium">{match.team2}</div>

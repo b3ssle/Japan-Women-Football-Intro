@@ -6,7 +6,8 @@ import MatchModal from "./MatchModal_empressscup_2024";
 
 const getDayOfWeek = (dateStr) => {
   const [month, day] = dateStr.split("/").map(Number);
-  const date = new Date(2024, month - 1, day);
+  const year = parseInt(month) >= 11 ? 2024 : 2025;
+  const date = new Date(year, month - 1, day);
   const days = ["日", "月", "火", "水", "木", "金", "土"];
   return days[date.getDay()];
 };
@@ -48,7 +49,7 @@ const NextMatchSection = ({ nextMatch, roundMatches }) => {
           {nextMatch.status === "finished" ? (
             <>
               <div className="text-lg font-bold">{nextMatch.team1}</div>
-              <div className="text-xl font-bold text-pink-600">
+              <div className="text-xl font-bold text-nadeshiko">
                 {nextMatch.score}
               </div>
               <div className="text-lg font-bold">{nextMatch.team2}</div>
@@ -56,7 +57,7 @@ const NextMatchSection = ({ nextMatch, roundMatches }) => {
           ) : (
             <>
               <div className="text-lg font-bold">{nextMatch.team1}</div>
-              <div className="text-xl font-bold text-pink-600">VS</div>
+              <div className="text-xl font-bold text-nadeshiko">VS</div>
               <div className="text-lg font-bold">{nextMatch.team2}</div>
             </>
           )}
@@ -64,7 +65,7 @@ const NextMatchSection = ({ nextMatch, roundMatches }) => {
             <div className="font-bold text-lg">会場</div>
             <div className="flex items-center gap-2">
               <svg
-                className="w-5 h-5 text-pink-600"
+                className="w-5 h-5 text-nadeshiko"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -209,13 +210,13 @@ const InteractiveMatchList = () => {
                 onMouseLeave={() => setHoveredMatch(null)}
                 onClick={() => setSelectedMatch(match)}
               >
-                <div className="font-bold text-pink-600 mb-2">
+                <div className="font-bold text-nadeshiko mb-2">
                   {match.date} ({getDayOfWeek(match.date)}) {match.time}
                 </div>
                 <div>
                   <div className="flex items-center justify-between">
                     <div className="text-sm font-medium">{match.team1}</div>
-                    <div className="text-sm text-pink-600 mx-2">
+                    <div className="text-sm text-nadeshiko mx-2">
                       {match.status === "finished" ? match.score : "VS"}
                     </div>
                     <div className="text-sm font-medium">{match.team2}</div>

@@ -3,7 +3,8 @@ import { MapPin } from "lucide-react";
 
 const getDayOfWeek = (dateStr) => {
   const [month, day] = dateStr.split("/").map(Number);
-  const date = new Date(2024, month - 1, day);
+  const year = parseInt(month) >= 11 ? 2024 : 2025;
+  const date = new Date(year, month - 1, day);
   const days = ["日", "月", "火", "水", "木", "金", "土"];
   return days[date.getDay()];
 };
@@ -53,10 +54,7 @@ export default function MatchModal({ isOpen, onClose, match, venue, teams }) {
                     <div className="flex items-center gap-3">
                       <div className="font-bold text-lg">
                         {match.competition}
-                        {match.round === "カップ準決勝" ||
-                        match.round === "カップ決勝"
-                          ? ` ${match.round}`
-                          : ` ${match.round} 回戦`}
+                        {match.round && ` ${match.round}`}
                       </div>
                       <a
                         href={match.matchinfo}
@@ -96,7 +94,7 @@ export default function MatchModal({ isOpen, onClose, match, venue, teams }) {
                       </div>
 
                       <div className="text-2xl font-bold text-nadeshiko">
-                        VS
+                        {match.status === "finished" ? match.score : "VS"}
                       </div>
 
                       <div className="space-y-2 text-right">

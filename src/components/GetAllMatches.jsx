@@ -8,6 +8,20 @@ import { venues as weleagueVenues } from "../data/weleague_2024_venues";
 import { venues as universityVenues } from "../data/universitywomens_2024_venues";
 import { venues as highschoolVenues } from "../data/highschoolwomens_2024_venues";
 
+const formatRound = (match, competition) => {
+  if (competition === "WEリーグ") {
+    if (match.type === "クラシエカップ") {
+      return match.round;
+    }
+    return `第 ${match.section} 節`;
+  }
+
+  if (match.round === "準決勝" || match.round === "決勝") {
+    return match.round;
+  }
+  return `${match.round} 回戦`;
+};
+
 const normalizeMatch = (match, competition, venues) => {
   return {
     id: match.id,
@@ -19,7 +33,7 @@ const normalizeMatch = (match, competition, venues) => {
     team2: match.team2,
     status: match.status,
     score: match.score,
-    round: match.round || match.section,
+    round: formatRound(match, competition),
     type: match.type,
     matchinfo: match.matchinfo,
   };
@@ -27,24 +41,12 @@ const normalizeMatch = (match, competition, venues) => {
 
 const getWeekRange = () => {
   const now = new Date();
-
-  // 獲取當前是一週中的第幾天（0是週日，1是週一，以此類推）
-  const currentDay = now.getDay();
-
-  // 計算到本週一的天數差
-  // 如果今天是週日（currentDay = 0），則需要往前推6天
-  // 如果今天是週一（currentDay = 1），則不需要調整
-  // 如果今天是週二（currentDay = 2），則需要往前推1天，以此類推
-  const daysToMonday = currentDay === 0 ? 6 : currentDay - 1;
-
-  // 創建本週一的日期
   const monday = new Date(now);
-  monday.setDate(now.getDate() - daysToMonday);
+  monday.setDate(now.getDate() - now.getDay() + 1);
   monday.setHours(0, 0, 0, 0);
 
-  // 創建本週日的日期（週一加6天）
-  const sunday = new Date(monday);
-  sunday.setDate(monday.getDate() + 6);
+  const sunday = new Date(now);
+  sunday.setDate(now.getDate() - now.getDay() + 7);
   sunday.setHours(23, 59, 59, 999);
 
   return { monday, sunday };
