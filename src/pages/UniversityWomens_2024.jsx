@@ -27,7 +27,7 @@ function UniversityWomens2024() {
         <p className="text-sm text-gray-500 mb-4">更新日時：{lastUpdateTime}</p>
         <div className="bg-gray-50 p-6 rounded-lg">
           <p className="text-gray-700 mb-4">
-            公益財団法人日本サッカー協会（以下「本協会」という）は日本国内における女子サッカーの技術向上と健全な心身の育成を図り、広く女子サッカーの普及振興に寄与することを目的とし、大学のチームすべてが参加できる大会として実施する。
+            公益財団法人日本サッカー協会は日本国内における女子サッカーの技術向上と健全な心身の育成を図り、広く女子サッカーの普及振興に寄与することを目的とし、大学のチームすべてが参加できる大会として実施する。
           </p>
           <p className="text-sm text-gray-500">
             出典：

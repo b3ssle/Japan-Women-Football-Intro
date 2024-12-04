@@ -12,7 +12,7 @@ export const matches = {
     team2: "マイナビ仙台レディース",
     team1Short: "浦和",
     team2Short: "マイ仙台",
-    status: "upcoming",
+    status: "finished",
     matchinfo: "https://weleague.jp/matches/2024113011/",
   },
   M002: {
@@ -27,7 +27,7 @@ export const matches = {
     team2: "ジェフユナイテッド市原・千葉レディース",
     team1Short: "大宮V",
     team2Short: "千葉L",
-    status: "upcoming",
+    status: "finished",
     matchinfo: "https://weleague.jp/matches/2024113012/",
   },
   M003: {
@@ -42,7 +42,7 @@ export const matches = {
     team2: "アルビレックス新潟レディース",
     team1Short: "N相模原",
     team2Short: "新潟L",
-    status: "upcoming",
+    status: "finished",
     matchinfo: "https://weleague.jp/matches/2024113013/",
   },
   M004: {
@@ -57,7 +57,7 @@ export const matches = {
     team2: "日テレ・東京ベレーザ",
     team1Short: "S広島R",
     team2Short: "東京NB",
-    status: "upcoming",
+    status: "finished",
     matchinfo: "https://weleague.jp/matches/2024113014/",
   },
   M005: {
@@ -72,7 +72,7 @@ export const matches = {
     team2: "AC長野パルセイロ・レディース",
     team1Short: "EL埼玉",
     team2Short: "AC長野",
-    status: "upcoming",
+    status: "finished",
     matchinfo: "https://weleague.jp/matches/2024120108/",
   },
   M006: {
@@ -87,7 +87,7 @@ export const matches = {
     team2: "INAC神戸レオネッサ",
     team1Short: "C大阪",
     team2Short: "I神戸",
-    status: "upcoming",
+    status: "finished",
     matchinfo: "https://weleague.jp/matches/2024120109/",
   },
 

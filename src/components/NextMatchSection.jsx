@@ -1,4 +1,5 @@
 import React from "react";
+import { MapPin } from "lucide-react";
 
 const getDayOfWeek = (dateStr) => {
   const [month, day] = dateStr.split("/").map(Number);
@@ -11,79 +12,77 @@ const getDayOfWeek = (dateStr) => {
 const getMatchDateTime = (match) => {
   const [month, day] = match.date.split("/").map(Number);
   const [hours, minutes] = match.time.split(":").map(Number);
-  const year = parseInt(month) >= 11 ? 2024 : 2025;
-  const matchDate = new Date(year, month - 1, day);
+  const matchDate = new Date(match.year || 2024, month - 1, day);
   matchDate.setHours(hours || 0, minutes || 0, 0, 0);
   return matchDate;
 };
 
-const NextMatchSection_weleague_2024 = ({
+const NextMatchSection = ({
   nextMatch,
-  venues,
   matches,
-  type,
+  venues,
+  displayType,
+  onMatchClick,
 }) => {
+  if (!nextMatch) return null;
+
   const venue = venues[nextMatch.venueId];
 
-  const sameTypeMatches = Object.values(matches)
-    .filter(
-      (match) =>
-        match.type === type &&
-        match.status !== "finished" &&
-        (type === "SOMPO WEリーグ"
-          ? match.section === nextMatch.section
-          : match.round === nextMatch.round)
-    )
-    .filter((match) => getMatchDateTime(match) >= new Date())
-    .sort((a, b) => getMatchDateTime(a) - getMatchDateTime(b));
+  // 判斷是節次還是回合的標題顯示
+  const formatTitle = () => {
+    if (displayType === "section") {
+      return `第 ${nextMatch.section} 節`;
+    }
+    if (nextMatch.type === "クラシエカップ") {
+      return nextMatch.round;
+    }
+
+    if (nextMatch.round === "準決勝" || nextMatch.round === "決勝") {
+      return nextMatch.round;
+    }
+    return `${nextMatch.round} 回戦`;
+  };
+
+  // 取得同類型比賽
+  const getSameTypeMatches = () => {
+    return Object.values(matches)
+      .filter((match) => {
+        // 過濾掉已結束的比賽
+        if (match.status === "finished") return false;
+
+        // 根據顯示類型過濾
+        if (displayType === "section") {
+          return match.section === nextMatch.section;
+        }
+        return match.round === nextMatch.round;
+      })
+      .filter((match) => getMatchDateTime(match) >= new Date())
+      .sort((a, b) => getMatchDateTime(a) - getMatchDateTime(b));
+  };
+
+  const sameTypeMatches = getSameTypeMatches();
 
   return (
     <div className="bg-gradient-to-r from-pink-100/50 to-pink-50/50 rounded-2xl p-8 mb-12">
-      {" "}
       <h2 className="text-2xl font-bold mb-8 flex items-center justify-start">
         <span className="w-2 h-8 bg-pink-600 mr-3"></span>
-        次の試合：
-        {type === "SOMPO WEリーグ"
-          ? `第 ${nextMatch.section} 節`
-          : nextMatch.round}
+        次の試合：{formatTitle()}
       </h2>
+
       <div className="grid md:grid-cols-3 gap-8">
-        {/* 次の試合 */}
+        {/* 下一場比賽資訊 */}
         <div className="text-left space-y-2">
           <div className="text-3xl font-bold">
             {nextMatch.date} ({getDayOfWeek(nextMatch.date)}) {nextMatch.time}
           </div>
-          {nextMatch.status === "finished" ? (
-            <>
-              <div className="text-lg font-bold">{nextMatch.team1}</div>
-              <div className="text-xl font-bold text-nadeshiko">
-                {nextMatch.score}
-              </div>
-              <div className="text-lg font-bold">{nextMatch.team2}</div>
-            </>
-          ) : (
-            <>
-              <div className="text-lg font-bold">{nextMatch.team1}</div>
-              <div className="text-xl font-bold text-nadeshiko">VS</div>
-              <div className="text-lg font-bold">{nextMatch.team2}</div>
-            </>
-          )}
+          <div className="text-lg font-bold">{nextMatch.team1}</div>
+          <div className="text-xl font-bold text-nadeshiko">VS</div>
+          <div className="text-lg font-bold">{nextMatch.team2}</div>
+
           <div className="mt-4">
             <div className="font-bold text-lg">会場</div>
             <div className="flex items-center gap-2">
-              <svg
-                className="w-5 h-5 text-nadeshiko"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-              </svg>
+              <MapPin className="w-5 h-5 text-nadeshiko" />
               <div>
                 <div className="text-lg">{venue.name_jp}</div>
                 <div className="text-sm text-gray-600">{venue.region}</div>
@@ -92,12 +91,10 @@ const NextMatchSection_weleague_2024 = ({
           </div>
         </div>
 
-        {/* 同じ節・同じ大会の試合一覧 */}
+        {/* 同類型比賽列表 */}
         <div className="col-span-2 space-y-2">
           <div className="font-bold text-lg mb-4">
-            {type === "SOMPO WEリーグ"
-              ? `第 ${nextMatch.section} 節の試合一覧`
-              : `${nextMatch.round}の試合一覧`}
+            {formatTitle()}の試合一覧
           </div>
           <div className="grid md:grid-cols-2 gap-4 max-h-64 overflow-y-auto">
             {sameTypeMatches.map((match) => {
@@ -105,11 +102,12 @@ const NextMatchSection_weleague_2024 = ({
               return (
                 <div
                   key={match.id}
-                  className={`text-sm border-l-2 pl-2 ${
+                  className={`text-sm border-l-2 pl-2 cursor-pointer ${
                     match.id === nextMatch.id
                       ? "border-pink-600"
                       : "border-gray-200"
                   }`}
+                  onClick={() => onMatchClick?.(match)}
                 >
                   <div className="text-gray-600">
                     {match.date} ({getDayOfWeek(match.date)}) {match.time}
@@ -130,4 +128,4 @@ const NextMatchSection_weleague_2024 = ({
   );
 };
 
-export default NextMatchSection_weleague_2024;
+export default NextMatchSection;

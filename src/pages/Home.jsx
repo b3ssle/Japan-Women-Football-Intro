@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Map, Gauge } from "lucide-react";
 import { teams } from "../data/empressscup_2024_teams";
 import { getCurrentWeekMatches } from "../components/GetAllMatches";
-import MatchModal from "../components/MatchModal_all_2024";
+import MatchModal from "../components/MatchModal";
 import WeeklyVenuesMap from "../components/AllMatchesMap";
 
 const getDayOfWeek = (dateStr) => {
@@ -21,18 +21,15 @@ export default function Home() {
   ].map((id) => weeklyMatches.find((match) => match.venue.id === id).venue);
 
   const handleVenueClick = (matchData) => {
+    console.log("Clicked match:", matchData);
     setSelectedMatch(matchData);
   };
 
   const formatRoundDisplay = (match) => {
     if (!match.round) return "";
-
-    // 如果是WEリーグ，直接返回round（已經在GetAllMatches中格式化為第XX節）
     if (match.competition === "WEリーグ") {
       return match.round;
     }
-
-    // 其他比賽的處理
     if (match.round === "準決勝" || match.round === "決勝") {
       return match.round;
     }

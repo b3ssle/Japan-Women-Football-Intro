@@ -1,13 +1,39 @@
-import React from "react";
-import NextMatchSection from "../components/NextMatchSection_empressscup_2024";
+import React, { useState } from "react";
+import NextMatchSection from "../components/NextMatchSection";
+import MatchModal from "../components/MatchModal";
+import MatchList from "../components/MatchList";
+import { matches } from "../data/empressscup_2024_matches";
+import { venues } from "../data/empressscup_2024_venues";
+import { teams } from "../data/empressscup_2024_teams";
+
+const getUpcomingMatch = () => {
+  const now = new Date();
+  const upcomingMatches = Object.values(matches)
+    .filter((match) => {
+      if (match.status === "finished") return false;
+      const [month, day] = match.date.split("/").map(Number);
+      const [hours, minutes] = match.time.split(":").map(Number);
+      const matchDate = new Date(match.year || 2024, month - 1, day);
+      matchDate.setHours(hours, minutes, 0, 0);
+      return matchDate > now;
+    })
+    .sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateA - dateB;
+    });
+
+  return upcomingMatches[0];
+};
 
 function EmpresssCup2024() {
+  const [selectedMatch, setSelectedMatch] = useState(null);
+  const nextMatch = getUpcomingMatch();
   const lastUpdateTime =
     import.meta.env.VITE_LAST_UPDATE_TIME || "更新時間取得中...";
 
   return (
     <main className="max-w-7xl mx-auto px-6 py-12">
-      {/* Tournament Title */}
       <section className="mb-16">
         <h1 className="text-4xl font-bold mb-4">
           皇后杯 JFA 第 46 回全日本女子サッカー選手権大会
@@ -52,7 +78,38 @@ function EmpresssCup2024() {
         </div>
       </section>
 
-      <NextMatchSection />
+      <NextMatchSection
+        nextMatch={nextMatch}
+        matches={matches}
+        venues={venues}
+        displayType="round"
+        onMatchClick={setSelectedMatch}
+      />
+
+      <MatchModal
+        isOpen={selectedMatch !== null}
+        onClose={() => setSelectedMatch(null)}
+        match={selectedMatch}
+        venue={selectedMatch ? venues[selectedMatch.venueId] : null}
+        teams={teams}
+      />
+
+      <MatchList
+        matches={Object.values(matches)}
+        venues={venues}
+        displayType="round"
+        onMatchSelect={setSelectedMatch}
+        rounds={[
+          { value: "1", label: "１回戦" },
+          { value: "2", label: "２回戦" },
+          { value: "3", label: "３回戦" },
+          { value: "4", label: "４回戦" },
+          { value: "5", label: "５回戦" },
+          { value: "準決勝", label: "準決勝" },
+          { value: "決勝", label: "決　勝" },
+          { value: "all", label: "全試合" },
+        ]}
+      />
     </main>
   );
 }
