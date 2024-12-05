@@ -28,33 +28,42 @@ const NextMatchSection = ({
 
   const venue = venues[nextMatch.venueId];
 
-  // 判斷是節次還是回合的標題顯示
   const formatTitle = () => {
-    if (displayType === "section") {
+    if (nextMatch.round && !nextMatch.type) {
+      if (nextMatch.round === "準決勝" || nextMatch.round === "決勝") {
+        return nextMatch.round;
+      }
+      return `${nextMatch.round} 回戦`;
+    }
+    if (nextMatch.type === "SOMPO WEリーグ") {
       return `第 ${nextMatch.section} 節`;
     }
     if (nextMatch.type === "クラシエカップ") {
-      return nextMatch.round;
+      return `クラシエカップ ${nextMatch.round}`;
     }
 
-    if (nextMatch.round === "準決勝" || nextMatch.round === "決勝") {
-      return nextMatch.round;
-    }
-    return `${nextMatch.round} 回戦`;
+    return "";
   };
 
-  // 取得同類型比賽
   const getSameTypeMatches = () => {
     return Object.values(matches)
       .filter((match) => {
-        // 過濾掉已結束的比賽
         if (match.status === "finished") return false;
-
-        // 根據顯示類型過濾
-        if (displayType === "section") {
-          return match.section === nextMatch.section;
+        if (match.round) {
+          return match.round === nextMatch.round;
         }
-        return match.round === nextMatch.round;
+        if (nextMatch.type === "SOMPO WEリーグ") {
+          return (
+            match.type === nextMatch.type && match.section === nextMatch.section
+          );
+        }
+        if (nextMatch.type === "クラシエカップ") {
+          return (
+            match.type === nextMatch.type && match.round === nextMatch.round
+          );
+        }
+
+        return false;
       })
       .filter((match) => getMatchDateTime(match) >= new Date())
       .sort((a, b) => getMatchDateTime(a) - getMatchDateTime(b));

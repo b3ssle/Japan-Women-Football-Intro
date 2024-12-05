@@ -21,12 +21,14 @@ const MatchList = ({
   matches,
   venues,
   categories = [],
-  rounds = [],
+  selectedType,
+  onTypeChange,
   displayType = "round",
+  rounds = [],
+  selectedRound,
+  onRoundChange,
   onMatchSelect,
 }) => {
-  const [selectedType, setSelectedType] = useState(categories[0]?.value);
-  const [selectedRound, setSelectedRound] = useState(rounds[0]?.value || "all");
   const [hoveredMatch, setHoveredMatch] = useState(null);
 
   const formatMatchTitle = (match) => {
@@ -43,56 +45,34 @@ const MatchList = ({
   };
 
   const filteredMatches = matches.filter((match) => {
-    if (selectedType === "upcoming") {
-      return match.status !== "finished";
+    if (rounds.length > 0) {
+      if (selectedRound === "all") {
+        return true;
+      }
+      return match.round === selectedRound;
     }
-    if (selectedType === "finished") {
-      return match.status === "finished";
-    }
-    if (
-      selectedType === "SOMPO WEリーグ" ||
-      selectedType === "クラシエカップ"
-    ) {
+
+    if (categories.length > 0) {
+      if (selectedType === "finished") {
+        return match.status === "finished";
+      }
+      if (selectedType === "upcoming") {
+        return match.status !== "finished";
+      }
       return match.type === selectedType && match.status !== "finished";
     }
-    return match.type === selectedType;
+
+    return true;
   });
 
-  return (
-    <section>
-      {categories.length > 0 && (
-        <div className="flex gap-4 mb-6">
-          {categories.map((category) => (
-            <button
-              key={category.value}
-              onClick={() => setSelectedType(category.value)}
-              className={`px-4 py-2 rounded transition-colors ${
-                selectedType === category.value
-                  ? "bg-nadeshiko text-white"
-                  : "border border-nadeshiko text-nadeshiko hover:bg-pink-50"
-              }`}
-            >
-              {category.label}
-            </button>
-          ))}
-        </div>
-      )}
-
-      <div className="text-center text-sm text-gray-600 mb-4">
-        {selectedRound === "all"
-          ? "全試合"
-          : selectedRound === "準決勝" || selectedRound === "決勝"
-          ? selectedRound
-          : `${selectedRound} 回戦`}
-        ：{filteredMatches.length} 試合
-      </div>
-
-      {rounds.length > 0 && (
+  const renderHeaderButtons = () => {
+    if (rounds.length > 0) {
+      return (
         <div className="flex flex-wrap gap-4 justify-center mb-6">
           {rounds.map((round) => (
             <button
               key={round.value}
-              onClick={() => setSelectedRound(round.value)}
+              onClick={() => onRoundChange(round.value)}
               className={`px-4 py-2 rounded transition-colors ${
                 selectedRound === round.value
                   ? "bg-nadeshiko text-white"
@@ -103,7 +83,59 @@ const MatchList = ({
             </button>
           ))}
         </div>
-      )}
+      );
+    }
+
+    if (categories.length > 0) {
+      return (
+        <div className="flex flex-wrap gap-4 justify-center mb-6">
+          {categories.map((category) => (
+            <button
+              key={category.value}
+              onClick={() => onTypeChange(category.value)}
+              className={`px-4 py-2 rounded transition-colors ${
+                selectedType === category.value
+                  ? "bg-nadeshiko text-white"
+                  : "border border-nadeshiko text-nadeshiko hover:bg-nadeshiko/10"
+              }`}
+            >
+              {category.label}
+            </button>
+          ))}
+        </div>
+      );
+    }
+  };
+
+  const renderTitle = () => {
+    if (rounds.length > 0) {
+      return `${
+        selectedRound === "all"
+          ? "全試合"
+          : selectedRound === "準決勝" || selectedRound === "決勝"
+          ? selectedRound
+          : `${selectedRound} 回戦`
+      }：${filteredMatches.length} 試合`;
+    }
+
+    if (categories.length > 0) {
+      let typeDisplay = selectedType;
+      if (selectedType === "SOMPO WEリーグ") {
+        typeDisplay = "WEリーグ";
+      } else if (selectedType === "finished") {
+        typeDisplay = "終了した試合";
+      }
+      return `${typeDisplay}：${filteredMatches.length} 試合`;
+    }
+  };
+
+  return (
+    <section>
+      {renderHeaderButtons()}
+
+      <div className="text-center text-sm text-gray-600 mb-4">
+        {renderTitle()}
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredMatches

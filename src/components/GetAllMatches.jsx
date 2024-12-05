@@ -11,11 +11,12 @@ import { venues as highschoolVenues } from "../data/highschoolwomens_2024_venues
 const formatRound = (match, competition) => {
   if (competition === "WEリーグ") {
     if (match.type === "クラシエカップ") {
-      return match.round;
+      return `クラシエカップ ${match.round}`;
     }
-    return `第 ${match.section} 節`;
+    if (match.type === "SOMPO WEリーグ") {
+      return `第 ${match.section} 節`;
+    }
   }
-
   if (match.round === "準決勝" || match.round === "決勝") {
     return match.round;
   }

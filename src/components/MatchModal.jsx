@@ -18,7 +18,7 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
   )}`;
 
   const formatRoundOrSection = (match) => {
-    if (!match.competition) {
+    if (match.type) {
       if (match.type === "SOMPO WEリーグ") {
         return `第 ${match.section} 節`;
       }
@@ -27,14 +27,11 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
       }
     }
 
-    if (match.competition === "皇后杯") {
-      if (match.round === "準決勝" || match.round === "決勝") {
-        return match.round;
-      }
-      return `${match.round}`;
+    if (match.round === "準決勝" || match.round === "決勝") {
+      return match.round;
     }
 
-    return match.round;
+    return `${match.round} 回戦`;
   };
 
   return (

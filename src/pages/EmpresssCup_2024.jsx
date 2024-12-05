@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NextMatchSection from "../components/NextMatchSection";
 import MatchModal from "../components/MatchModal";
 import MatchList from "../components/MatchList";
@@ -27,10 +27,39 @@ const getUpcomingMatch = () => {
 };
 
 function EmpresssCup2024() {
-  const [selectedMatch, setSelectedMatch] = useState(null);
   const nextMatch = getUpcomingMatch();
+  const [selectedRound, setSelectedRound] = useState("1");
+  const [selectedMatch, setSelectedMatch] = useState(null);
   const lastUpdateTime =
     import.meta.env.VITE_LAST_UPDATE_TIME || "更新時間取得中...";
+
+    const rounds = [
+      { value: "1", label: "１回戦" },
+      { value: "2", label: "２回戦" },
+      { value: "3", label: "３回戦" },
+      { value: "4", label: "４回戦" },
+      { value: "5", label: "５回戦" },
+      { value: "準決勝", label: "準決勝" },
+      { value: "決勝", label: "決　勝" },
+      { value: "all", label: "全試合" },
+    ];
+
+  const filteredMatches = Object.values(matches).filter((match) => {
+    if (selectedRound === "all") return true;
+    return match.round === selectedRound;
+  });
+
+  const handleMatchClick = (match) => {
+    setSelectedMatch(match);
+    setSelectedRound(match.round);
+  };
+  
+
+  useEffect(() => {
+    if (nextMatch) {
+      setSelectedRound(nextMatch.round);
+    }
+  }, [nextMatch]);
 
   return (
     <main className="max-w-7xl mx-auto px-6 py-12">
@@ -80,7 +109,7 @@ function EmpresssCup2024() {
 
       <NextMatchSection
         nextMatch={nextMatch}
-        matches={matches}
+        matches={Object.values(matches)}
         venues={venues}
         displayType="round"
         onMatchClick={setSelectedMatch}
@@ -95,20 +124,12 @@ function EmpresssCup2024() {
       />
 
       <MatchList
-        matches={Object.values(matches)}
+        matches={filteredMatches}
         venues={venues}
-        displayType="round"
+        rounds={rounds}
+        selectedRound={selectedRound}
+        onRoundChange={setSelectedRound}
         onMatchSelect={setSelectedMatch}
-        rounds={[
-          { value: "1", label: "１回戦" },
-          { value: "2", label: "２回戦" },
-          { value: "3", label: "３回戦" },
-          { value: "4", label: "４回戦" },
-          { value: "5", label: "５回戦" },
-          { value: "準決勝", label: "準決勝" },
-          { value: "決勝", label: "決　勝" },
-          { value: "all", label: "全試合" },
-        ]}
       />
     </main>
   );

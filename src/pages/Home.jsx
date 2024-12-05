@@ -103,7 +103,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Modal */}
         <MatchModal
           isOpen={selectedMatch !== null}
           onClose={() => setSelectedMatch(null)}

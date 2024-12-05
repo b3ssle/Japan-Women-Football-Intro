@@ -95,7 +95,7 @@ export const matches = {
   M007: {
     id: "M007",
     type: "クラシエカップ",
-    round: "カップ準決勝",
+    round: "準決勝",
     year: 2024,
     date: "12/08",
     time: "12:00",
@@ -110,7 +110,7 @@ export const matches = {
   M008: {
     id: "M008",
     type: "クラシエカップ",
-    round: "カップ準決勝",
+    round: "準決勝",
     year: 2024,
     date: "12/08",
     time: "15:45",
@@ -125,7 +125,7 @@ export const matches = {
   M009: {
     id: "M009",
     type: "クラシエカップ",
-    round: "カップ決勝",
+    round: "決勝",
     year: 2024,
     date: "12/29",
     time: "13:00",

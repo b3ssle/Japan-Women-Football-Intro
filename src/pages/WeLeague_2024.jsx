@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { matches } from "../data/weleague_2024_matches";
 import { venues } from "../data/weleague_2024_venues";
 import { teams } from "../data/weleague_2024_teams";
@@ -37,15 +37,33 @@ const getUpcomingMatch = (matches) => {
 };
 
 const WELeague2024 = () => {
-  const lastUpdateTime = import.meta.env.VITE_LAST_UPDATE_TIME || "更新時間取得中...";
+  const lastUpdateTime =
+    import.meta.env.VITE_LAST_UPDATE_TIME || "更新時間取得中...";
   const [selectedType, setSelectedType] = useState("SOMPO WEリーグ");
   const [hoveredVenue, setHoveredVenue] = useState(null);
   const [selectedMatch, setSelectedMatch] = useState(null);
 
-  const filteredMatches = Object.values(matches).filter(
-    (match) => match.type === selectedType
-  );
-  const nextMatch = getUpcomingMatch(filteredMatches);
+  const activeMatches = Object.values(matches).filter((match) => {
+    if (selectedType === "finished") {
+      return match.status === "finished";
+    }
+    if (selectedType === "upcoming") {
+      return match.status !== "finished";
+    }
+    return match.type === selectedType && match.status !== "finished";
+  });
+
+  const nextMatch = getUpcomingMatch(Object.values(matches));
+
+  const handleTypeChange = (newType) => {
+    setSelectedType(newType);
+  };
+
+  useEffect(() => {
+    if (nextMatch) {
+      setSelectedType(nextMatch.type);
+    }
+  }, [nextMatch]);
 
   return (
     <main className="max-w-7xl mx-auto px-6 py-12">
@@ -89,9 +107,8 @@ const WELeague2024 = () => {
       {nextMatch && (
         <NextMatchSection
           nextMatch={nextMatch}
-          matches={filteredMatches}
+          matches={Object.values(matches)}
           venues={venues}
-          displayType={selectedType === "SOMPO WEリーグ" ? "section" : "round"}
           onMatchClick={setSelectedMatch}
         />
       )}
@@ -112,7 +129,8 @@ const WELeague2024 = () => {
           { value: "SOMPO WEリーグ", label: "WEリーグ" },
           { value: "クラシエカップ", label: "クラシエカップ" },
         ]}
-        displayType="section"
+        selectedType={selectedType}
+        onTypeChange={setSelectedType}
         onMatchSelect={setSelectedMatch}
       />
     </main>
