@@ -31,6 +31,10 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
       return match.round;
     }
 
+    if (match.round.includes("回戦")) {
+      return match.round;
+    }
+
     return `${match.round} 回戦`;
   };
 
