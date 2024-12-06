@@ -8,6 +8,7 @@ import EmpresssCup2024 from "./pages/EmpresssCup_2024";
 import EmpresssCup2024Teams from "./pages/EmpresssCup_2024_teams";
 import UniversityWomens from "./pages/UniversityWomens_2024";
 import HighschoolWomens2024 from "./pages/HighschoolWomens_2024";
+import JoshiYouthU152024 from "./pages/Joshi_Youth_U15_2024";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           path="/EmpresssCup_2024_teams"
           element={<EmpresssCup2024Teams />}
         />
+        <Route path="/Joshi_Youth_U15_2024" element={<JoshiYouthU152024 />} />
         <Route path="/UniversityWomens_2024" element={<UniversityWomens />} />
         <Route
           path="/HighschoolWomens_2024"

@@ -36,12 +36,13 @@ export default function Home() {
     }
     if (
       match.competition === "皇后杯" ||
+      match.competition === "高円宮妃杯 U15" ||
       match.competition === "全日本大学女子サッカー選手権" ||
       match.competition === "全日本高校女子サッカー選手権"
     ) {
       return match.round;
     }
-    if (match.round === "準決勝" || match.round === "決勝") {
+    if (match.round === "準々決勝" || match.round === "準決勝" || match.round === "決勝") {
       return match.round;
     }
     return match.round;

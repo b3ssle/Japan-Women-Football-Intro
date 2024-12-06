@@ -73,6 +73,14 @@ function Navbar() {
                 </li>
                 <li>
                   <Link
+                    to="/Joshi_Youth_U15_2024"
+                    className="block px-4 py-2 hover:bg-nadeshiko/10 transition-colors"
+                  >
+                    高円宮妃杯 U15
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/UniversityWomens_2024"
                     className="block px-4 py-2 hover:bg-nadeshiko/10 transition-colors"
                   >

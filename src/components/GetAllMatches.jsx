@@ -17,7 +17,11 @@ const formatRound = (match, competition) => {
       return `第 ${match.section} 節`;
     }
   }
-  if (match.round === "準決勝" || match.round === "決勝") {
+  if (
+    match.round === "準々決勝" ||
+    match.round === "準決勝" ||
+    match.round === "決勝"
+  ) {
     return match.round;
   }
   return `${match.round} 回戦`;
