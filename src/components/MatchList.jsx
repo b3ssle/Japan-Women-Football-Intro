@@ -31,14 +31,21 @@ const MatchList = ({
 }) => {
   const [hoveredMatch, setHoveredMatch] = useState(null);
 
-  const formatMatchTitle = (match) => {
-    if (match.type === "SOMPO WEリーグ") {
-      return `第 ${match.section} 節`;
+  const formatRoundDisplay = (match) => {
+    if (match.type) {
+      if (match.type === "SOMPO WEリーグ") {
+        return `第 ${match.section} 節`;
+      }
+      if (match.type === "クラシエカップ") {
+        return match.round;
+      }
     }
-    if (match.type === "クラシエカップ") {
-      return match.round;
-    }
-    if (match.round === "準決勝" || match.round === "決勝") {
+
+    if (
+      match.round === "準々決勝" ||
+      match.round === "準決勝" ||
+      match.round === "決勝"
+    ) {
       return match.round;
     }
     return `${match.round} 回戦`;
@@ -157,7 +164,7 @@ const MatchList = ({
                 <div className="font-bold text-nadeshiko mb-2">
                   {match.date} ({getDayOfWeek(match.date)}) {match.time}
                   <span className="text-gray-600 text-sm ml-2">
-                    {formatMatchTitle(match)}
+                    {formatRoundDisplay(match)}
                   </span>
                 </div>
                 <div>

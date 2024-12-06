@@ -30,7 +30,11 @@ const NextMatchSection = ({
 
   const formatTitle = () => {
     if (nextMatch.round && !nextMatch.type) {
-      if (nextMatch.round === "準決勝" || nextMatch.round === "決勝") {
+      if (
+        nextMatch.round === "準々決勝" ||
+        nextMatch.round === "準決勝" ||
+        nextMatch.round === "決勝"
+      ) {
         return nextMatch.round;
       }
       return `${nextMatch.round} 回戦`;

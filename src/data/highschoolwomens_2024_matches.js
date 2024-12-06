@@ -544,7 +544,7 @@ export const matches = {
     id: "M037",
     round: "3",
     year: 2025,
-    date: "1/3",
+    date: "01/03",
     time: "11:00",
     venueId: "V004", // 三木第2陸上競技場
     team1: "M021勝者",
@@ -558,7 +558,7 @@ export const matches = {
     id: "M038",
     round: "3",
     year: 2025,
-    date: "1/3",
+    date: "01/03",
     time: "11:00",
     venueId: "V006", // 三木第2球技場
     team1: "M023勝者",
@@ -571,7 +571,7 @@ export const matches = {
   M039: {
     id: "M039",
     round: "3",
-    date: "1/3",
+    date: "01/03",
     time: "11:00",
     venueId: "V005", // 三木第1球技場
     team1: "M025勝者",
@@ -585,7 +585,7 @@ export const matches = {
     id: "M040",
     round: "3",
     year: 2025,
-    date: "1/3",
+    date: "01/03",
     time: "11:00",
     venueId: "V003", // 三木陸上競技場
     team1: "M027勝者",
@@ -599,7 +599,7 @@ export const matches = {
     id: "M041",
     round: "3",
     year: 2025,
-    date: "1/3",
+    date: "01/03",
     time: "14:10",
     venueId: "V004", // 三木第2陸上競技場
     team1: "M029勝者",
@@ -613,7 +613,7 @@ export const matches = {
     id: "M042",
     round: "3",
     year: 2025,
-    date: "1/3",
+    date: "01/03",
     time: "14:10",
     venueId: "V006", // 三木第2球技場
     team1: "M031勝者",
@@ -627,7 +627,7 @@ export const matches = {
     id: "M043",
     round: "3",
     year: 2025,
-    date: "1/3",
+    date: "01/03",
     time: "14:10",
     venueId: "V005", // 三木第1球技場
     team1: "M033勝者",
@@ -641,7 +641,7 @@ export const matches = {
     id: "M044",
     round: "3",
     year: 2025,
-    date: "1/3",
+    date: "01/03",
     time: "14:10",
     venueId: "V003", // 三木陸上競技場
     team1: "M035勝者",
@@ -657,7 +657,7 @@ export const matches = {
     id: "M045",
     round: "準々決勝",
     year: 2025,
-    date: "1/5",
+    date: "01/05",
     time: "11:00",
     venueId: "V004", // 三木第2陸上競技場
     team1: "M037勝者",
@@ -671,7 +671,7 @@ export const matches = {
     id: "M046",
     round: "準々決勝",
     year: 2025,
-    date: "1/5",
+    date: "01/05",
     time: "14:10",
     venueId: "V004", // 三木第2陸上競技場
     team1: "M039勝者",
@@ -685,7 +685,7 @@ export const matches = {
     id: "M047",
     round: "準々決勝",
     year: 2025,
-    date: "1/5",
+    date: "01/05",
     time: "11:00",
     venueId: "V003", // 三木陸上競技場
     team1: "M041勝者",
@@ -699,7 +699,7 @@ export const matches = {
     id: "M048",
     round: "準々決勝",
     year: 2025,
-    date: "1/5",
+    date: "01/05",
     time: "14:10",
     venueId: "V003", // 三木陸上競技場
     team1: "M043勝者",
@@ -715,7 +715,7 @@ export const matches = {
     id: "M049",
     round: "準決勝",
     year: 2025,
-    date: "1/7",
+    date: "01/07",
     time: "14:00",
     venueId: "V011", // ノエビアスタジアム神戸
     team1: "M045勝者",
@@ -729,7 +729,7 @@ export const matches = {
     id: "M050",
     round: "準決勝",
     year: 2025,
-    date: "1/7",
+    date: "01/07",
     time: "11:00",
     venueId: "V011", // ノエビアスタジアム神戸
     team1: "M047勝者",
@@ -745,7 +745,7 @@ export const matches = {
     id: "M051",
     round: "決勝",
     year: 2025,
-    date: "1/12",
+    date: "01/12",
     time: "13:40",
     venueId: "V011", // ノエビアスタジアム神戸
     team1: "M049勝者",

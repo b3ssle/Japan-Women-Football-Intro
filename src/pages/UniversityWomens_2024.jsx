@@ -1,15 +1,73 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { matches } from "../data/universitywomens_2024_matches";
+import { venues } from "../data/universitywomens_2024_venues";
+import { teams } from "../data/universitywomens_2024_teams";
+import MatchModal from "../components/MatchModal";
+import NextMatchSection from "../components/NextMatchSection";
+import MatchList from "../components/MatchList";
+
+const getUpcomingMatch = () => {
+  const now = new Date();
+  const upcomingMatches = Object.values(matches)
+    .filter((match) => {
+      if (match.status === "finished") return false;
+      const [month, day] = match.date.split("/").map(Number);
+      const year = parseInt(month) >= 11 ? 2024 : 2025;
+      const [hours, minutes] = match.time.split(":").map(Number);
+      const matchDate = new Date(year, month - 1, day);
+      matchDate.setHours(hours || 0, minutes || 0, 0, 0);
+      return matchDate > now;
+    })
+    .sort((a, b) => {
+      const [monthA, dayA] = a.date.split("/").map(Number);
+      const [monthB, dayB] = b.date.split("/").map(Number);
+      const yearA = parseInt(monthA) >= 11 ? 2024 : 2025;
+      const yearB = parseInt(monthB) >= 11 ? 2024 : 2025;
+      const dateA = new Date(yearA, monthA - 1, dayA);
+      const dateB = new Date(yearB, monthB - 1, dayB);
+      return dateA - dateB;
+    });
+
+  return upcomingMatches[0];
+};
 
 function UniversityWomens2024() {
+  const nextMatch = getUpcomingMatch();
+  const [selectedRound, setSelectedRound] = useState("1");
+  const [selectedMatch, setSelectedMatch] = useState(null);
   const lastUpdateTime =
     import.meta.env.VITE_LAST_UPDATE_TIME || "更新時間取得中...";
 
+  const rounds = [
+    { value: "1", label: "１回戦" },
+    { value: "2", label: "２回戦" },
+    { value: "準々決勝", label: "準々決勝" },
+    { value: "準決勝", label: "準決勝" },
+    { value: "決勝", label: "決　勝" },
+    { value: "all", label: "全試合" },
+  ];
+
+  const filteredMatches = Object.values(matches).filter((match) => {
+    if (selectedRound === "all") return true;
+    return match.round === selectedRound;
+  });
+
+  const handleMatchClick = (match) => {
+    setSelectedMatch(match);
+    setSelectedRound(match.round);
+  };
+
+  useEffect(() => {
+    if (nextMatch) {
+      setSelectedRound(nextMatch.round);
+    }
+  }, [nextMatch]);
+
   return (
     <main className="max-w-7xl mx-auto px-6 py-12">
-      {/* Tournament Title */}
       <section className="mb-16">
         <h1 className="text-4xl font-bold mb-4">
-          第 33 回全日本大学女子サッカー選手権大会
+          第 32 回全日本大学女子サッカー選手権大会
         </h1>
         <div className="flex items-center gap-4">
           <p className="text-xl text-gray-600 mb-2">
@@ -42,6 +100,31 @@ function UniversityWomens2024() {
           </p>
         </div>
       </section>
+
+      <NextMatchSection
+        nextMatch={nextMatch}
+        matches={Object.values(matches)}
+        venues={venues}
+        displayType="round"
+        onMatchClick={setSelectedMatch}
+      />
+
+      <MatchModal
+        isOpen={selectedMatch !== null}
+        onClose={() => setSelectedMatch(null)}
+        match={selectedMatch}
+        venue={selectedMatch ? venues[selectedMatch.venueId] : null}
+        teams={teams}
+      />
+
+      <MatchList
+        matches={filteredMatches}
+        venues={venues}
+        rounds={rounds}
+        selectedRound={selectedRound}
+        onRoundChange={setSelectedRound}
+        onMatchSelect={setSelectedMatch}
+      />
     </main>
   );
 }
