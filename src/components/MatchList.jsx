@@ -116,7 +116,9 @@ const MatchList = ({
       return `${
         selectedRound === "all"
           ? "全試合"
-          : selectedRound === "準決勝" || selectedRound === "決勝"
+          : selectedRound === "準々決勝" ||
+            selectedRound === "準決勝" ||
+            selectedRound === "決勝"
           ? selectedRound
           : `${selectedRound} 回戦`
       }：${filteredMatches.length} 試合`;

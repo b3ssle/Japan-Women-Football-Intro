@@ -57,10 +57,8 @@ const MapChart = ({ venues = [], matches = [], onVenueClick }) => {
   useTooltipStyle();
 
   const handleVenueClick = (venue) => {
-    // 找出該場地的所有比賽
     const venueMatches = matches.filter((match) => match.venue.id === venue.id);
     if (venueMatches.length > 0) {
-      // 將第一場比賽作為主要比賽，並添加所有比賽信息
       const mainMatch = {
         ...venueMatches[0],
         allMatches: venueMatches,

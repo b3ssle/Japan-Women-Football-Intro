@@ -3,10 +3,12 @@ import { matches as empressMatches } from "../data/empressscup_2024_matches";
 import { matches as weleagueMatches } from "../data/weleague_2024_matches";
 import { matches as universityMatches } from "../data/universitywomens_2024_matches";
 import { matches as highschoolMatches } from "../data/highschoolwomens_2024_matches";
+import { matches as joshiYouthMatches } from "../data/Joshi_Youth_U15_2024_matches";
 import { venues as empressVenues } from "../data/empressscup_2024_venues";
 import { venues as weleagueVenues } from "../data/weleague_2024_venues";
 import { venues as universityVenues } from "../data/universitywomens_2024_venues";
 import { venues as highschoolVenues } from "../data/highschoolwomens_2024_venues";
+import { venues as joshiYouthVenues } from "../data/Joshi_Youth_U15_2024_venues";
 
 const formatRound = (match, competition) => {
   if (competition === "WEリーグ") {
@@ -28,6 +30,7 @@ const formatRound = (match, competition) => {
 };
 
 const normalizeMatch = (match, competition, venues) => {
+  
   return {
     id: match.id,
     competition,
@@ -80,6 +83,9 @@ export const getCurrentWeekMatches = () => {
     ),
     ...Object.values(weleagueMatches).map((m) =>
       normalizeMatch(m, "WEリーグ", weleagueVenues)
+    ),
+    ...Object.values(joshiYouthMatches).map((m) =>
+      normalizeMatch(m, "高円宮妃杯 U15", joshiYouthVenues)
     ),
     ...Object.values(universityMatches).map((m) =>
       normalizeMatch(m, "全日本大学女子サッカー選手権", universityVenues)
