@@ -104,7 +104,8 @@ export const matches = {
     team2: "三菱重工浦和レッズレディース",
     team1Short: "S広島R",
     team2Short: "浦和",
-    status: "upcoming",
+    score: "3-2",
+    status: "finished",
     matchinfo: "https://weleague.jp/matches/2024120812/",
   },
   M008: {
@@ -119,7 +120,8 @@ export const matches = {
     team2: "アルビレックス新潟レディース",
     team1Short: "I神戸",
     team2Short: "新潟L",
-    status: "upcoming",
+    score: "1-0",
+    status: "finished",
     matchinfo: "https://weleague.jp/matches/2024120813/",
   },
   M009: {
@@ -130,8 +132,8 @@ export const matches = {
     date: "12/29",
     time: "13:00",
     venueId: "V014", // 国立
-    team1: "M007勝者",
-    team2: "M008勝者",
+    team1: "サンフレッチェ広島レジーナ",
+    team2: "INAC神戸レオネッサ",
     status: "upcoming",
     matchinfo: "https://weleague.jp/matches/2024122901/",
   },
