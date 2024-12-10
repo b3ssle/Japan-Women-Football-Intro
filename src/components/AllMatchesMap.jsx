@@ -1,10 +1,10 @@
 import React, { memo, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
-import { Map } from "lucide-react";
+import MarkerClusterGroup from "react-leaflet-cluster";
 import "leaflet/dist/leaflet.css";
 import { divIcon } from "leaflet";
 
-// 自定義標記圖標
+// 自定义标记图标
 const customIcon = divIcon({
   html: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="12" cy="12" r="6" fill="#E91E63" stroke="white" stroke-width="2"/>
@@ -15,7 +15,19 @@ const customIcon = divIcon({
   iconAnchor: [12, 12],
 });
 
-// 樣式注入
+// 自定义聚合图标
+const createClusterCustomIcon = function (cluster) {
+  const count = cluster.getChildCount();
+  return divIcon({
+    html: `<div class="bg-nadeshiko text-white rounded-full w-8 h-8 flex items-center justify-center font-bold border-2 border-white">
+      ${count}
+    </div>`,
+    className: "!bg-transparent",
+    iconSize: [32, 32],
+    iconAnchor: [16, 16],
+  });
+};
+
 const useTooltipStyle = () => {
   useEffect(() => {
     const styleId = "map-tooltip-style";
@@ -40,6 +52,9 @@ const useTooltipStyle = () => {
         }
         .venue-label::before {
           display: none !important;
+        }
+        .leaflet-marker-icon {
+          transition: all 0.3s ease;
         }
       `;
       document.head.appendChild(style);
@@ -84,25 +99,33 @@ const MapChart = ({ venues = [], matches = [], onVenueClick }) => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {uniqueVenues.map((venue) => (
-        <Marker
-          key={venue.id}
-          position={[venue.latitude, venue.longitude]}
-          icon={customIcon}
-          eventHandlers={{
-            click: () => handleVenueClick(venue),
-          }}
-        >
-          <Tooltip
-            permanent
-            direction="top"
-            offset={[0, -4]}
-            className="venue-label"
+      <MarkerClusterGroup
+        chunkedLoading
+        iconCreateFunction={createClusterCustomIcon}
+        maxClusterRadius={40}
+        spiderfyOnMaxZoom={true}
+        showCoverageOnHover={false}
+      >
+        {uniqueVenues.map((venue) => (
+          <Marker
+            key={venue.id}
+            position={[venue.latitude, venue.longitude]}
+            icon={customIcon}
+            eventHandlers={{
+              click: () => handleVenueClick(venue),
+            }}
           >
-            {venue.short}
-          </Tooltip>
-        </Marker>
-      ))}
+            <Tooltip
+              permanent
+              direction="top"
+              offset={[0, -4]}
+              className="venue-label"
+            >
+              {venue.short}
+            </Tooltip>
+          </Marker>
+        ))}
+      </MarkerClusterGroup>
     </MapContainer>
   );
 };

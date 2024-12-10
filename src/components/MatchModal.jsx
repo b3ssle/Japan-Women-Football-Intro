@@ -9,44 +9,6 @@ const getDayOfWeek = (dateStr) => {
   return days[date.getDay()];
 };
 
-const formatMatchTitle = (match) => {
-  if (!match) return "";
-
-  const title = [];
-
-  // WE League matches
-  if (match.competition === "WEリーグ" || match.type === "SOMPO WEリーグ") {
-    title.push("WEリーグ");
-
-    if (match.type === "クラシエカップ") {
-      title.push(match.round || "");
-    } else {
-      // Try to get section from both places
-      const section =
-        match.section ||
-        (match.id && match.id.startsWith("M") ? match.id.slice(1) : null);
-      if (section) {
-        title.push(`第 ${section} 節`);
-      }
-    }
-  }
-  // Other tournaments
-  else if (match.competition) {
-    title.push(match.competition);
-    if (match.round) {
-      if (["準々決勝", "準決勝", "決勝"].includes(match.round)) {
-        title.push(match.round);
-      } else {
-        title.push(
-          match.round.includes("回戦") ? match.round : `${match.round}回戦`
-        );
-      }
-    }
-  }
-
-  return title.filter(Boolean).join(" ").trim();
-};
-
 const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
   if (!isOpen || !match || !venue) return null;
 
@@ -55,29 +17,66 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
     venue.name_jp
   )}`;
 
+  const formatRoundOrSection = (match) => {
+    if (match.type) {
+      if (match.type === "SOMPO WEリーグ") {
+        return `第 ${match.section} 節`;
+      }
+      if (match.type === "クラシエカップ") {
+        return match.round;
+      }
+    }
+
+    if (match.round === "準決勝" || match.round === "決勝") {
+      return match.round;
+    }
+
+    if (match.round.includes("回戦")) {
+      return match.round;
+    }
+
+    return `${match.round} 回戦`;
+  };
+
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg p-6 w-full max-w-2xl mx-auto relative max-h-[90vh] overflow-y-auto">
-        <button
-          onClick={onClose}
-          className="absolute right-2 top-2 text-gray-500 hover:text-gray-700 p-2 w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100"
-        >
-          ✕
-        </button>
-
-        <div className="space-y-6">
-          <div>
+      <div className="bg-white rounded-lg w-full max-w-2xl mx-auto relative max-h-[90vh] overflow-y-auto">
+        {/* Header Section */}
+        <div className="sticky top-0 bg-white border-b px-6 py-4">
+          <div className="pr-12">
+            {" "}
+            {/* Right padding for close button */}
             <a
               href={googleMapsSearchUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-lg font-bold text-nadeshiko hover:text-nadeshiko-light"
+              className="inline-flex items-start max-w-[calc(100%-40px)] text-lg font-bold text-nadeshiko hover:text-nadeshiko-light"
             >
-              <MapPin className="w-5 h-5 mr-2" />
-              {venue.name_jp}
+              <MapPin className="w-5 h-5 mr-2 flex-shrink-0 mt-1" />
+              <span className="break-words">{venue.name_jp}</span>
             </a>
           </div>
+          <button
+            onClick={onClose}
+            className="absolute right-4 top-4 text-gray-500 hover:text-gray-700 p-2 hover:bg-gray-100 rounded-full transition-colors"
+            aria-label="閉じる"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
 
+        {/* Content Section */}
+        <div className="p-6">
           <div className="divide-y">
             {matches.map((match, index) => {
               const team1Data = teams[match.team1];
@@ -86,9 +85,9 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
               return (
                 <div key={match.id} className={index > 0 ? "pt-6" : ""}>
                   <div className="space-y-4 mb-6">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 flex-wrap">
                       <div className="font-bold text-lg">
-                        {formatMatchTitle(match)}
+                        {match.competition} {formatRoundOrSection(match)}
                       </div>
                       {match.matchinfo && (
                         <a
