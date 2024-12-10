@@ -30,8 +30,7 @@ const formatRound = (match, competition) => {
 };
 
 const normalizeMatch = (match, competition, venues) => {
-  
-  return {
+  const baseMatch = {
     id: match.id,
     competition,
     date: match.date,
@@ -45,6 +44,15 @@ const normalizeMatch = (match, competition, venues) => {
     type: match.type,
     matchinfo: match.matchinfo,
   };
+
+  if (competition === "WEリーグ") {
+    return {
+      ...baseMatch,
+      section: match.section,
+    };
+  }
+
+  return baseMatch;
 };
 
 const getWeekRange = () => {

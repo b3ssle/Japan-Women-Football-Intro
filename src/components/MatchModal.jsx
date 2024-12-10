@@ -9,6 +9,44 @@ const getDayOfWeek = (dateStr) => {
   return days[date.getDay()];
 };
 
+const formatMatchTitle = (match) => {
+  if (!match) return "";
+
+  const title = [];
+
+  // WE League matches
+  if (match.competition === "WEリーグ" || match.type === "SOMPO WEリーグ") {
+    title.push("WEリーグ");
+
+    if (match.type === "クラシエカップ") {
+      title.push(match.round || "");
+    } else {
+      // Try to get section from both places
+      const section =
+        match.section ||
+        (match.id && match.id.startsWith("M") ? match.id.slice(1) : null);
+      if (section) {
+        title.push(`第 ${section} 節`);
+      }
+    }
+  }
+  // Other tournaments
+  else if (match.competition) {
+    title.push(match.competition);
+    if (match.round) {
+      if (["準々決勝", "準決勝", "決勝"].includes(match.round)) {
+        title.push(match.round);
+      } else {
+        title.push(
+          match.round.includes("回戦") ? match.round : `${match.round}回戦`
+        );
+      }
+    }
+  }
+
+  return title.filter(Boolean).join(" ").trim();
+};
+
 const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
   if (!isOpen || !match || !venue) return null;
 
@@ -16,26 +54,6 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
   const googleMapsSearchUrl = `https://www.google.com/maps/search/${encodeURIComponent(
     venue.name_jp
   )}`;
-
-  const formatRoundOrSection = (match) => {
-    if (match.type) {
-      if (match.type === "SOMPO WEリーグ") {
-        return `第 ${match.section} 節`;
-      }
-      if (match.type === "クラシエカップ") {
-        return match.round;
-      }
-    }
-
-    if (
-      match.round === "準々決勝" ||
-      match.round === "準決勝" ||
-      match.round === "決勝"
-    ) {
-      return match.round;
-    }
-    return `${match.round} 回戦`;
-  };
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
@@ -70,7 +88,7 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
                   <div className="space-y-4 mb-6">
                     <div className="flex items-center gap-3">
                       <div className="font-bold text-lg">
-                        {match.competition} {formatRoundOrSection(match)}
+                        {formatMatchTitle(match)}
                       </div>
                       {match.matchinfo && (
                         <a
