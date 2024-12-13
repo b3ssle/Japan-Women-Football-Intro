@@ -39,8 +39,8 @@ function EmpresssCup2024() {
       { value: "3", label: "３回戦" },
       { value: "4", label: "４回戦" },
       { value: "5", label: "５回戦" },
-      { value: "準決勝", label: "準決勝" },
       { value: "準々決勝", label: "準々決勝" },
+      { value: "準決勝", label: "準決勝" },
       { value: "決勝", label: "決　勝" },
       { value: "all", label: "全試合" },
     ];
