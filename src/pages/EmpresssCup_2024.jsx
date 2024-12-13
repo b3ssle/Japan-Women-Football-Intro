@@ -81,6 +81,14 @@ function EmpresssCup2024() {
             大会情報
           </a>
           <a
+            href="https://www.jfa.jp/match/empressscup_2024/news/00034620/"
+            className="inline-block border border-gray-300 rounded px-3 py-1 text-sm hover:bg-gray-50 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            放送情報
+          </a>
+          <a
             href="#/empressscup_2024_teams"
             className="inline-block border border-gray-300 rounded px-3 py-1 text-sm hover:bg-gray-50 transition-colors"
             target="_blank"

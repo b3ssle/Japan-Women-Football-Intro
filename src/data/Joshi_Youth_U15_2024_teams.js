@@ -7,7 +7,7 @@ export const teams = {
     category: "北海道第1代表", 
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/23.html",
-    introduction: "-",
+    introduction: "1979年に札幌リンダとして発足し、2005年にクラブフィールズ・リンダにチーム名を改名。現在は総勢53名で活動しています。試合を重ねるごとにチーム・個人が成長を続け、一戦一戦大事に、チーム一丸となって戦っていきたいと思います。",
   },
   北海道リラ・コンサドーレ: {
     shortName: "リラ",
@@ -17,7 +17,7 @@ export const teams = {
     category: "北海道第2代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/21.html", 
-    introduction: "-",
+    introduction: "2015年チーム設立。女子サッカーの裾野を広げ、北海道における女子サッカー文化の発展に寄与できるよう日々活動しています。チーム名の由来であるリラとは、札幌市で親しまれているライラックの仏語。リラの花⾔葉である「pride（誇り）」と「beauty（美）」にふさわしい挑戦をしていきます。",
   },
   "JFAアカデミー福島": {
     shortName: "JFA福島",
@@ -27,7 +27,7 @@ export const teams = {
     category: "東北第1代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/01.html",
-    introduction: "-",
+    introduction: "JFAアカデミー福島は、今年3月に福島県楢葉町に帰還し、13年ぶりに男女そろっての活動を再開しました。これまでお世話になった静岡県の皆さまに良いニュースが届くように、また福島県の皆さまを魅了できるように、チーム一丸となって戦いたいと思います。",
   },
   マイナビ仙台レディースジュニアユース: {
     shortName: "マイ仙台",
@@ -37,7 +37,7 @@ export const teams = {
     category: "東北第2代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/11.html",
-    introduction: "-",
+    introduction: "マイナビ仙台レディースのアカデミーとして「日本でいちばん、「ひと」が育つクラブ」をコンセプトに活動しています。強く生き生きとしたプレーと常に勝利を目指し続ける姿で、見る人に勇気と感動を届け、今大会の優勝を目指します。",
   },
   FCみやぎ: {
     shortName: "FCみやぎ",
@@ -47,7 +47,7 @@ export const teams = {
     category: "東北第3代表", 
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/15.html",
-    introduction: "-",
+    introduction: "「Challenge to Possibility ～可能性への挑戦～」をスローガンに、選手一人一人が個性を持ちながら成長できるように心掛けています。今大会も初戦突破を目指して精いっぱいチャレンジします。",
   },
   "ジェフユナイテッド市原・千葉レディースU-15": {
     shortName: "市原・千葉",
@@ -57,7 +57,7 @@ export const teams = {
     category: "関東第1代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/22.html",
-    introduction: "-",
+    introduction: "WEリーグに所属するジェフユナイテッド市原・千葉レディースの下部組織として活動しています。クラブのプレースタイルである「走る・闘う」をモットーに日々切磋琢磨しています。今シーズンのチーム目標である全国大会優勝を実現できるよう、チーム一丸となって闘います。",
   },
   三菱重工浦和レッズレディースジュニアユース: {
     shortName: "浦和",
@@ -67,7 +67,7 @@ export const teams = {
     category: "関東第2代表",
     homeStadium: "-", 
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/13.html",
-    introduction: "-",
+    introduction: "WEリーグ所属の三菱重工浦和レッズレディースの育成組織。スポーツを通じた人間形成を軸に、トップリーグで活躍できる人材育成を目指しています。また、女子サッカーの発展・普及に努め、女性らしさ・ひたむきさ・しなやかさ・強さを大切に日々活動しています。",
   },
   "大宮アルディージャVENTUS U15": {
     shortName: "大宮",
@@ -77,7 +77,7 @@ export const teams = {
     category: "関東第3代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/16.html",
-    introduction: "-",
+    introduction: "チームの歴史は浅いですが、WEリーグ加盟クラブの下部組織として、日々、自立した選手を目指してピッチ内外での活動に取り組んでいます。フットボールでは、「攻守ともに主導権を握る」という大きな絵を共有して活動しています。今大会を通じて、選手の成長に結びつけたいと思っています。",
   },
   "ちふれASエルフェン埼玉マリU-15": { 
     shortName: "ちふれ",
@@ -87,7 +87,7 @@ export const teams = {
     category: "関東第4代表", 
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/18.html", 
-    introduction: "-",
+    introduction: "WEリーグ所属のちふれASエルフェン埼玉のアカデミーとして、U-15、U-18のカテゴリーで活動しています。ちふれASエルフェン埼玉マリの「マリ」とは、サッカーボールの「マリ（毬）」を表しています。サッカー選手として成長していく上で、ボールと交わる時間が何よりも大切であることから名付けました。今年のチームスローガンである「全笑」を目指して頑張ります。",
   },
   "栃木SCレディース": {
     shortName: "栃木",
@@ -97,7 +97,7 @@ export const teams = {
     category: "関東第5代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/30.html",
-    introduction: "-",
+    introduction: "Jリーグに所属する栃木サッカークラブ（栃木SC）をトップチームに持つ、アカデミーチームです。KEEP MOVING FORWARD（常に前に進み続ける）というクラブフィロソフィーの下、チームとして、一人のプレーヤーとして、日々成長できるよう活動しています。今大会では、一戦一戦勝利を目指し、チーム一丸となり全力で戦いたいと思っています。",
   },
   小美玉フットボールアカデミー: {
     shortName: "小美玉",
@@ -107,7 +107,7 @@ export const teams = {
     category: "関東第6代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/02.html",
-    introduction: "-",
+    introduction: "2013年4月に開校した、民間初の女子中学生を対象とした全寮型・週末宿泊型のアカデミーです。地元である小美玉市やクラブのオフィシャル＆ライフサポートパートナーなど、アカデミーファミリーの皆さまのご支援とご協力があり、女子サッカーを本気でやりたい選手の受け皿で在り続けることができています。感謝の気持ちを忘れずに一戦一戦ベストを尽くして戦い抜きます。",
   },
   "ノジマステラ神奈川相模原アヴェニーレ": {
     shortName: "相模原", 
@@ -117,7 +117,7 @@ export const teams = {
     category: "関東第7代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/10.html",
-    introduction: "-",
+    introduction: "チーム名のステラはイタリア語で星という意味で、神奈川で女子サッカーの普及・発展に貢献し、世界の「一番星（ステラ）」を目指します。イタリア語で「将来・未来」を意味するアヴェニーレは、ステラの将来を担い得る存在、未来ある選手たちの集団です。多様な練習メニューを通じて、日本そして世界で活躍するトッププレーヤーの育成を目指します。",
   },
   十文字中学校: {
     shortName: "十文字",
@@ -127,7 +127,7 @@ export const teams = {
     category: "関東第8代表",
     homeStadium: "-", 
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/19.html",
-    introduction: "-",
+    introduction: "新チームになり、全国大会で1勝でも多くできるよう日々練習を重ねています。まだまだ足りないことも多いですが、「走れ・競れ・粘れ」をモットーに、部員46名一丸となって頑張ります。",
   },
   北陸大学フィオリーレ: {
     shortName: "北陸大",   
@@ -137,7 +137,7 @@ export const teams = {
     category: "北信越第1代表",
     homeStadium: "-", 
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/27.html",
-    introduction: "-",
+    introduction: "2024年のクラブスローガンは「FUTURE×Revival 捲土重来」。攻守ともにアグレッシブに戦い、フィオリーレのサッカーを全国の舞台でも披露し、皆で新しい景色を見たいと思います。",
   },
   "アルビレックス新潟レディースU-15": {
     shortName: "新潟",
@@ -147,8 +147,8 @@ export const teams = {
     category: "北信越第2代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/08.html", 
-    introduction: "-",
-  }, 
+    introduction: "アルビレックス新潟レディースのアカデミー組織として、2005年にU-18、2013年にU-15チームを創設。新潟およびクラブの文化を理解し、トップチームで活躍できる選手の育成を目指して活動しています。昨年度の成績を上回れるように、チームコンセプトをもとに「一体感」を持って臨みます。",
+  },
   "朝日インテック・ラブリッジ名古屋スターチス": {
     shortName: "名古屋",
     region: "愛知県",
@@ -157,7 +157,7 @@ export const teams = {
     category: "東海第1代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/03.html",
-    introduction: "-",
+    introduction: "朝日インテック・ラブリッジ名古屋アカデミーは「自立できる選手の育成」を理念に活動し、「トップチームでの出場」および「なでしこジャパンに選ばれる」ことを目標にしています。今大会では優勝を目指して頑張ります。",
   },
   常葉大学附属橘中学校: {
     shortName: "常葉大橘", 
@@ -167,7 +167,7 @@ export const teams = {
     category: "東海第2代表", 
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/24.html",
-    introduction: "-",
+    introduction: "2004年創部。中高一貫教育の指導でドリブル・パスの個人技術をベースに、それぞれの選手の個性を自由に、そして大胆に発揮できるサッカーを目指します。",
   },
   藤枝順心サッカークラブジュニアユース: {
     shortName: "藤枝順心",
@@ -177,7 +177,7 @@ export const teams = {
     category: "東海第3代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/05.html",
-    introduction: "-",
+    introduction: "2005年に藤枝順心高校の下部組織として設立。11回目の全国大会出場となります。サッカーのまち藤枝、そして静岡県および東海地域代表としての誇りを胸に一生懸命頑張ります。今年のチームスローガン「開花〜置かれた場所で花を咲かす〜」の下、一体感を強みに全国の舞台を楽しみたいと思います。",
   },
   "SATOなでしこ U-15": {
     shortName: "SATOなでしこ",
@@ -187,7 +187,7 @@ export const teams = {
     category: "東海第4代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/12.html",
-    introduction: "-",
+    introduction: "2021年設立、初出場となります。「ボールを大切に」なでしこvisionを基準に、個々のスキルアップを積み上げ、地元でチーム力を培ってきました。浜松佐藤SC（Since 1969）の歴史に新たな1ページを刻めるよう闘います。",
   },
   "セレッソ大阪ヤンマーガールズU-15": {
     shortName: "C大阪",
@@ -197,7 +197,7 @@ export const teams = {
     category: "関西第1代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/17.html",
-    introduction: "-",
+    introduction: "セレッソ大阪ヤンマーレディースの育成組織として、2013年に活動をスタート。セレッソ大阪の育成組織の指導方針である「世界基準によるプロサッカー選手の育成」を旗印に、世界を舞台に活躍できる選手を育成することを目的に活動を続けています。",
   },
   "RESC GIRLS U-15": {
     shortName: "RESC",
@@ -207,7 +207,7 @@ export const teams = {
     category: "関西第2代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/25.html",
-    introduction: "-",
+    introduction: "選手としてだけでなく人としての成長も重視し、広い視野を持つことを目指して活動しています。個々の力を磨き、チーム全体で全国大会優勝という目標に向かって取り組むとともに、応援してくださる皆さまへの感謝も忘れずに、これからも挑戦を続けていきます。",
   },
   "INAC神戸テゾーロ": {
     shortName: "INAC",
@@ -217,7 +217,7 @@ export const teams = {
     category: "関西第3代表", 
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/09.html", 
-    introduction: "-",
+    introduction: "中学生対象の女子チームです。昨年度は準優勝という成績を収めることができました。U-18対象のレオンチーナ、テゾーロともに毎年全国大会に出場するなどの戦績をあげています。また、今年度はテゾーロの大田ありす、北村礼の2名、レオンチーナの3名がINACレオネッサの2種登録をするなどINAC神戸の未来が明るくなる出来事がありました。INAC神戸アカデミーでは、トップチームに昇格できる選手、世界で活躍できる選手の育成をモットーに、サッカーが大好きで志の高い選手の育成に努めます。",
   },
   クラベリーナ東住吉: {
     shortName: "クラベリーナ",
@@ -227,7 +227,7 @@ export const teams = {
     category: "関西第4代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/31.html",
-    introduction: "-",
+    introduction: "「Clavellina（クラベリーナ）」は「なでしこ」を意味するスペイン語です。東住吉区の区花「なでしこ」に由来しています。今回が初の全国大会出場です。選手、スタッフ、チーム関係者が一丸となって勝利を目指し、全力で戦います。",
   },
   "AC. Gloria girls": {
     shortName: "Gloria",
@@ -237,7 +237,7 @@ export const teams = {
     category: "関西第5代表",
     homeStadium: "-", 
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/06.html",
-    introduction: "-",
+    introduction: "大阪府市堺市で活動しています。創設7年目、本大会は2年連続4回目の出場となります。個人技術・個人戦術を中心にした「個の育成」に特化した指導に取り組んでいます。ネクストステージの高校年代、それ以降の年代で輝けるように今大会での素晴らしい経験・体験を各自の成長につなげられるように一体感を大切に戦いたいと思います。",
   },
   "サンフレッチェ広島レジーナ ジュニアユース": {
     shortName: "広島",
@@ -247,7 +247,7 @@ export const teams = {
     category: "中国第1代表", 
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/29.html",
-    introduction: "-", 
+    introduction: "サンフレッチェ広島レジーナのアカデミーとして、「本気で楽しみ」「全力でひたむきに」「見た人が感動する」「アグレッシブでつながりのあるサッカー」を目指します。全国の強豪を相手に、選手・スタッフ・保護者・サポーターで心を一つにして戦います。",
   },
   "フライアFCウェネス": {
     shortName: "フライア",
@@ -257,7 +257,7 @@ export const teams = {
     category: "中国第2代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/14.html",
-    introduction: "-",
+    introduction: "1995年に設立した、岡山県岡山市・倉敷市で活動しているフットボールチームです。サッカー、フットサル、ビーチサッカーと各種競技に取り組んでいます。失敗を恐れず前向きに、最後まで諦めずにチャレンジしている姿を見てもらいたいと思います。全国大会優勝を目標にチーム一丸となって戦います。",
   },
   "愛媛FCレディースMIKAN U-15": {
     shortName: "愛媛",
@@ -267,7 +267,7 @@ export const teams = {
     category: "四国第1代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/20.html", 
-    introduction: "-",
+    introduction: "なでしこリーグ1部所属の愛媛FCレディースの下部組織です。トップチーム同様、全員でボールを大切につなぎながらゴールを目指すサッカーに取り組んでいます。今大会で多くの経験を積み、今後の成長につなげていきたいと思っています。",
   },
   "F.C.CORMOLADIES AZALEA": {
     shortName: "CORMOLADIES",
@@ -277,7 +277,7 @@ export const teams = {
     category: "四国第2代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/07.html",
-    introduction: "-",
+    introduction: "香川県宇多津町を拠点に活動する創設13年目のチームで、本大会は５年連続５回目の出場となります。全国大会という大舞台でも臆することなくチャレンジし、チームスローガン「共想・共創・共走」の下、香川県・四国地域の代表として攻守においてアグレッシブに泥くさく全力で戦います。",
   },
   八女学院女子フットボールクラブ: {
     shortName: "八女", 
@@ -287,7 +287,7 @@ export const teams = {
     category: "九州第1代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/32.html",
-    introduction: "-",
+    introduction: "2020年度にチームを設立し、2021年度から活動をスタートしました。本大会は3年連続3回目の出場になります。今年度、初の九州チャンピオンになることができ、九州代表として1試合でも多く勝利できるように全力で戦いたいと思います。",
   },
   "FC琉球 ale さくら": {
     shortName: "琉球",
@@ -297,7 +297,7 @@ export const teams = {
     category: "九州第2代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/26.html",
-    introduction: "-", 
+    introduction: "2年ぶりの全国大会出場です。一つでも上を目指して頑張ります。",
   },
   "ANCLASノーヴァ": {
     shortName: "ANCLAS",
@@ -307,16 +307,16 @@ export const teams = {
     category: "九州第3代表",
     homeStadium: "-",
     website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/04.html",
-    introduction: "-",
+    introduction: "攻守ともに「Attacking Football」で自ら主導権をつかみにいくサッカースタイル。福岡県で活動する女子サッカークラブ「福岡J・アンクラス」の下部組織としてピッチ内外で福岡・九州を代表するクラブになれるよう取り組んでいます。",
   },
   "MELSA熊本フットボールクラブソヒーア": {
-shortName: "MELSA",
-region: "熊本県",
-id: "-",
-name: "MELSA熊本フットボールクラブソヒーア",
-category: "九州第4代表",
-homeStadium: "-",
-website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/28.html",
-introduction: "-",
-},
+    shortName: "MELSA",
+    region: "熊本県",
+    id: "-",
+    name: "MELSA熊本フットボールクラブソヒーア",
+    category: "九州第4代表",
+    homeStadium: "-",
+    website: "https://www.jfa.jp/match/joshi_youth_u15_2024/team_detail/28.html",
+    introduction: "本大会は12年ぶりの出場となり、再び全国の舞台で多くの皆さまとお会いできることを楽しみにしています。「ねばり強く」「堅守速攻」がチームの特徴です。コンセプトである「One for all, All for one」の下、チーム全員がみんなのためにできることをやり切ります。"
+  },
 };

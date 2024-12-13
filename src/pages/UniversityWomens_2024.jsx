@@ -81,6 +81,22 @@ function UniversityWomens2024() {
           >
             大会情報
           </a>
+          <a
+            href="#/UniversityWomens_2024_teams"
+            className="inline-block border border-gray-300 rounded px-3 py-1 text-sm hover:bg-gray-50 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            チーム紹介
+          </a>
+          <a
+            href="https://www.youtube.com/@%E4%B8%80%E8%88%AC%E8%B2%A1%E5%9B%A3%E6%B3%95%E4%BA%BA%E5%85%A8%E6%97%A5%E6%9C%AC%E5%A4%A7"
+            className="inline-block border border-gray-300 rounded px-3 py-1 text-sm hover:bg-gray-50 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            放送情報
+          </a>
         </div>
         <p className="text-sm text-gray-500 mb-4">更新日時：{lastUpdateTime}</p>
         <div className="bg-gray-50 p-6 rounded-lg">
