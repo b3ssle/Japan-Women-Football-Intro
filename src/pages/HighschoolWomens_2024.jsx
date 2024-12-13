@@ -128,6 +128,7 @@ function HighschoolWomens2024() {
 
       <MatchList
         matches={filteredMatches}
+        allMatches={Object.values(matches)}
         venues={venues}
         rounds={rounds}
         selectedRound={selectedRound}
