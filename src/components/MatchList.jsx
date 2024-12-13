@@ -31,6 +31,43 @@ const MatchList = ({
 }) => {
   const [hoveredMatch, setHoveredMatch] = useState(null);
 
+  const matchesObj = matches.reduce((acc, match) => {
+  acc[match.id] = match;
+  return acc;
+}, {});
+
+const getTeamName = (teamName, matches) => {
+  if (!teamName?.includes("勝者")) {
+    return teamName;
+  }
+
+  const matchId = teamName.match(/M\d+/)[0];
+  const previousMatch = matches[matchId];
+
+  if (previousMatch?.status === "finished") {
+    const [score1, score2] = previousMatch.score
+      .split("-")
+      .map((s) => (s.includes("PK") ? s.split("(")[0] : s))
+      .map(Number);
+
+    if (score1 > score2) {
+      return previousMatch.team1;
+    } else if (score2 > score1) {
+      return previousMatch.team2;
+    } else if (previousMatch.score.includes("PK")) {
+      const pkScore = previousMatch.score.match(/PK:(\d+)-(\d+)/);
+      if (pkScore) {
+        const [_, pk1, pk2] = pkScore;
+        return Number(pk1) > Number(pk2)
+          ? previousMatch.team1
+          : previousMatch.team2;
+      }
+    }
+  }
+
+  return teamName;
+};
+
   const formatMatchTitle = (match) => {
     if (match.type === "SOMPO WEリーグ") {
       return `第 ${match.section} 節`;
@@ -48,7 +85,7 @@ const MatchList = ({
     return `${match.round} 回戦`;
   };
 
-  const filteredMatches = matches.filter((match) => {
+  const filteredMatches = Object.values(matches).filter((match) => {
     if (rounds.length > 0) {
       if (selectedRound === "all") {
         return true;
@@ -68,6 +105,9 @@ const MatchList = ({
 
     return true;
   });
+
+  console.log("所有比賽:", matches);
+  console.log("過濾後的比賽:", filteredMatches);
 
   const renderHeaderButtons = () => {
     if (rounds.length > 0) {
@@ -168,11 +208,15 @@ const MatchList = ({
                 </div>
                 <div>
                   <div className="flex items-center justify-between">
-                    <div className="text-sm font-medium">{match.team1}</div>
+                    <div className="text-sm font-medium">
+                      {getTeamName(match.team1, matchesObj)}
+                    </div>
                     <div className="text-sm text-nadeshiko mx-2">
                       {match.status === "finished" ? match.score : "VS"}
                     </div>
-                    <div className="text-sm font-medium">{match.team2}</div>
+                    <div className="text-sm font-medium">
+                      {getTeamName(match.team2, matchesObj)}
+                    </div>
                   </div>
                 </div>
                 <div className="text-sm text-gray-600 mt-2">

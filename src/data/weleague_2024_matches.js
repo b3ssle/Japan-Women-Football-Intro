@@ -151,7 +151,7 @@ export const matches = {
     team2: "セレッソ大阪ヤンマーレディース",
     team1Short: "浦和",
     team2Short: "C大阪",
-    status: "upcoming",
+    status: "finished",
     matchinfo: "https://weleague.jp/matches/2024121101/",
     note: "代替開催日",
   },
