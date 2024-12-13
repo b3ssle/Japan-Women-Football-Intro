@@ -13,7 +13,8 @@ export const matches = {
     region2: "関東6/茨城県",
     score: "5-1",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m1.html",
   },
   M002: {
     id: "M002",
@@ -28,7 +29,8 @@ export const matches = {
     region2: "九州3/福岡県",
     score: "14-0",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m2.html",
   },
   M003: {
     id: "M003",
@@ -43,7 +45,8 @@ export const matches = {
     region2: "関西5/大阪府",
     score: "0-5",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m3.html",
   },
   M004: {
     id: "M004",
@@ -58,7 +61,8 @@ export const matches = {
     region2: "北信越2/新潟県",
     score: "2-1",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m4.html",
   },
   M005: {
     id: "M005",
@@ -73,7 +77,8 @@ export const matches = {
     region2: "関東7/神奈川県",
     score: "3-3(PK:4-2)",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m5.html",
   },
   M006: {
     id: "M006",
@@ -88,7 +93,8 @@ export const matches = {
     region2: "東海4/静岡県",
     score: "0-1",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m6.html",
   },
   M007: {
     id: "M007",
@@ -103,7 +109,8 @@ export const matches = {
     region2: "九州2/沖縄県",
     score: "3-0",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m7.html",
   },
   M008: {
     id: "M008",
@@ -118,7 +125,8 @@ export const matches = {
     region2: "九州4/熊本県",
     score: "1-1(PK:7-8)",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m8.html",
   },
   M009: {
     id: "M009",
@@ -133,7 +141,8 @@ export const matches = {
     region2: "中国2/岡山県",
     score: "6-0",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m9.html",
   },
   M010: {
     id: "M010",
@@ -148,7 +157,8 @@ export const matches = {
     region2: "関東3/埼玉県",
     score: "0-0(PK:3-5)",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m10.html",
   },
   M011: {
     id: "M011",
@@ -163,7 +173,8 @@ export const matches = {
     region2: "関東4/埼玉県",
     score: "6-1",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m11.html",
   },
   M012: {
     id: "M012",
@@ -178,7 +189,8 @@ export const matches = {
     region2: "四国1/愛媛県",
     score: "2-0",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m12.html",
   },
   M013: {
     id: "M013",
@@ -193,7 +205,8 @@ export const matches = {
     region2: "関東1/千葉県",
     score: "0-3",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m13.html",
   },
   M014: {
     id: "M014",
@@ -208,7 +221,8 @@ export const matches = {
     region2: "東海2/静岡県",
     score: "0-6",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m14.html",
   },
   M015: {
     id: "M015",
@@ -223,7 +237,8 @@ export const matches = {
     region2: "関東5/栃木県",
     score: "0-2",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m15.html",
   },
   M016: {
     id: "M016",
@@ -238,7 +253,8 @@ export const matches = {
     region2: "九州1/福岡県",
     score: "0-3",
     status: "finished",
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m16.html",
   },
   // 2回戦 (M017-M024)
   M017: {
@@ -253,7 +269,8 @@ export const matches = {
     score: "1-1(PK:3-1)",
     status: "finished",
     matchRef: ["M001", "M002"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m17.html",
   },
   M018: {
     id: "M018",
@@ -267,7 +284,8 @@ export const matches = {
     score: "1-1(PK:3-4)",
     status: "finished",
     matchRef: ["M003", "M004"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m18.html",
   },
   M019: {
     id: "M019",
@@ -281,7 +299,8 @@ export const matches = {
     score: "1-1(PK:5-6)",
     status: "finished",
     matchRef: ["M005", "M006"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m19.html",
   },
   M020: {
     id: "M020",
@@ -295,7 +314,8 @@ export const matches = {
     score: "3-0",
     status: "finished",
     matchRef: ["M007", "M008"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m20.html",
   },
   M021: {
     id: "M021",
@@ -309,7 +329,8 @@ export const matches = {
     score: "1-0",
     status: "finished",
     matchRef: ["M009", "M010"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m21.html",
   },
   M022: {
     id: "M022",
@@ -323,7 +344,8 @@ export const matches = {
     score: "3-1",
     status: "finished",
     matchRef: ["M011", "M012"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m22.html",
   },
   M023: {
     id: "M023",
@@ -337,7 +359,8 @@ export const matches = {
     score: "1-0",
     status: "finished",
     matchRef: ["M013", "M014"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m23.html",
   },
   M024: {
     id: "M024",
@@ -351,7 +374,8 @@ export const matches = {
     score: "1-3",
     status: "finished",
     matchRef: ["M015", "M016"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m24.html",
   },
   // 準々決勝 (M025-M028)
   M025: {
@@ -365,7 +389,8 @@ export const matches = {
     team2: "F.C.CORMOLADIES AZALEA",
     status: "upcoming",
     matchRef: ["M017", "M018"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m25.html",
   },
   M026: {
     id: "M026",
@@ -378,7 +403,8 @@ export const matches = {
     team2: "三菱重工浦和レッズレディースジュニアユース",
     status: "upcoming",
     matchRef: ["M019", "M021"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m26.html",
   },
   M027: {
     id: "M027",
@@ -391,7 +417,8 @@ export const matches = {
     team2: "ジェフユナイテッド市原・千葉レディースU-15",
     status: "upcoming",
     matchRef: ["M022", "M023"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m27.html",
   },
   M028: {
     id: "M028",
@@ -404,7 +431,8 @@ export const matches = {
     team2: "八女学院女子フットボールクラブ",
     status: "upcoming",
     matchRef: ["M020", "M024"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m28.html",
   },
   // 準決勝 (M029-M030)
   M029: {
@@ -418,7 +446,8 @@ export const matches = {
     team2: "M026勝者",
     status: "upcoming",
     matchRef: ["M025", "M026"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m29.html",
   },
   M030: {
     id: "M030",
@@ -431,7 +460,8 @@ export const matches = {
     team2: "M028勝者",
     status: "upcoming",
     matchRef: ["M027", "M028"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m30.html",
   },
   // 決勝 (M031)
   M031: {
@@ -445,6 +475,7 @@ export const matches = {
     team2: "M030勝者",
     status: "upcoming",
     matchRef: ["M029", "M030"],
-    matchinfo: "",
+    matchinfo:
+      "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m31.html",
   },
 };

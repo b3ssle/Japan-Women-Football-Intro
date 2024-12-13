@@ -82,20 +82,20 @@ function JoshiYouthU152024() {
             大会情報
           </a>
           <a
-            href="#/Joshi_Youth_U15_2024_teams"
-            className="inline-block border border-gray-300 rounded px-3 py-1 text-sm hover:bg-gray-50 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            チーム紹介
-          </a>
-          <a
             href="https://www.jfa.jp/match/joshi_youth_u15_2024/tv.html"
             className="inline-block border border-gray-300 rounded px-3 py-1 text-sm hover:bg-gray-50 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
             放送情報
+          </a>
+          <a
+            href="#/Joshi_Youth_U15_2024_teams"
+            className="inline-block border border-gray-300 rounded px-3 py-1 text-sm hover:bg-gray-50 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            チーム紹介
           </a>
         </div>
         <p className="text-sm text-gray-500 mb-4">更新日時：{lastUpdateTime}</p>

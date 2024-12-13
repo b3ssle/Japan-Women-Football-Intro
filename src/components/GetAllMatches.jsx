@@ -19,14 +19,16 @@ const formatRound = (match, competition) => {
       return `第 ${match.section} 節`;
     }
   }
-  if (
-    match.round === "準々決勝" ||
-    match.round === "準決勝" ||
-    match.round === "決勝"
-  ) {
+
+  if (["準々決勝", "準決勝", "決勝"].includes(match.round)) {
     return match.round;
   }
-  return `${match.round} 回戦`;
+
+  if (match.round && /^\d+$/.test(match.round)) {
+    return `${match.round} 回戦`;
+  }
+
+  return match.round || "";
 };
 
 const normalizeMatch = (match, competition, venues) => {
