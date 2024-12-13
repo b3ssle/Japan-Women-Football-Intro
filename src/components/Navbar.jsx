@@ -95,6 +95,14 @@ function Navbar() {
                     高校女子選手権
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/Joshi_Youth_U18_2024"
+                    className="block px-4 py-2 hover:bg-nadeshiko/10 transition-colors"
+                  >
+                    U18 女子選手権
+                  </Link>
+                </li>
               </ul>
             )}
           </div>

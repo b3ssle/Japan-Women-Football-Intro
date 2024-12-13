@@ -12,6 +12,8 @@ import UniversityWomens2024Teams from "./pages/UniversityWomens_2024_teams";
 import HighschoolWomens2024 from "./pages/HighschoolWomens_2024";
 import JoshiYouthU152024 from "./pages/Joshi_Youth_U15_2024";
 import YouthU15Teams2024 from "./pages/Joshi_Youth_U15_2024_teams";
+import JoshiYouthU182024 from "./pages/Joshi_Youth_U18_2024";
+import YouthU18Teams2024 from "./pages/Joshi_Youth_U18_2024_teams";
 
 function App() {
   return (
@@ -39,6 +41,11 @@ function App() {
         <Route
           path="/HighschoolWomens_2024"
           element={<HighschoolWomens2024 />}
+        />
+        <Route path="/Joshi_Youth_U18_2024" element={<JoshiYouthU182024 />} />
+        <Route
+          path="/Joshi_Youth_U18_2024_teams"
+          element={<YouthU18Teams2024 />}
         />
       </Routes>
       <Footer />
