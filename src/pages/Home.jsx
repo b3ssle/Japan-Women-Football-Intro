@@ -4,6 +4,7 @@ import { teams } from "../data/empressscup_2024_teams";
 import { getCurrentWeekMatches } from "../components/GetAllMatches";
 import MatchModal from "../components/MatchModal";
 import WeeklyVenuesMap from "../components/AllMatchesMap";
+import TournamentStatus from "../components/TournamentStatus";
 
 const getDayOfWeek = (dateStr) => {
   const [month, day] = dateStr.split("/").map(Number);
@@ -77,6 +78,7 @@ export default function Home() {
                 会場で行われます！
               </span>
             </h2>
+            <TournamentStatus />
             <div className="grid grid-cols-1 gap-4">
               {weeklyMatches.map((match) => (
                 <div
