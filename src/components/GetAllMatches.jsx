@@ -3,12 +3,14 @@ import { matches as empressMatches } from "../data/empressscup_2024_matches";
 import { matches as weleagueMatches } from "../data/weleague_2024_matches";
 import { matches as universityMatches } from "../data/universitywomens_2024_matches";
 import { matches as highschoolMatches } from "../data/highschoolwomens_2024_matches";
-import { matches as joshiYouthMatches } from "../data/Joshi_Youth_U15_2024_matches";
+import { matches as youthU15Matches } from "../data/Joshi_Youth_U15_2024_matches";
+import { matches as youthU18Matches } from "../data/Joshi_Youth_U18_2024_matches";
 import { venues as empressVenues } from "../data/empressscup_2024_venues";
 import { venues as weleagueVenues } from "../data/weleague_2024_venues";
 import { venues as universityVenues } from "../data/universitywomens_2024_venues";
 import { venues as highschoolVenues } from "../data/highschoolwomens_2024_venues";
-import { venues as joshiYouthVenues } from "../data/Joshi_Youth_U15_2024_venues";
+import { venues as youthU15Venues } from "../data/Joshi_Youth_U15_2024_venues";
+import { venues as youthU18Venues } from "../data/Joshi_Youth_U18_2024_venues";
 
 const formatRound = (match, competition) => {
   if (competition === "WEリーグ") {
@@ -94,14 +96,17 @@ export const getCurrentWeekMatches = () => {
     ...Object.values(weleagueMatches).map((m) =>
       normalizeMatch(m, "WEリーグ", weleagueVenues)
     ),
-    ...Object.values(joshiYouthMatches).map((m) =>
-      normalizeMatch(m, "高円宮妃杯 U15", joshiYouthVenues)
+    ...Object.values(youthU15Matches).map((m) =>
+      normalizeMatch(m, "高円宮妃杯 U-15", youthU15Venues)
     ),
     ...Object.values(universityMatches).map((m) =>
-      normalizeMatch(m, "全日本大学女子サッカー選手権", universityVenues)
+      normalizeMatch(m, "大学女子選手権", universityVenues)
     ),
     ...Object.values(highschoolMatches).map((m) =>
-      normalizeMatch(m, "全日本高校女子サッカー選手権", highschoolVenues)
+      normalizeMatch(m, "高校女子選手権", highschoolVenues)
+    ),
+    ...Object.values(youthU18Matches).map((m) =>
+      normalizeMatch(m, "U-18 女子選手権", youthU18Venues)
     ),
   ];
 

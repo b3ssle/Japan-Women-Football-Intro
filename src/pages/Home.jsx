@@ -16,9 +16,15 @@ const getDayOfWeek = (dateStr) => {
 export default function Home() {
   const [selectedMatch, setSelectedMatch] = useState(null);
   const weeklyMatches = getCurrentWeekMatches();
-  const uniqueVenues = [
-    ...new Set(weeklyMatches.map((match) => match.venue.id)),
-  ].map((id) => weeklyMatches.find((match) => match.venue.id === id).venue);
+  const uniqueVenues = weeklyMatches.reduce((acc, match) => {
+    const key = `${match.competition}-${match.venue.id}`;
+    if (!acc[key]) {
+      acc[key] = match.venue;
+    }
+    return acc;
+  }, {});
+
+  const venues = Object.values(uniqueVenues);
 
   const handleVenueClick = (matchData) => {
     console.log("Clicked match:", matchData);
@@ -37,12 +43,17 @@ export default function Home() {
     if (
       match.competition === "皇后杯" ||
       match.competition === "高円宮妃杯 U15" ||
-      match.competition === "全日本大学女子サッカー選手権" ||
-      match.competition === "全日本高校女子サッカー選手権"
+      match.competition === "大学女子選手権" ||
+      match.competition === "高校女子選手権" ||
+      match.competition === "U-18 女子選手権"
     ) {
       return match.round;
     }
-    if (match.round === "準々決勝" || match.round === "準決勝" || match.round === "決勝") {
+    if (
+      match.round === "準々決勝" ||
+      match.round === "準決勝" ||
+      match.round === "決勝"
+    ) {
       return match.round;
     }
     return match.round;
@@ -62,7 +73,7 @@ export default function Home() {
             <h2 className="text-2xl mb-6 bg-nadeshiko text-white px-4 py-2 rounded-lg flex items-center gap-2">
               <Gauge className="w-6 h-6" />
               <span>
-                今週の試合：{weeklyMatches.length} 試合が {uniqueVenues.length}{" "}
+                今週の試合：{weeklyMatches.length} 試合が {venues.length}{" "}
                 会場で行われます！
               </span>
             </h2>

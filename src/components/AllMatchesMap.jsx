@@ -4,7 +4,6 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import "leaflet/dist/leaflet.css";
 import { divIcon } from "leaflet";
 
-// 自定义标记图标
 const customIcon = divIcon({
   html: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="12" cy="12" r="6" fill="#E91E63" stroke="white" stroke-width="2"/>
@@ -15,7 +14,6 @@ const customIcon = divIcon({
   iconAnchor: [12, 12],
 });
 
-// 自定义聚合图标
 const createClusterCustomIcon = function (cluster) {
   const count = cluster.getChildCount();
   return divIcon({
@@ -71,26 +69,9 @@ const useTooltipStyle = () => {
 const MapChart = ({ venues = [], matches = [], onVenueClick }) => {
   useTooltipStyle();
 
-  const handleVenueClick = (venue) => {
-    const venueMatches = matches.filter((match) => match.venue.id === venue.id);
-    if (venueMatches.length > 0) {
-      const mainMatch = {
-        ...venueMatches[0],
-        allMatches: venueMatches,
-      };
-      onVenueClick(mainMatch);
-    }
-  };
-
-  const uniqueVenues = [...new Set(venues.map((v) => v.id))].map((id) =>
-    venues.find((v) => v.id === id)
-  );
-
-  const center = [36.5, 138];
-
   return (
     <MapContainer
-      center={center}
+      center={[36.5, 138]}
       zoom={5.5}
       className="w-full h-full"
       scrollWheelZoom={false}
@@ -106,25 +87,27 @@ const MapChart = ({ venues = [], matches = [], onVenueClick }) => {
         spiderfyOnMaxZoom={true}
         showCoverageOnHover={false}
       >
-        {uniqueVenues.map((venue) => (
-          <Marker
-            key={venue.id}
-            position={[venue.latitude, venue.longitude]}
-            icon={customIcon}
-            eventHandlers={{
-              click: () => handleVenueClick(venue),
-            }}
-          >
-            <Tooltip
-              permanent
-              direction="top"
-              offset={[0, -4]}
-              className="venue-label"
+        {venues.map((venue) => {
+          return (
+            <Marker
+              key={`${venue.id}-${venue.name_jp}`}
+              position={[venue.latitude, venue.longitude]}
+              icon={customIcon}
+              eventHandlers={{
+                click: () => handleVenueClick(venue),
+              }}
             >
-              {venue.short}
-            </Tooltip>
-          </Marker>
-        ))}
+              <Tooltip
+                permanent
+                direction="top"
+                offset={[0, -4]}
+                className="venue-label"
+              >
+                {venue.short}
+              </Tooltip>
+            </Marker>
+          );
+        })}
       </MarkerClusterGroup>
     </MapContainer>
   );
@@ -132,9 +115,12 @@ const MapChart = ({ venues = [], matches = [], onVenueClick }) => {
 
 const WeeklyVenuesMap = ({ matches = [], onVenueClick }) => {
   const venues = matches?.map((match) => match.venue) || [];
-  const uniqueVenues = [...new Set(venues.map((v) => v.id))].map((id) =>
-    venues.find((v) => v.id === id)
-  );
+  const uniqueVenues = [
+    ...new Set(venues.map((v) => `${v.id}-${v.name_jp}`)),
+  ].map((compositeId) => {
+    const [id, name] = compositeId.split("-", 2);
+    return venues.find((v) => v.id === id && v.name_jp.includes(name));
+  });
 
   return (
     <MapChart
