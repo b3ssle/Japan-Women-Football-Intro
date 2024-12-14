@@ -20,6 +20,27 @@ const formatMatchTitle = (match) => {
     return `クラシエカップ ${match.round || ""}`;
   }
 
+  // For competition-specific titles
+  if (match.competition) {
+    // Special handling for specific competitions
+    switch (match.competition) {
+      case "皇后杯":
+        return match.round ? `皇后杯 ${match.round}` : "皇后杯";
+      case "高円宮妃杯 U-15":
+        return match.round
+          ? `高円宮妃杯 U-15 ${match.round}`
+          : "高円宮妃杯 U-15";
+      case "U-18 女子選手権":
+        return match.round
+          ? `U-18 女子選手権 ${match.round}`
+          : "U-18 女子選手権";
+      case "大学女子選手権":
+        return match.round ? `大学女子選手権 ${match.round}` : "大学女子選手権";
+      case "高校女子選手権":
+        return match.round ? `高校女子選手権 ${match.round}` : "高校女子選手権";
+    }
+  }
+
   // For tournament rounds
   if (match.round) {
     if (["準々決勝", "準決勝", "決勝"].includes(match.round)) {
@@ -28,7 +49,7 @@ const formatMatchTitle = (match) => {
     return `${match.round} 回戦`;
   }
 
-  return "";
+  return match.competition || "";
 };
 
 const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
