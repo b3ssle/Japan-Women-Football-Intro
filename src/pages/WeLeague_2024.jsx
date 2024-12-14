@@ -6,14 +6,6 @@ import MatchModal from "../components/MatchModal";
 import NextMatchSection from "../components/NextMatchSection";
 import MatchList from "../components/MatchList";
 
-const getDayOfWeek = (dateStr) => {
-  const [month, day] = dateStr.split("/").map(Number);
-  const year = parseInt(month) >= 11 ? 2024 : 2025;
-  const date = new Date(year, month - 1, day);
-  const days = ["日", "月", "火", "水", "木", "金", "土"];
-  return days[date.getDay()];
-};
-
 const getMatchDateTime = (match) => {
   const [month, day] = match.date.split("/").map(Number);
   const [hours, minutes] = match.time.split(":").map(Number);
@@ -25,7 +17,7 @@ const getMatchDateTime = (match) => {
 
 const getUpcomingMatch = (matches) => {
   const now = new Date();
-  const upcomingMatches = Object.values(matches)
+  const upcomingMatches = matches
     .filter((match) => {
       if (match.status === "finished") return false;
       const matchDate = getMatchDateTime(match);
@@ -36,32 +28,52 @@ const getUpcomingMatch = (matches) => {
   return upcomingMatches[0];
 };
 
+const CATEGORIES = [
+  { value: "finished", label: "終了した試合" },
+  { value: "SOMPO WEリーグ", label: "WEリーグ" },
+  { value: "クラシエカップ", label: "クラシエカップ" },
+];
+
 const WELeague2024 = () => {
   const lastUpdateTime =
     import.meta.env.VITE_LAST_UPDATE_TIME || "更新時間取得中...";
+
   const [selectedType, setSelectedType] = useState("SOMPO WEリーグ");
-  const [hoveredVenue, setHoveredVenue] = useState(null);
   const [selectedMatch, setSelectedMatch] = useState(null);
 
-  const activeMatches = Object.values(matches).filter((match) => {
+  // Convert matches object to array once
+  const allMatches = Object.values(matches);
+
+  // Filter active matches based on selected type
+  const activeMatches = allMatches.filter((match) => {
+    console.log(
+      "Filtering match:",
+      match.type,
+      match.status,
+      "selectedType:",
+      selectedType
+    );
+
     if (selectedType === "finished") {
+      // Show all finished matches regardless of type
       return match.status === "finished";
     }
-    if (selectedType === "upcoming") {
-      return match.status !== "finished";
+
+    // For specific competition types (WE League or Classie Cup)
+    if (["SOMPO WEリーグ", "クラシエカップ"].includes(selectedType)) {
+      return match.type === selectedType && match.status !== "finished";
     }
-    return match.type === selectedType && match.status !== "finished";
+
+    return false;
   });
 
-  const nextMatch = getUpcomingMatch(Object.values(matches));
+  console.log("Filtered matches count:", activeMatches.length);
 
-  const handleTypeChange = (newType) => {
-    setSelectedType(newType);
-  };
+  const nextMatch = getUpcomingMatch(allMatches);
 
   useEffect(() => {
     if (nextMatch) {
-      setSelectedType(nextMatch.type);
+      setSelectedType(nextMatch.type || "SOMPO WEリーグ");
     }
   }, [nextMatch]);
 
@@ -107,7 +119,7 @@ const WELeague2024 = () => {
       {nextMatch && (
         <NextMatchSection
           nextMatch={nextMatch}
-          matches={Object.values(matches)}
+          matches={allMatches}
           venues={venues}
           onMatchClick={setSelectedMatch}
         />
@@ -122,13 +134,10 @@ const WELeague2024 = () => {
       />
 
       <MatchList
-        matches={Object.values(matches)}
+        matches={activeMatches}
+        allMatches={allMatches}
         venues={venues}
-        categories={[
-          { value: "finished", label: "終了した試合" },
-          { value: "SOMPO WEリーグ", label: "WEリーグ" },
-          { value: "クラシエカップ", label: "クラシエカップ" },
-        ]}
+        categories={CATEGORIES}
         selectedType={selectedType}
         onTypeChange={setSelectedType}
         onMatchSelect={setSelectedMatch}

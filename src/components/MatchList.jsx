@@ -18,85 +18,120 @@ const resolveTeamName = (teamName, allMatches) => {
     return teamName;
   }
 
-  // Handle scores with potential penalty shootouts
-  let baseScore1, baseScore2;
   if (previousMatch.score.includes("PK")) {
-    [baseScore1, baseScore2] = previousMatch.score
-      .split("(")[0] // Get the part before penalty shootout
-      .split("-")
-      .map(Number);
-  } else {
-    [baseScore1, baseScore2] = previousMatch.score.split("-").map(Number);
-  }
+    const [score, pk] = previousMatch.score.split("(");
+    const [score1, score2] = score.split("-").map(Number);
+    const [_, pk1, pk2] = pk.match(/PK:(\d+)-(\d+)/) || [];
 
-  // Regular time winner
-  if (baseScore1 > baseScore2) return previousMatch.team1;
-  if (baseScore2 > baseScore1) return previousMatch.team2;
-
-  // Penalty shootout
-  if (previousMatch.score.includes("PK")) {
-    const pkScores = previousMatch.score.match(/PK:(\d+)-(\d+)/);
-    if (pkScores) {
-      const [_, pk1, pk2] = pkScores;
+    if (score1 > score2) return previousMatch.team1;
+    if (score2 > score1) return previousMatch.team2;
+    if (pk1 && pk2) {
       return parseInt(pk1) > parseInt(pk2)
         ? previousMatch.team1
         : previousMatch.team2;
     }
+  } else {
+    const [score1, score2] = previousMatch.score.split("-").map(Number);
+    if (score1 > score2) return previousMatch.team1;
+    if (score2 > score1) return previousMatch.team2;
   }
 
   return teamName;
 };
 
 const MatchList = ({
-  matches, // filtered matches for current round
-  allMatches, // all matches data for winner resolution
-  venues,
+  matches = [],
+  allMatches = [],
+  venues = {},
+  categories = [],
+  selectedType = "",
+  onTypeChange,
   rounds = [],
-  selectedRound,
+  selectedRound = "",
   onRoundChange,
   onMatchSelect,
 }) => {
   const [hoveredMatch, setHoveredMatch] = useState(null);
 
-  const formatMatchTitle = (match) => {
-    if (
-      match.round === "準々決勝" ||
-      match.round === "準決勝" ||
-      match.round === "決勝"
-    ) {
-      return match.round;
+  const renderTitle = () => {
+    if (categories.length > 0) {
+      if (selectedType === "SOMPO WEリーグ") {
+        const currentMatch = matches[0];
+        return currentMatch?.section
+          ? `第 ${currentMatch.section} 節：${matches.length} 試合`
+          : `WEリーグ：${matches.length} 試合`;
+      }
+      if (selectedType === "クラシエカップ") {
+        const currentMatch = matches[0];
+        return currentMatch?.round
+          ? `${currentMatch.round}：${matches.length} 試合`
+          : `クラシエカップ：${matches.length} 試合`;
+      }
+      if (selectedType === "finished") {
+        return `終了した試合：${matches.length} 試合`;
+      }
+    } else if (rounds.length > 0) {
+      return `${
+        selectedRound === "all"
+          ? "全試合"
+          : selectedRound === "準々決勝" ||
+            selectedRound === "準決勝" ||
+            selectedRound === "決勝"
+          ? selectedRound
+          : `${selectedRound} 回戦`
+      }：${matches.length} 試合`;
     }
-    return `${match.round} 回戦`;
+    return `${matches.length} 試合`;
+  };
+
+  const renderNav = () => {
+    if (categories.length > 0) {
+      return (
+        <div className="flex flex-wrap gap-4 justify-center mb-6">
+          {categories.map((category) => (
+            <button
+              key={category.value}
+              onClick={() => onTypeChange(category.value)}
+              className={`px-4 py-2 rounded transition-colors ${
+                selectedType === category.value
+                  ? "bg-nadeshiko text-white"
+                  : "border border-nadeshiko text-nadeshiko hover:bg-nadeshiko/10"
+              }`}
+            >
+              {category.label}
+            </button>
+          ))}
+        </div>
+      );
+    }
+    if (rounds.length > 0) {
+      return (
+        <div className="flex flex-wrap gap-4 justify-center mb-6">
+          {rounds.map((round) => (
+            <button
+              key={round.value}
+              onClick={() => onRoundChange(round.value)}
+              className={`px-4 py-2 rounded transition-colors ${
+                selectedRound === round.value
+                  ? "bg-nadeshiko text-white"
+                  : "border border-nadeshiko text-nadeshiko hover:bg-nadeshiko/10"
+              }`}
+            >
+              {round.label}
+            </button>
+          ))}
+        </div>
+      );
+    }
+    return null;
   };
 
   return (
     <section>
-      <div className="flex flex-wrap gap-4 justify-center mb-6">
-        {rounds.map((round) => (
-          <button
-            key={round.value}
-            onClick={() => onRoundChange(round.value)}
-            className={`px-4 py-2 rounded transition-colors ${
-              selectedRound === round.value
-                ? "bg-nadeshiko text-white"
-                : "border border-nadeshiko text-nadeshiko hover:bg-nadeshiko/10"
-            }`}
-          >
-            {round.label}
-          </button>
-        ))}
-      </div>
+      {renderNav()}
 
       <div className="text-center text-sm text-gray-600 mb-4">
-        {`${
-          selectedRound === "all"
-            ? "全試合"
-            : selectedRound === "準々決勝" ||
-              selectedRound === "準決勝" ||
-              selectedRound === "決勝"
-            ? selectedRound
-            : `${selectedRound} 回戦`
-        }：${matches.length} 試合`}
+        {renderTitle()}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -119,9 +154,16 @@ const MatchList = ({
             >
               <div className="font-bold text-nadeshiko mb-2">
                 {match.date} ({getDayOfWeek(match.date)}) {match.time}
-                <span className="text-gray-600 text-sm ml-2">
-                  {formatMatchTitle(match)}
-                </span>
+                {match.type === "SOMPO WEリーグ" && match.section && (
+                  <span className="text-gray-600 text-sm ml-2">
+                   第 {match.section} 節
+                  </span>
+                )}
+                {match.type === "クラシエカップ" && match.round && (
+                  <span className="text-gray-600 text-sm ml-2">
+                    {match.round}
+                  </span>
+                )}
               </div>
               <div>
                 <div className="flex items-center justify-between">

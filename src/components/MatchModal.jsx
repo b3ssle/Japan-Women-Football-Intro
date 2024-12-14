@@ -9,6 +9,28 @@ const getDayOfWeek = (dateStr) => {
   return days[date.getDay()];
 };
 
+const formatMatchTitle = (match) => {
+  // For WE League matches
+  if (match.type === "SOMPO WEリーグ") {
+    return `WEリーグ ${match.section ? `第 ${match.section} 節` : ""}`;
+  }
+
+  // For Classie Cup matches
+  if (match.type === "クラシエカップ") {
+    return `クラシエカップ ${match.round || ""}`;
+  }
+
+  // For tournament rounds
+  if (match.round) {
+    if (["準々決勝", "準決勝", "決勝"].includes(match.round)) {
+      return match.round;
+    }
+    return `${match.round} 回戦`;
+  }
+
+  return "";
+};
+
 const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
   if (!isOpen || !match || !venue) return null;
 
@@ -17,35 +39,11 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
     venue.name_jp
   )}`;
 
-  const formatRoundOrSection = (match) => {
-    if (match.competition === "WEリーグ") {
-      if (match.type === "クラシエカップ") {
-        return match.round;
-      }
-      if (match.type === "SOMPO WEリーグ") {
-        return `第 ${match.section} 節`;
-      }
-    }
-
-    if (["準々決勝", "準決勝", "決勝"].includes(match.round)) {
-      return match.round;
-    }
-
-    if (match.round && /^\d+$/.test(match.round)) {
-      return `${match.round} 回戦`;
-    }
-
-    return match.round || "";
-  };
-
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg w-full max-w-2xl mx-auto relative max-h-[90vh] overflow-y-auto">
-        {/* Header Section */}
         <div className="sticky top-0 bg-white border-b px-6 py-4">
           <div className="pr-12">
-            {" "}
-            {/* Right padding for close button */}
             <a
               href={googleMapsSearchUrl}
               target="_blank"
@@ -75,7 +73,6 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
           </button>
         </div>
 
-        {/* Content Section */}
         <div className="p-6">
           <div className="divide-y">
             {matches.map((match, index) => {
@@ -87,7 +84,7 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
                   <div className="space-y-4 mb-6">
                     <div className="flex items-center gap-3 flex-wrap">
                       <div className="font-bold text-lg">
-                        {match.competition} {formatRoundOrSection(match)}
+                        {formatMatchTitle(match)}
                       </div>
                       {match.matchinfo && (
                         <a
