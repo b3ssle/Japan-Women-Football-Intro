@@ -94,7 +94,12 @@ const MapChart = ({ venues = [], matches = [], onVenueClick }) => {
               position={[venue.latitude, venue.longitude]}
               icon={customIcon}
               eventHandlers={{
-                click: () => handleVenueClick(venue),
+                click: () => {
+                  const venueMatches = matches.filter(
+                    (match) => match.venue.id === venue.id
+                  );
+                  onVenueClick(venueMatches[0]);
+                },
               }}
             >
               <Tooltip

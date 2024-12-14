@@ -59,14 +59,22 @@ const normalizeMatch = (match, competition, venues) => {
   return baseMatch;
 };
 
+const getJapanTime = () => {
+  return new Date(
+    new Date().toLocaleString("en-US", { timeZone: "Asia/Tokyo" })
+  );
+};
+
 const getWeekRange = () => {
-  const now = new Date();
+  const now = getJapanTime();
+  const currentDay = now.getDay();
+
   const monday = new Date(now);
-  monday.setDate(now.getDate() - now.getDay() + 1);
+  monday.setDate(now.getDate() - currentDay + (currentDay === 0 ? -6 : 1));
   monday.setHours(0, 0, 0, 0);
 
-  const sunday = new Date(now);
-  sunday.setDate(now.getDate() - now.getDay() + 7);
+  const sunday = new Date(monday);
+  sunday.setDate(monday.getDate() + 6);
   sunday.setHours(23, 59, 59, 999);
 
   return { monday, sunday };
@@ -77,13 +85,16 @@ const parseMatchDate = (match) => {
   const [hours, minutes] =
     match.time === "未定" ? [0, 0] : match.time.split(":");
   const year = parseInt(month) >= 11 ? 2024 : 2025;
-  return new Date(
+
+  const date = new Date(
     year,
     parseInt(month) - 1,
     parseInt(day),
     parseInt(hours) || 0,
     parseInt(minutes) || 0
   );
+
+  return date;
 };
 
 export const getCurrentWeekMatches = () => {
