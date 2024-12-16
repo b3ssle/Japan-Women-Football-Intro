@@ -387,7 +387,10 @@ export const matches = {
     venueId: "V001",
     team1: "JFAアカデミー福島",
     team2: "F.C.CORMOLADIES AZALEA",
-    status: "upcoming",
+    region1: "東北1/福島県",
+    region2: "四国2/香川県",
+    score: "1-0",
+    status: "finished",
     matchRef: ["M017", "M018"],
     matchinfo:
       "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m25.html",
@@ -401,7 +404,10 @@ export const matches = {
     venueId: "V001",
     team1: "SATOなでしこ U-15",
     team2: "三菱重工浦和レッズレディースジュニアユース",
-    status: "upcoming",
+    region1: "東海4/静岡県",
+    region2: "関東2/埼玉県",
+    score: "0-4",
+    status: "finished",
     matchRef: ["M019", "M021"],
     matchinfo:
       "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m26.html",
@@ -415,7 +421,10 @@ export const matches = {
     venueId: "V001",
     team1: "セレッソ大阪ヤンマーガールズU-15",
     team2: "ジェフユナイテッド市原・千葉レディースU-15",
-    status: "upcoming",
+    region1: "関西1/大阪府",
+    region2: "関東1/千葉県",
+    score: "3-1",
+    status: "finished",
     matchRef: ["M022", "M023"],
     matchinfo:
       "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m27.html",
@@ -429,11 +438,15 @@ export const matches = {
     venueId: "V001",
     team1: "RESC GIRLS U-15",
     team2: "八女学院女子フットボールクラブ",
-    status: "upcoming",
+    region1: "関西2/大阪府",
+    region2: "九州1/福岡県",
+    score: "1-1(PK:5-4)",
+    status: "finished",
     matchRef: ["M020", "M024"],
     matchinfo:
       "https://www.jfa.jp/match/joshi_youth_u15_2024/match_page/m28.html",
   },
+
   // 準決勝 (M029-M030)
   M029: {
     id: "M029",
@@ -442,8 +455,10 @@ export const matches = {
     date: "12/25",
     time: "11:00",
     venueId: "V003",
-    team1: "M025勝者",
-    team2: "M026勝者",
+    team1: "JFAアカデミー福島",
+    team2: "三菱重工浦和レッズレディースジュニアユース",
+    region1: "東北1/福島県",
+    region2: "関東2/埼玉県",
     status: "upcoming",
     matchRef: ["M025", "M026"],
     matchinfo:
@@ -456,8 +471,10 @@ export const matches = {
     date: "12/25",
     time: "13:30",
     venueId: "V003",
-    team1: "M027勝者",
-    team2: "M028勝者",
+    team1: "セレッソ大阪ヤンマーガールズU-15",
+    team2: "RESC GIRLS U-15",
+    region1: "関西1/大阪府",
+    region2: "関西2/大阪府",
     status: "upcoming",
     matchRef: ["M027", "M028"],
     matchinfo:
