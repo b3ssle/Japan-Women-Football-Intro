@@ -96,52 +96,47 @@ const MatchModal = ({ isOpen, onClose, match, venue, teams }) => {
 
         <div className="p-6">
           <div className="divide-y">
-            {matches.map((match, index) => {
-              const team1Data = teams[match.team1];
-              const team2Data = teams[match.team2];
-
-              return (
-                <div key={match.id} className={index > 0 ? "pt-6" : ""}>
-                  <div className="space-y-4 mb-6">
-                    <div className="flex items-center gap-3 flex-wrap">
-                      <div className="font-bold text-lg">
-                        {formatMatchTitle(match)}
-                      </div>
-                      {match.matchinfo && (
-                        <a
-                          href={match.matchinfo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm border border-nadeshiko text-nadeshiko px-2 py-1 rounded hover:bg-pink-50"
-                        >
-                          試合情報
-                        </a>
-                      )}
+            {matches.map((match, index) => (
+              <div key={match.id} className={index > 0 ? "pt-6" : ""}>
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="font-bold text-lg">
+                      {formatMatchTitle(match)}
                     </div>
+                    {match.matchinfo && (
+                      <a
+                        href={match.matchinfo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm border border-nadeshiko text-nadeshiko px-2 py-1 rounded hover:bg-pink-50"
+                      >
+                        試合情報
+                      </a>
+                    )}
+                  </div>
 
-                    <div className="text-xl font-bold text-nadeshiko">
-                      {match.date} ({getDayOfWeek(match.date)}) {match.time}
-                    </div>
+                  <div className="text-xl font-bold text-nadeshiko">
+                    {match.date} ({getDayOfWeek(match.date)}) {match.time}
+                  </div>
 
-                    <div className="grid grid-cols-[1fr_auto_1fr] gap-4 items-center bg-gray-50 p-4 rounded-lg">
-                      <TeamInfo
-                        team={team1Data}
-                        teamName={match.team1}
-                        align="left"
-                      />
-                      <div className="text-2xl font-bold text-nadeshiko">
-                        {match.status === "finished" ? match.score : "VS"}
-                      </div>
-                      <TeamInfo
-                        team={team2Data}
-                        teamName={match.team2}
-                        align="right"
-                      />
+                  <div className="grid grid-cols-[1fr_auto_1fr] gap-4 items-center bg-gray-50 p-4 rounded-lg">
+                    <TeamInfo
+                      team={teams[match.team1]}
+                      teamName={match.team1}
+                      align="left"
+                    />
+                    <div className="text-2xl font-bold text-nadeshiko">
+                      {match.status === "finished" ? match.score : "VS"}
                     </div>
+                    <TeamInfo
+                      team={teams[match.team2]}
+                      teamName={match.team2}
+                      align="right"
+                    />
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </div>

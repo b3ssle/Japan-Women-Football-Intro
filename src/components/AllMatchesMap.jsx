@@ -69,6 +69,19 @@ const useTooltipStyle = () => {
 const MapChart = ({ venues = [], matches = [], onVenueClick }) => {
   useTooltipStyle();
 
+  const handleVenueClick = (venue) => {
+    // 找出该场地的所有比赛
+    const venueMatches = matches.filter((match) => match.venue.id === venue.id);
+    if (venueMatches.length > 0) {
+      // 将第一场比赛作为主要比赛，并添加所有比赛信息
+      const mainMatch = {
+        ...venueMatches[0],
+        allMatches: venueMatches,
+      };
+      onVenueClick(mainMatch);
+    }
+  };
+
   return (
     <MapContainer
       center={[36.5, 138]}
@@ -88,18 +101,16 @@ const MapChart = ({ venues = [], matches = [], onVenueClick }) => {
         showCoverageOnHover={false}
       >
         {venues.map((venue) => {
+          const venueMatches = matches.filter(
+            (match) => match.venue.id === venue.id
+          );
           return (
             <Marker
               key={`${venue.id}-${venue.name_jp}`}
               position={[venue.latitude, venue.longitude]}
               icon={customIcon}
               eventHandlers={{
-                click: () => {
-                  const venueMatches = matches.filter(
-                    (match) => match.venue.id === venue.id
-                  );
-                  onVenueClick(venueMatches[0]);
-                },
+                click: () => handleVenueClick(venue),
               }}
             >
               <Tooltip
@@ -108,7 +119,7 @@ const MapChart = ({ venues = [], matches = [], onVenueClick }) => {
                 offset={[0, -4]}
                 className="venue-label"
               >
-                {venue.short}
+                {venue.short} ({venueMatches.length} 試合)
               </Tooltip>
             </Marker>
           );

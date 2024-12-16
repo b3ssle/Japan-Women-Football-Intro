@@ -27,9 +27,15 @@ export default function Home() {
 
   const venues = Object.values(uniqueVenues);
 
-  const handleVenueClick = (matchData) => {
-    console.log("Clicked match:", matchData);
-    setSelectedMatch(matchData);
+  const handleVenueClick = (venue) => {
+    const venueMatches = matches.filter((match) => match.venue.id === venue.id);
+    if (venueMatches.length > 0) {
+      const mainMatch = {
+        ...venueMatches[0],
+        allMatches: venueMatches,
+      };
+      onVenueClick(mainMatch);
+    }
   };
 
   const formatRoundDisplay = (match) => {
@@ -122,7 +128,9 @@ export default function Home() {
             <div className="relative z-0 bg-white rounded-lg shadow h-[600px] overflow-hidden">
               <WeeklyVenuesMap
                 matches={weeklyMatches}
-                onVenueClick={handleVenueClick}
+                onVenueClick={(match) => {
+                  setSelectedMatch(match);
+                }}
               />
             </div>
           </div>
