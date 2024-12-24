@@ -13,13 +13,18 @@ const getUpcomingMatch = () => {
       if (match.status === "finished") return false;
       const [month, day] = match.date.split("/").map(Number);
       const [hours, minutes] = match.time.split(":").map(Number);
-      const matchDate = new Date(match.year || 2024, month - 1, day);
-      matchDate.setHours(hours, minutes, 0, 0);
+      const year = parseInt(month) >= 11 ? 2024 : 2025;
+      const matchDate = new Date(year, month - 1, day);
+      matchDate.setHours(hours || 0, minutes || 0, 0, 0);
       return matchDate > now;
     })
     .sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
+      const [monthA, dayA] = a.date.split("/").map(Number);
+      const [monthB, dayB] = b.date.split("/").map(Number);
+      const yearA = parseInt(monthA) >= 11 ? 2024 : 2025;
+      const yearB = parseInt(monthB) >= 11 ? 2024 : 2025;
+      const dateA = new Date(yearA, monthA - 1, dayA);
+      const dateB = new Date(yearB, monthB - 1, dayB);
       return dateA - dateB;
     });
 
@@ -45,9 +50,19 @@ function EmpresssCup2024() {
       { value: "all", label: "全試合" },
     ];
 
-  const filteredMatches = Object.values(matches).filter((match) => {
+const filteredMatches = Object.values(matches)
+  .filter((match) => {
     if (selectedRound === "all") return true;
     return match.round === selectedRound;
+  })
+  .sort((a, b) => {
+    const [monthA, dayA] = a.date.split("/").map(Number);
+    const [monthB, dayB] = b.date.split("/").map(Number);
+    const yearA = parseInt(monthA) >= 11 ? 2024 : 2025;
+    const yearB = parseInt(monthB) >= 11 ? 2024 : 2025;
+    const dateA = new Date(yearA, monthA - 1, dayA);
+    const dateB = new Date(yearB, monthB - 1, dayB);
+    return dateA - dateB;
   });
 
   const handleMatchClick = (match) => {

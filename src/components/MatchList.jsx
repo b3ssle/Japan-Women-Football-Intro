@@ -12,13 +12,13 @@ const resolveTeamName = (teamName, allMatches) => {
   if (!teamName?.includes("勝者")) return teamName;
 
   const matchId = teamName.match(/M\d+/)[0];
-  const previousMatch = allMatches.find((m) => m.id === matchId);
+  const previousMatch = allMatches?.find((m) => m.id === matchId);
 
   if (!previousMatch || previousMatch.status !== "finished") {
     return teamName;
   }
 
-  if (previousMatch.score.includes("PK")) {
+  if (previousMatch.score?.includes("PK")) {
     const [score, pk] = previousMatch.score.split("(");
     const [score1, score2] = score.split("-").map(Number);
     const [_, pk1, pk2] = pk.match(/PK:(\d+)-(\d+)/) || [];
@@ -31,7 +31,7 @@ const resolveTeamName = (teamName, allMatches) => {
         : previousMatch.team2;
     }
   } else {
-    const [score1, score2] = previousMatch.score.split("-").map(Number);
+    const [score1, score2] = previousMatch.score?.split("-").map(Number) || [0, 0];
     if (score1 > score2) return previousMatch.team1;
     if (score2 > score1) return previousMatch.team2;
   }

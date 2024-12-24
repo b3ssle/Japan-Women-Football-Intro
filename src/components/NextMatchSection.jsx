@@ -75,6 +75,35 @@ const NextMatchSection = ({
 
   const sameTypeMatches = getSameTypeMatches();
 
+  const resolveTeamName = (teamName, allMatches) => {
+    if (!teamName?.includes("勝者")) return teamName;
+
+    const matchId = teamName.match(/M\d+/)?.[0];
+    if (!matchId) return teamName;
+
+    const previousMatch = allMatches?.find((m) => m.id === matchId);
+    if (!previousMatch || previousMatch.status !== "finished") return teamName;
+
+    if (previousMatch.score?.includes("PK")) {
+      const [score, pk] = previousMatch.score.split("(");
+      const [score1, score2] = score.split("-").map(Number);
+      const pkScores = pk.match(/PK:(\d+)-(\d+)/);
+      if (pkScores) {
+        const [_, pk1, pk2] = pkScores;
+        if (parseInt(pk1) > parseInt(pk2)) return previousMatch.team1;
+        if (parseInt(pk2) > parseInt(pk1)) return previousMatch.team2;
+      }
+    } else {
+      const [score1, score2] = previousMatch.score?.split("-").map(Number) || [
+        0, 0,
+      ];
+      if (score1 > score2) return previousMatch.team1;
+      if (score2 > score1) return previousMatch.team2;
+    }
+
+    return teamName;
+  };
+
   return (
     <div className="bg-gradient-to-r from-pink-100/50 to-pink-50/50 rounded-2xl p-8 mb-12">
       <h2 className="text-2xl font-bold mb-8 flex items-center justify-start">
@@ -88,9 +117,13 @@ const NextMatchSection = ({
           <div className="text-3xl font-bold">
             {nextMatch.date} ({getDayOfWeek(nextMatch.date)}) {nextMatch.time}
           </div>
-          <div className="text-lg font-bold">{nextMatch.team1}</div>
+          <div className="text-lg font-bold">
+            {resolveTeamName(nextMatch.team1, matches)}
+          </div>
           <div className="text-xl font-bold text-nadeshiko">VS</div>
-          <div className="text-lg font-bold">{nextMatch.team2}</div>
+          <div className="text-lg font-bold">
+            {resolveTeamName(nextMatch.team2, matches)}
+          </div>
 
           <div className="mt-4">
             <div className="font-bold text-lg">会場</div>
@@ -125,9 +158,13 @@ const NextMatchSection = ({
                   <div className="text-gray-600">
                     {match.date} ({getDayOfWeek(match.date)}) {match.time}
                   </div>
-                  <div className="font-medium">{match.team1}</div>
+                  <div className="font-medium">
+                    {resolveTeamName(match.team1, matches)}
+                  </div>
                   <div className="text-xs text-nadeshiko">VS</div>
-                  <div className="font-medium">{match.team2}</div>
+                  <div className="font-medium">
+                    {resolveTeamName(match.team2, matches)}
+                  </div>
                   <div className="text-xs text-gray-500">
                     {matchVenue.name_jp}
                   </div>
